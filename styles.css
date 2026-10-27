@@ -718,8 +718,13 @@ a:hover .circle-arrow {
   height: 142px;
   object-fit: contain;
 }
+.organizer-logo-cs {
+  height: 142px;
+  overflow: hidden;
+}
 .organizer-logo-cs img {
   max-width: 250px;
+  height: auto;
 }
 .organizer-logo-atii img {
   max-width: 340px;
@@ -1465,6 +1470,12 @@ footer a:hover {
     height: 110px;
     width: 100%;
     object-fit: contain;
+  }
+  .organizer-logo-cs {
+    height: 110px;
+  }
+  .organizer-logo-cs img {
+    height: auto;
   }
   .rule-label {
     font-size: 8px;

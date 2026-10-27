@@ -17,7 +17,7 @@ Open http://127.0.0.1:4173/. No dependencies or build step are needed.
 - `index.html`: event copy, dates, schedule, contacts, sponsorship levels and partner logos.
 - `styles.css`: colours, responsive layout, typography and motion.
 - `script.js`: mobile menu, keyboard-accessible programme tabs and motion control.
-- `assets/`: self-hosted fonts, supplied chapter logo, generated waterfront and ferry imagery, and native skyline illustration.
+- `assets/`: self-hosted fonts, organiser logos, generated waterfront and ferry imagery, and native skyline illustration.
 
 Add confirmed partner logo images inside `#partner-logos`, with meaningful alt text. Remove the invitation placeholder when logos are available. Do not list proposed industry representation as confirmed sponsors.
 
@@ -31,7 +31,7 @@ The supplied event poster is the source for 12–13 December 2026, the public te
 
 The original proposal is deliberately excluded because it contains IEEE member IDs and internal budget information. Partner marks must be added only after confirmation. No participant data is collected by this site.
 
-The source assets were supplied by the organiser. DM Sans is distributed under the SIL Open Font License in `assets/FONT-LICENSE.txt`. Waterfront and transparent ferry imagery were made with the built-in image-generation tool. Prompts: an atmospheric Kochi waterfront with bridge and palms, no text or boats; and a transparent three-quarter Kochi Water Metro ferry in white, blue, magenta and purple. The skyline and footer ferry are editable SVG line drawings. The footer ferry travels fully off-screen at both ends of its continuous loop, with an independent gentle bob; the footer and hero pause controls stay synchronised. Reduced motion presents a stationary ferry.
+The original event reference material was supplied by the organiser. Organiser logos additionally use the official sources listed below. DM Sans is distributed under the SIL Open Font License in `assets/FONT-LICENSE.txt`. Waterfront and transparent ferry imagery were made with the built-in image-generation tool. Prompts: an atmospheric Kochi waterfront with bridge and palms, no text or boats; and a transparent three-quarter Kochi Water Metro ferry in white, blue, magenta and purple. The skyline and footer ferry are editable SVG line drawings. The footer ferry travels fully off-screen at both ends of its continuous loop, with an independent gentle bob; the footer and hero pause controls stay synchronised. Reduced motion presents a stationary ferry.
 
 Design references: [Northlight editorial event concept](https://dribbble.com/shots/27744710-Editorial-Event-Website), [Smnr conference concept](https://dribbble.com/shots/27423640-Smnr-Design-Conference-Landing-Page), and [/nk.studio Awwwards Amsterdam](https://www.nk.studio/work/awwwards-conf-amsterdam). The website uses original implementation and imagery.
 
@@ -51,6 +51,6 @@ SITE_URL=http://127.0.0.1:4173/ node tests/site.spec.mjs
 
 Programme-art prompt set (built-in image generation): a text-free architectural 3D campus innovation scene with realistic adult collaborators, a wheelchair user, 3D prototyping and an outdoor panel; and a matching text-free 3D passenger ferry scene with realistic adult teams working on board at golden hour. Both use the supplied images as composition references, with freshly rendered people, materials and lighting. Final assets: `assets/day-one-campus-3d-v2.webp` and `assets/day-two-afloat-3d-v2.webp`.
 
-Organiser logos: the IEEE Computer Society RSET mark is retained from the original supplied material; the IEEE Kerala ATII logo is the supplied replacement. The RSET logo comes from [the institution’s official website](https://rajagiritech.ac.in/home/images/logon.png). The FOSS United vector is the unchanged navbar mark from [its official website](https://fossunited.org/), added after the organiser confirmed the intended name.
+Organiser logos: the IEEE Computer Society TechX mark comes from the [official CS SYP website](https://syp.computer.org/), replacing the Rajagiri student chapter logo. The IEEE Kerala ATII logo is the supplied replacement. The RSET logo comes from [the institution’s official website](https://rajagiritech.ac.in/home/images/logon.png). The FOSS United vector is the unchanged navbar mark from [its official website](https://fossunited.org/), added after the organiser confirmed the intended name.
 
 The IEEE Signal Processing Society logo is the original RGB PNG from the [official SPS branding materials](https://signalprocessingsociety.org/our-story/sps-branding-materials).
