@@ -30,6 +30,16 @@
     <link rel="preload" href="assets/kochi-waterfront.webp" as="image" />
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
+    <noscript>
+      <style>
+        .day-tabs {
+          display: none;
+        }
+        #day-2[hidden] {
+          display: block !important;
+        }
+      </style>
+    </noscript>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -225,9 +235,18 @@
             <h2 id="programme-title">
               Two days.<br /><span class="mint">New possibilities.</span>
             </h2>
-            <p class="lead">
-              From a spark of curiosity<br />to a prototype with purpose.
-            </p>
+            <div class="programme-brand">
+              <img
+                src="assets/techx-blueprint.webp"
+                width="632"
+                height="251"
+                alt="TechX CogniCraft 2026 blueprint wordmark"
+                loading="lazy"
+              />
+              <p class="lead">
+                From a spark of curiosity<br />to a prototype with purpose.
+              </p>
+            </div>
           </div>
           <div class="day-tabs" role="tablist" aria-label="Event day">
             <button
@@ -261,6 +280,19 @@
             aria-labelledby="day-1-tab"
             tabindex="0"
           >
+            <figure class="journey-art">
+              <img
+                src="assets/day-one-campus.webp"
+                width="1122"
+                height="332"
+                alt="Illustrated RSET campus with collaborative design, assistive technology, 3D prototyping and a panel discussion"
+                loading="lazy"
+              />
+              <figcaption>
+                <span>On campus, ideas take shape.</span
+                ><span>ILLUSTRATED EVENT CONCEPT</span>
+              </figcaption>
+            </figure>
             <div class="day-intro">
               <p>Ground your ideas. Expand your thinking.</p>
               <span>DAY 01 · SATURDAY · ALL TIMES IST</span>
@@ -325,6 +357,19 @@
             tabindex="0"
             hidden
           >
+            <figure class="journey-art">
+              <img
+                src="assets/day-two-afloat.webp"
+                width="1122"
+                height="490"
+                alt="Illustrated Kochi Water Metro ferry with participants collaborating on board at sunset"
+                loading="lazy"
+              />
+              <figcaption>
+                <span>On the water, ideas go further.</span
+                ><span>ILLUSTRATED EVENT CONCEPT</span>
+              </figcaption>
+            </figure>
             <div class="day-intro">
               <p>A new setting. A fresh way to build.</p>
               <span>DAY 02 · SUNDAY · ALL TIMES IST</span>
@@ -487,6 +532,30 @@
               perspective.
             </p>
           </div>
+          <figure class="venue-art">
+            <img
+              src="assets/kochi-paper-cut.webp"
+              width="1122"
+              height="474"
+              alt="Paper-cut illustration of Kochi’s palms, fishing nets and a Water Metro ferry in layered teal waves"
+              loading="lazy"
+            />
+            <svg
+              class="paper-waves"
+              viewBox="0 0 1200 120"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+            >
+              <path
+                class="wave-back"
+                d="M-80 75Q100 5 280 65T640 65T1000 50T1280 55V140H-80Z"
+              />
+              <path
+                class="wave-front"
+                d="M-80 95Q100 40 280 90T640 85T1000 80T1280 85V140H-80Z"
+              />
+            </svg>
+          </figure>
           <div class="venues">
             <article>
               <span class="venue-day">DAY 01 / 12 DEC</span>

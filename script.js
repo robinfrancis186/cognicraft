@@ -70,3 +70,28 @@ motionButton.addEventListener("click", () =>
 reducedMotion.addEventListener("change", (event) =>
   updateMotion(event.matches),
 );
+
+if ("IntersectionObserver" in window) {
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12 },
+  );
+  document
+    .querySelectorAll(
+      ".section-intro, .experience-main, .experience-list article, .organizer-grid, .partner-invitation, .venue-art, .venues article",
+    )
+    .forEach((element) => {
+      element.classList.add("reveal");
+      if (element.getBoundingClientRect().top > window.innerHeight) {
+        element.classList.add("will-reveal");
+        revealObserver.observe(element);
+      }
+    });
+}

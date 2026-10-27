@@ -23,6 +23,8 @@ Add confirmed partner logo images inside `#partner-logos`, with meaningful alt t
 
 The design uses ice `#eef5ff`, cobalt `#234cf5`, ink `#071a46` and mint `#b6f0f0`, with DM Sans typography. The waterfront is an artistic illustration of Kochi; it does not establish the actual cruise route or terminal.
 
+The supplied follow-up references provide the Day 1 campus illustration, Day 2 buildathon illustration, TechX blueprint wordmark, and paper-cut Kochi waterfront. The programme combines them with a subtle blueprint grid; the venue artwork includes gently moving wave layers. Scroll reveals, day-switch artwork transitions and the rotating hero star respect both the pause control and operating-system reduced-motion preferences. Reveal content remains visible without JavaScript; both programme days are available in that fallback.
+
 ## Source and publication notes
 
 The supplied event poster is the source for 12–13 December 2026, the public telephone contacts and sponsorship tiers. The proposal is the source for the planned programme, tracks, organisers and collaborators. Programme timings and arrangements remain subject to organiser confirmation. Registration links, ticket pricing, cruise terminal and final presentation venue were not supplied; contact links provide a working enquiry path.

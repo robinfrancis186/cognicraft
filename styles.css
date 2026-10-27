@@ -490,16 +490,125 @@ a:hover .circle-arrow {
 }
 .programme {
   background: var(--ink);
+  background-image:
+    linear-gradient(#b6f0f008 1px, transparent 1px),
+    linear-gradient(90deg, #b6f0f008 1px, transparent 1px);
+  background-size: 40px 40px;
   color: var(--ice);
   position: relative;
 }
 .programme .section-label span:last-child {
   color: #a7b9d8;
 }
-.programme .section-intro > .lead {
+.programme-brand {
   justify-self: end;
   color: #d9e6fc;
   padding-bottom: 6px;
+}
+.programme-brand img {
+  width: 290px;
+  height: auto;
+  margin-bottom: 22px;
+}
+.programme-brand .lead {
+  font-size: 18px;
+}
+.journey-art {
+  margin: 28px 0 0;
+  overflow: hidden;
+  border: 1px solid #607395;
+  border-radius: 6px;
+  background: #09294b;
+}
+.journey-art img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3.15;
+  object-fit: cover;
+  animation: journey-enter 0.7s ease-out both;
+}
+.journey-art figcaption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 14px 20px;
+  position: relative;
+  background: var(--ink);
+  font-size: 13px;
+  color: var(--mint);
+}
+.journey-art figcaption span:last-child {
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  color: #bdcbe1;
+}
+.venue-art {
+  margin: 0 0 30px;
+  position: relative;
+  overflow: hidden;
+}
+.venue-art > img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3;
+  object-fit: cover;
+}
+.paper-waves {
+  position: absolute;
+  bottom: -1px;
+  width: 100%;
+  height: 85px;
+}
+.wave-back {
+  fill: #67c8c8;
+  animation: wave-drift 9s ease-in-out infinite alternate;
+}
+.wave-front {
+  fill: var(--ice);
+  animation: wave-drift 7s ease-in-out infinite alternate-reverse;
+}
+.hero-title > .spark {
+  animation: spark-turn 32s linear infinite;
+}
+.reveal {
+  transition:
+    opacity 0.65s ease,
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.will-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+}
+.is-visible,
+.will-reveal:focus-within,
+.motion-paused .will-reveal {
+  opacity: 1;
+  transform: none;
+}
+.motion-paused .reveal {
+  transition: none;
+}
+@keyframes journey-enter {
+  from {
+    transform: scale(1.035) translateY(8px);
+  }
+  to {
+    transform: none;
+  }
+}
+@keyframes wave-drift {
+  from {
+    transform: translateX(-20px);
+  }
+  to {
+    transform: translateX(20px);
+  }
+}
+@keyframes spark-turn {
+  to {
+    transform: rotate(360deg);
+  }
 }
 .day-tabs {
   display: flex;
@@ -1261,9 +1370,36 @@ footer a:hover {
   .tracks p span {
     padding: 0 7px;
   }
-  .programme .section-intro > .lead {
+  .programme-brand {
     margin-top: 25px;
-    font-size: 18px;
+    width: 100%;
+    justify-self: start;
+  }
+  .programme-brand img {
+    width: 230px;
+    margin-bottom: 18px;
+  }
+  .programme-brand .lead {
+    font-size: 17px;
+  }
+  .journey-art img {
+    aspect-ratio: 1.85;
+  }
+  .journey-art figcaption {
+    padding: 12px;
+    display: block;
+    font-size: 12px;
+  }
+  .journey-art figcaption span:last-child {
+    display: block;
+    font-size: 7px;
+    margin-top: 6px;
+  }
+  .venue-art > img {
+    aspect-ratio: 1.45;
+  }
+  .paper-waves {
+    height: 48px;
   }
   .day-tabs {
     margin-top: 20px;
@@ -1529,6 +1665,10 @@ footer a:hover {
   }
 }
 @media (prefers-reduced-motion: reduce) {
+  .will-reveal {
+    opacity: 1;
+    transform: none;
+  }
   html {
     scroll-behavior: auto;
   }

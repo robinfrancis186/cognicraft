@@ -86,6 +86,20 @@ try {
     "Eager images should render",
   );
 
+  const reveals = page.locator(".reveal");
+  assert.ok(await reveals.count(), "Page should include scroll reveals");
+  for (const reveal of await reveals.all()) {
+    if (!(await reveal.isVisible())) continue;
+    await reveal.evaluate((element) =>
+      element.scrollIntoView({ block: "center", behavior: "instant" }),
+    );
+    await page.waitForFunction(
+      (element) => Number(getComputedStyle(element).opacity) >= 0.99,
+      await reveal.elementHandle(),
+    );
+  }
+  await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
+
   const motion = page.locator("#motion-toggle");
   await motion.click();
   assert.equal(await motion.getAttribute("aria-pressed"), "true");
@@ -94,6 +108,21 @@ try {
       .locator("body")
       .evaluate((element) => element.classList.contains("motion-paused")),
     "Pause should stop animation",
+  );
+  await page
+    .locator("#partners")
+    .evaluate((element) =>
+      element.scrollIntoView({ block: "start", behavior: "instant" }),
+    );
+  assert.deepEqual(
+    await page.evaluate(() =>
+      document
+        .getAnimations()
+        .filter((animation) => animation.playState === "running")
+        .map((animation) => animation.constructor.name),
+    ),
+    [],
+    "Paused motion should prevent animation when scrolling",
   );
   await motion.click();
   assert.equal(await motion.getAttribute("aria-pressed"), "false");
@@ -116,6 +145,17 @@ try {
     assert.ok(
       await page.locator(`[id="${panelId}"]`).isVisible(),
       "Selected day should be visible",
+    );
+    assert.ok(
+      await page.locator(`[id="${panelId}"] .journey-art`).isVisible(),
+      "Selected day should show its journey artwork",
+    );
+    const artwork = page.locator(`[id="${panelId}"] .journey-art img`);
+    await artwork.scrollIntoViewIfNeeded();
+    await artwork.evaluate((image) => image.decode());
+    assert.ok(
+      await artwork.evaluate((image) => image.naturalWidth > 0),
+      "Journey artwork should finish loading",
     );
   }
   await tabs.nth(0).focus();
@@ -200,7 +240,81 @@ try {
     [],
     "Reduced motion should stop decorative animation",
   );
+  await page
+    .locator("#partners")
+    .evaluate((element) =>
+      element.scrollIntoView({ block: "start", behavior: "instant" }),
+    );
+  assert.deepEqual(
+    await page.evaluate(() =>
+      document
+        .getAnimations()
+        .filter((animation) => animation.playState === "running")
+        .map((animation) => animation.constructor.name),
+    ),
+    [],
+    "Reduced motion should prevent animation when scrolling",
+  );
   assert.deepEqual(errors, [], "No uncaught browser errors");
+
+  for (const mode of ["paused", "reduced"]) {
+    const fresh = await browser.newPage({
+      reducedMotion: mode === "reduced" ? "reduce" : "no-preference",
+    });
+    await fresh.goto(site.href, { waitUntil: "networkidle" });
+    if (mode === "paused") await fresh.locator("#motion-toggle").click();
+    await fresh
+      .locator("#partners")
+      .evaluate((element) =>
+        element.scrollIntoView({ block: "start", behavior: "instant" }),
+      );
+    await fresh.evaluate(
+      () =>
+        new Promise((resolve) =>
+          requestAnimationFrame(() => requestAnimationFrame(resolve)),
+        ),
+    );
+    assert.deepEqual(
+      await fresh.evaluate(() =>
+        document
+          .getAnimations()
+          .filter((animation) => animation.playState === "running")
+          .map((animation) => animation.constructor.name),
+      ),
+      [],
+      `Fresh ${mode} page should not start new motion when reaching unrevealed content`,
+    );
+    await fresh.close();
+  }
+
+  const noScript = await browser.newPage({ javaScriptEnabled: false });
+  await noScript.goto(site.href, { waitUntil: "networkidle" });
+  assert.deepEqual(
+    await noScript
+      .locator("main h2, main h3, .journey-art")
+      .evaluateAll((elements) =>
+        elements
+          .filter(
+            (element) =>
+              !element.checkVisibility({
+                opacityProperty: true,
+                visibilityProperty: true,
+              }),
+          )
+          .map((element) => element.id || element.textContent.trim()),
+      ),
+    [],
+    "Scroll-reveal content should remain visible without JavaScript",
+  );
+  assert.ok(
+    await noScript.locator("#day-1").isVisible(),
+    "Day one should be readable without JavaScript",
+  );
+  assert.ok(
+    await noScript.locator("#day-2").isVisible(),
+    "Day two should be readable without JavaScript",
+  );
+  await noScript.close();
 
   if (process.env.SCREENSHOT_DIR) {
     await mkdir(process.env.SCREENSHOT_DIR, { recursive: true });
@@ -237,7 +351,7 @@ try {
     }
   }
   console.log(
-    "PASS: content, local assets and fonts, anchors, day tabs, FAQ, mobile menu, responsive widths, pause/resume, reduced motion, browser errors",
+    "PASS: content, local assets and fonts, anchors, reveals, no-JS fallback, day tabs and artwork, FAQ, mobile menu, responsive widths, pause/resume, reduced motion, browser errors",
   );
 } finally {
   await browser.close();
