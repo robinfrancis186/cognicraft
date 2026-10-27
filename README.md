@@ -52,3 +52,5 @@ SITE_URL=http://127.0.0.1:4173/ node tests/site.spec.mjs
 Programme-art prompt set (built-in image generation): a text-free architectural 3D campus innovation scene with realistic adult collaborators, a wheelchair user, 3D prototyping and an outdoor panel; and a matching text-free 3D passenger ferry scene with realistic adult teams working on board at golden hour. Both use the supplied images as composition references, with freshly rendered people, materials and lighting. Final assets: `assets/day-one-campus-3d-v2.webp` and `assets/day-two-afloat-3d-v2.webp`.
 
 Organiser logos: the IEEE Computer Society RSET mark is retained from the original supplied material; the IEEE Kerala ATII logo is the supplied replacement. The RSET logo comes from [the institution’s official website](https://rajagiritech.ac.in/home/images/logon.png). The FOSS United vector is the unchanged navbar mark from [its official website](https://fossunited.org/), added after the organiser confirmed the intended name.
+
+The IEEE Signal Processing Society logo is the original RGB PNG from the [official SPS branding materials](https://signalprocessingsociety.org/our-story/sps-branding-materials).
