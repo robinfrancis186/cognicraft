@@ -27,7 +27,7 @@ The supplied follow-up references inform newly generated 3D-rendered campus and 
 
 ## Source and publication notes
 
-The supplied event poster is the source for 12–13 December 2026, the public telephone contacts and sponsorship tiers. The proposal is the source for the planned programme, tracks and organisers. Programme timings and arrangements remain subject to organiser confirmation. Registration links, ticket pricing, cruise terminal and final presentation venue were not supplied; contact links provide a working enquiry path.
+The supplied event poster is the source for 12–13 December 2026, the public telephone contacts and sponsorship tiers. The proposal is the source for the planned programme, tracks and organisers. Programme timings and sessions remain subject to organiser confirmation. The organiser has confirmed that the event is free and residential, with one night at Rajagiri and transport to the Kochi Water Metro arranged by the organising team. Registrations are not open yet and will be available on this website when they open. The cruise terminal, route and final presentation venue remain to be announced.
 
 The original proposal is deliberately excluded because it contains IEEE member IDs and internal budget information. Partner marks must be added only after confirmation. No participant data is collected by this site.
 
