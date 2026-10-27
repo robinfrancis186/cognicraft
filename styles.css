@@ -702,32 +702,34 @@ a:hover .circle-arrow {
 }
 .organizer-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr 0.85fr;
+  grid-template-columns: 1.2fr 1.45fr 1fr 0.8fr;
   align-items: center;
   padding-bottom: 30px;
   gap: 30px;
 }
+.organizer-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
 .organizer-logo img {
-  width: 250px;
+  width: 100%;
   height: 142px;
   object-fit: contain;
 }
-.organizer {
-  border-left: 1px solid var(--line);
-  padding-left: 25px;
+.organizer-logo-cs img {
+  max-width: 250px;
 }
-.organizer strong {
-  font-size: clamp(18px, 1.8vw, 27px);
-  font-weight: 700;
-  letter-spacing: -0.05em;
-  white-space: nowrap;
+.organizer-logo-atii img {
+  max-width: 340px;
 }
-.organizer > span {
-  display: block;
-  color: var(--muted);
-  font-size: 11px;
-  line-height: 1.6;
-  margin-top: 10px;
+.organizer-logo-rset img {
+  max-width: 205px;
+}
+.organizer-logo-foss img {
+  max-width: 145px;
+  height: 115px;
 }
 .partner-invitation {
   display: flex;
@@ -1161,15 +1163,6 @@ footer a:hover {
   .organizer-grid {
     gap: 15px;
   }
-  .organizer {
-    padding-left: 15px;
-  }
-  .organizer strong {
-    font-size: 19px;
-  }
-  .organizer > span {
-    font-size: 10px;
-  }
   .sponsorships strong {
     font-size: 26px;
   }
@@ -1456,21 +1449,14 @@ footer a:hover {
     gap: 20px;
     padding-bottom: 25px;
   }
+  .organizer-logo-cs,
+  .organizer-logo-atii {
+    grid-column: 1 / -1;
+  }
   .organizer-logo img {
     height: 110px;
     width: 100%;
     object-fit: contain;
-  }
-  .organizer {
-    border: 0;
-    padding: 10px 0;
-  }
-  .organizer strong {
-    font-size: 22px;
-    white-space: normal;
-  }
-  .organizer > span {
-    font-size: 10px;
   }
   .rule-label {
     font-size: 8px;
