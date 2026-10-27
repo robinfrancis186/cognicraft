@@ -31,7 +31,7 @@ The supplied event poster is the source for 12–13 December 2026, the public te
 
 The original proposal is deliberately excluded because it contains IEEE member IDs and internal budget information. Partner marks must be added only after confirmation. No participant data is collected by this site.
 
-The source assets were supplied by the organiser. DM Sans is distributed under the SIL Open Font License in `assets/FONT-LICENSE.txt`. Waterfront and transparent ferry imagery were made with the built-in image-generation tool. Prompts: an atmospheric Kochi waterfront with bridge and palms, no text or boats; and a transparent three-quarter Kochi Water Metro ferry in white, blue, magenta and purple. The skyline is editable SVG.
+The source assets were supplied by the organiser. DM Sans is distributed under the SIL Open Font License in `assets/FONT-LICENSE.txt`. Waterfront and transparent ferry imagery were made with the built-in image-generation tool. Prompts: an atmospheric Kochi waterfront with bridge and palms, no text or boats; and a transparent three-quarter Kochi Water Metro ferry in white, blue, magenta and purple. The skyline and footer ferry are editable SVG line drawings. The footer ferry travels fully off-screen at both ends of its continuous loop, with an independent gentle bob; the footer and hero pause controls stay synchronised. Reduced motion presents a stationary ferry.
 
 Design references: [Northlight editorial event concept](https://dribbble.com/shots/27744710-Editorial-Event-Website), [Smnr conference concept](https://dribbble.com/shots/27423640-Smnr-Design-Conference-Landing-Page), and [/nk.studio Awwwards Amsterdam](https://www.nk.studio/work/awwwards-conf-amsterdam). The website uses original implementation and imagery.
 

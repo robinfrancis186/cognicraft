@@ -1,0 +1,34 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 220 90"
+  fill="none"
+  aria-hidden="true"
+>
+  <path
+    d="M22 62h177l-12 15H36ZM39 59l4-25h128l14 25ZM58 30V20h93l9 10Z"
+    fill="#1645ec"
+  />
+  <g
+    stroke="#E5FFF2"
+    stroke-width="1.15"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path
+      d="M22 62h177l-12 15H36ZM25 66h171M35 73h154M39 77h148M30 59h163M39 59l4-25h128l14 25M43 34h132l-4-4H46ZM58 30V20h93l9 10M55 20h99M65 17h78v3m-20-3v-5m-2 1h4m-37 4v-7m-3 3h6"
+    />
+    <path
+      d="M48 40h10v12H46ZM62 40h11v12H60ZM77 40h11v12H76ZM92 40h11v12H92ZM108 40h11v12h-11ZM124 40h11v12h-11ZM140 40h11v12h-11ZM156 40h11l6 12h-17Z"
+    />
+    <path
+      d="M64 23h9v7h-9Zm13 0h9v7h-9Zm13 0h9v7h-9Zm13 0h9v7h-9Zm13 0h9v7h-9Zm13 0h9v7h-9Zm13 0h7l6 7h-13ZM29 62V53h163v9M32 54v8m12-8v8m12-8v8m12-8v8m12-8v8m12-8v8m12-8v8m12-8v8m12-8v8m12-8v8m12-8v8m12-8v8m12-8v8m12-8v8"
+    />
+    <path
+      d="M37 36v17m-3-17h7m136 0v9m-3-9h7M24 62l-5-5m0 0h7M198 62l6-4m0 0h-7M91 65h47"
+    />
+    <path
+      d="M10 78h28m8 3h139m-167 3h31m12 2h105m11-5h24M0 69h17M5 73h16m-9 4h11m-1 7h14M187 78h22m-9-4h13"
+      opacity=".6"
+    />
+  </g>
+</svg>

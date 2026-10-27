@@ -51,22 +51,26 @@ tabs.forEach((tab, index) => {
   });
 });
 
-const motionButton = document.querySelector("#motion-toggle");
+const motionButtons = [...document.querySelectorAll("[data-motion-toggle]")];
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 function updateMotion(paused) {
   document.body.classList.toggle("motion-paused", paused);
-  motionButton.setAttribute("aria-pressed", String(paused));
-  motionButton.disabled = reducedMotion.matches;
-  motionButton.textContent = reducedMotion.matches
-    ? "Reduced motion enabled"
-    : paused
-      ? "Motion paused · Resume ↗"
-      : "Pause motion Ⅱ";
+  motionButtons.forEach((button) => {
+    button.setAttribute("aria-pressed", String(paused));
+    button.disabled = reducedMotion.matches;
+    button.textContent = reducedMotion.matches
+      ? "Reduced motion enabled"
+      : paused
+        ? "Motion paused · Resume ↗"
+        : "Pause motion Ⅱ";
+  });
 }
 updateMotion(reducedMotion.matches);
-motionButton.addEventListener("click", () =>
-  updateMotion(!document.body.classList.contains("motion-paused")),
-);
+motionButtons.forEach((button) => {
+  button.addEventListener("click", () =>
+    updateMotion(!document.body.classList.contains("motion-paused")),
+  );
+});
 reducedMotion.addEventListener("change", (event) =>
   updateMotion(event.matches),
 );

@@ -203,7 +203,7 @@ try {
   );
   await menu.click();
   await page
-    .getByRole("navigation")
+    .getByRole("navigation", { name: "Main navigation" })
     .getByRole("link", { name: "Programme" })
     .click();
   assert.equal(
@@ -316,6 +316,154 @@ try {
   );
   await noScript.close();
 
+  const footerPage = await browser.newPage();
+  await footerPage.goto(site.href, { waitUntil: "networkidle" });
+  const footerMotion = footerPage.locator("footer [data-motion-toggle]");
+  assert.match(
+    await footerPage.locator(".footer-ferry").getAttribute("src"),
+    /drawn-water-metro\.svg$/,
+    "Footer ferry should use the drawn artwork",
+  );
+  for (const width of [1440, 390]) {
+    await footerPage.setViewportSize({ width, height: 900 });
+    await footerPage.locator("footer").scrollIntoViewIfNeeded();
+    const voyage = await footerPage
+      .locator(".footer-ferry-route")
+      .evaluate((route) => {
+        const animation = route
+          .getAnimations()
+          .find((item) => item.effect.target === route);
+        if (!animation) throw new Error("Footer route has no CSS animation");
+        const bob = route.querySelector(".footer-ferry-bob");
+        if (!bob?.getAnimations().some((item) => item.effect.target === bob))
+          throw new Error("Footer bob should animate independently");
+        const scene = route.closest(".footer-water").getBoundingClientRect();
+        const duration = Number(animation.effect.getTiming().duration);
+        const previousTime = animation.currentTime;
+        const positions = [];
+        animation.pause();
+        for (const progress of [0, 0.5, 0.999999]) {
+          animation.currentTime = duration * progress;
+          const ferry = route
+            .querySelector(".footer-ferry")
+            .getBoundingClientRect();
+          positions.push({
+            left: ferry.left,
+            right: ferry.right,
+            centre: (ferry.left + ferry.right) / 2,
+          });
+        }
+        animation.currentTime = previousTime;
+        animation.play();
+        return {
+          positions,
+          scene: { left: scene.left, right: scene.right, width: scene.width },
+        };
+      });
+    assert.ok(
+      voyage.positions[0].right <= voyage.scene.left + 1,
+      `Footer ferry should start fully off-left at ${width}px`,
+    );
+    assert.ok(
+      Math.abs(
+        voyage.positions[1].centre -
+          (voyage.scene.left + voyage.scene.width / 2),
+      ) <=
+        voyage.scene.width * 0.1,
+      `Footer ferry should cross the scene centre at ${width}px`,
+    );
+    assert.ok(
+      voyage.positions[2].left >= voyage.scene.right - 1,
+      `Footer ferry should finish fully off-right at ${width}px`,
+    );
+  }
+  await footerPage.reload({ waitUntil: "networkidle" });
+  await footerMotion.click();
+  assert.equal(
+    await footerPage.locator("#motion-toggle").getAttribute("aria-pressed"),
+    "true",
+    "Footer pause should sync the hero control",
+  );
+  assert.equal(await footerMotion.getAttribute("aria-pressed"), "true");
+  const pausedVoyage = await footerPage
+    .locator(".footer-ferry-route")
+    .evaluate(async (route) => {
+      const before = route
+        .querySelector(".footer-ferry")
+        .getBoundingClientRect()
+        .toJSON();
+      await new Promise((resolve) =>
+        requestAnimationFrame(() => requestAnimationFrame(resolve)),
+      );
+      const after = route
+        .querySelector(".footer-ferry")
+        .getBoundingClientRect()
+        .toJSON();
+      return {
+        before,
+        after,
+        running: route
+          .getAnimations({ subtree: true })
+          .filter((animation) => animation.playState === "running").length,
+      };
+    });
+  assert.equal(
+    pausedVoyage.running,
+    0,
+    "Pause should freeze footer travel and bobbing",
+  );
+  assert.deepEqual(
+    pausedVoyage.after,
+    pausedVoyage.before,
+    "Paused footer should remain still across frames",
+  );
+  await footerMotion.click();
+  assert.equal(
+    await footerPage.locator("#motion-toggle").getAttribute("aria-pressed"),
+    "false",
+    "Footer resume should sync the hero control",
+  );
+  await footerPage.emulateMedia({ reducedMotion: "reduce" });
+  await footerPage.waitForFunction(
+    () => document.querySelector("footer [data-motion-toggle]").disabled,
+  );
+  assert.match(await footerMotion.innerText(), /Reduced motion enabled/);
+  assert.deepEqual(
+    await footerPage.locator(".footer-ferry-route").evaluate((route) =>
+      route
+        .getAnimations({ subtree: true })
+        .filter((animation) => animation.playState === "running")
+        .map((animation) => animation.constructor.name),
+    ),
+    [],
+    "Reduced motion should freeze footer travel and bobbing",
+  );
+  if (process.env.SCREENSHOT_DIR) {
+    await mkdir(process.env.SCREENSHOT_DIR, { recursive: true });
+    await footerPage.emulateMedia({ reducedMotion: "no-preference" });
+    await footerPage.waitForFunction(
+      () => !document.querySelector("footer [data-motion-toggle]").disabled,
+    );
+    for (const [name, width] of [
+      ["desktop-footer", 1440],
+      ["mobile-footer", 390],
+    ]) {
+      await footerPage.setViewportSize({ width, height: 900 });
+      await footerPage.locator(".footer-ferry-route").evaluate((route) => {
+        for (const animation of route.getAnimations({ subtree: true })) {
+          animation.pause();
+          if (animation.effect.target === route)
+            animation.currentTime =
+              Number(animation.effect.getTiming().duration) * 0.75;
+        }
+      });
+      await footerPage
+        .locator("footer")
+        .screenshot({ path: `${process.env.SCREENSHOT_DIR}/${name}.png` });
+    }
+  }
+  await footerPage.close();
+
   if (process.env.SCREENSHOT_DIR) {
     await mkdir(process.env.SCREENSHOT_DIR, { recursive: true });
     await page.screenshot({
@@ -351,7 +499,7 @@ try {
     }
   }
   console.log(
-    "PASS: content, local assets and fonts, anchors, reveals, no-JS fallback, day tabs and artwork, FAQ, mobile menu, responsive widths, pause/resume, reduced motion, browser errors",
+    "PASS: content, local assets and fonts, anchors, reveals, no-JS fallback, day tabs and artwork, FAQ, mobile menu, responsive widths, footer voyage, pause/resume, reduced motion, browser errors",
   );
 } finally {
   await browser.close();

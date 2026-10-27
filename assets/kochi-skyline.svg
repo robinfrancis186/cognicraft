@@ -1,28 +1,320 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 180" fill="none" aria-hidden="true">
-  <g stroke="#D7F8EE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M0 137h1440" opacity=".65"/>
-    <g opacity=".92">
-      <path d="M0 116 500 119M0 121l500 3M119 136l7-102 6-5 7 107M125 48l18 88M362 137l7-64 5-4 7 68"/>
-      <path d="m129 38-118 79m118-69-88 69m88-59-61 60m61-50-35 50m35-39-9 39m10-68 46 68m-46-57 77 57m-77-45 109 46m-109-35 140 35m-140-24 172 24m72-41-57 41m57-32-39 33m39-23-22 23m22-14-5 14m6-43 47 43m-47-31 68 31m-68-22 92 22m-92-12 117 12" opacity=".7"/>
-      <path d="M52 122v15m43-14v14m88-14v14m53-13v13m50-13v13m40-12v12m88-12v12m50-12v12" opacity=".65"/>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 1440 200"
+  preserveAspectRatio="none"
+  fill="none"
+  aria-hidden="true"
+>
+  <defs>
+    <g id="palm" stroke-linecap="round" stroke-linejoin="round">
+      <path
+        d="M1 65C0 48 4 25 8 9M4 64C3 45 7 23 8 9M8 9C-3 0-15 1-20 9-9 4 0 5 8 9ZM8 9C0-3 1-11 6-16 6-6 8 0 8 9ZM8 9C12-7 22-11 29-9 20-5 14 0 8 9ZM8 9C25-1 36 2 39 11 27 7 17 7 8 9ZM8 9C25 11 30 18 28 27 23 18 16 13 8 9ZM8 9C-5 11-13 17-13 25-8 18 0 13 8 9Z"
+      />
+      <path
+        d="m7 17 3 1m-4 6 3 1m-4 7 3 1m-4 7 3 1m-4 7 3 1m-4 7 3 1"
+        opacity=".6"
+      />
     </g>
-    <g opacity=".8">
-      <path d="M510 136V95h48v41m-39-32h7m12 0h7m-26 12h7m12 0h7M555 137V82h39v55m-31-46h6m10 0h6m-22 13h6m10 0h6m-22 13h6m10 0h6M595 137v-32h33v32m-24-23h5m10 0h4m-19 11h5m10 0h4M629 137V93l25-13 25 13v44m-40-35h8m14 0h8m-30 12h8m14 0h8m-30 12h8m14 0h8M677 136v-25h44v25m-35-16h7m12 0h7"/>
-      <path d="m753 137-4-76m0 0-25 63m25-63 29 63m-62 0h69m-61 0 51-24m-50 24 24 13m27-13-27 13m0-76 34 39m-34-39-41 38m1 0h74m-74 0 15 25m59-25-9 25m-65-25 32-7m42 7-34-7"/>
-      <path d="M817 136V105l23-16 24 16v31m-52-31h58m-41 12h7m12 0h7m-24 20v-10h17v10M871 136V95h47v41m-38-32h9m12 0h9m-30 13h9m12 0h9M920 137v-28h35v28m-27-20h6m10 0h5"/>
+    <g id="arch"><path d="M0 8V3a3 3 0 0 1 6 0v5ZM3 1v7M0 4h6" /></g>
+    <g id="window"><path d="M0 0h5v7H0ZM2.5 0v7M0 3.5h5" /></g>
+    <g id="bush">
+      <path
+        d="M0 9c-3-2-1-6 2-5-1-5 5-6 6-2 3-4 7-1 5 2 5-1 7 4 3 6M-3 11h23"
+      />
     </g>
-    <g opacity=".9">
-      <path d="M991 137c2-25 5-49 13-73m-1 1c-12-16-29-18-39-12 16-2 26 2 39 12Zm0 0c-4-23 4-35 16-38-9 13-13 23-16 38Zm0 0c11-22 27-25 39-20-16 4-27 10-39 20Zm0 0c19-8 33-3 39 9-16-8-26-9-39-9Zm0 0c-13-3-27 2-32 15 12-8 21-12 32-15Z"/>
-      <path d="M1056 137V99l30-18 31 18v38m-68-38h74m-59 11h12m18 0h13m-43 12h12m18 0h13m-33 15v-10h22v10M1121 137v-22h29v22m-20-14h11M1155 137v-31h53v31m-46-22h10m10 0h10m-30 11h10m10 0h10"/>
-      <path d="M1227 137c-4-26-7-49-5-71m0 1c-15-15-31-14-41-6 15-4 27-2 41 6Zm0 0c-8-23-2-38 10-45-7 16-9 28-10 45Zm0 0c7-25 22-32 35-30-15 7-25 17-35 30Zm0 0c20-11 35-8 43 2-17-4-30-5-43-2Zm0 0c-10 1-20 8-23 21 9-10 15-16 23-21Z"/>
-      <path d="M1290 137v-23l29-16 29 16v23m-64-23h71m-55 9h11m17 0h11m-37 14v-8h31v8M1361 137V97l24-11 25 11v40m-42-31h10m14 0h10m-34 12h10m14 0h10m-34 12h10m14 0h10M1415 137v-20h25"/>
+    <g id="boat"><path d="M0 4h22l-4 5H4ZM8 4V0h8v4M11 0v4" /></g>
+  </defs>
+  <circle cx="1354" cy="110" r="30" fill="#CBF8E6" />
+  <g
+    stroke="#D6F7E9"
+    stroke-width="1.05"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <!-- Chinese fishing nets and a timber shoreline. -->
+    <g>
+      <path
+        d="M0 144h214M14 141v10m18-10v10m25-10v10m29-10v10m27-10v10m29-10v10m26-10v10m25-10v10M13 147h184M31 143 137 20l2-1 5 127M137 20l-8 123M140 21l70 37-70 85M137 24 38 129M141 25l65 35M42 125l166-65M31 143l179-85M137 20 31 143M143 34l43 68M137 20l-11-2m12-3v10"
+      />
+      <path
+        d="m41 131 89 9 71-73M42 135l84 8 79-79M53 126l73 13 66-66M64 119l64 17 54-57M75 111l54 20 44-46M86 104l45 23 32-36M99 96l33 27 20-26M111 88l22 31m-5 20-1 9M62 128l-2 9m24-17-2 17m25-32-1 35m44-31 5 6m10-17 5 6m10-16 4 5"
+        opacity=".58"
+      />
+      <path
+        d="M0 113 33 96l-4-1-10 48m14-47 8 48M0 117l32-18m0 0 19 16-31 28m12-44-12 44M0 130l42 4M5 122l30 14m-17-21 11 25M23 95v-5m-3 4h6"
+      />
+      <use href="#palm" transform="translate(45 67) scale(.85 .98)" />
+      <path
+        d="M0 138c5-6 9-5 13-2l7-4 7 6m-26-1 8-9 6 6m0-6 7-7 8 6"
+        opacity=".65"
+      />
     </g>
-    <g opacity=".4">
-      <path d="M0 151h83m24 0h55m35 0h126m33 0h72m38 0h105m39 0h81m49 0h140m39 0h89m38 0h104m51 0h114m37 0h118M26 166h118m33 0h73m43 0h133m33 0h63m39 0h112m42 0h89m39 0h136m41 0h94m44 0h110m35 0h146"/>
-      <path d="m133 140-3 13m246-13-2 12m614-12-2 12m241-12 2 14"/>
+    <!-- Dense low-rise Fort Kochi waterfront, colonial church, and palms. -->
+    <g>
+      <path
+        d="M190 145c18-7 29-2 46-7l15-1h43M216 143l-2-8 5-5 4 7 3-9 5 7 3-4 4 11m3 0 1-15 5-6 4 9m3 8 2-10 5-4 5 7"
+      />
+      <use href="#palm" transform="translate(254 115) scale(.38 .43)" />
+      <use href="#palm" transform="translate(271 113) scale(.37 .48)" />
+      <use href="#palm" transform="translate(282 108) scale(.41 .56)" />
+      <path d="M296 145v-27l7-8 7 8v27m-17-27h20m-13-4v-5m-4 36v-18h12v18" />
+      <use href="#arch" transform="translate(300 119) scale(.8)" />
+      <path
+        d="M310 145v-29h14V98l5-13 5 13v47m-11-46h12m-11 13h10m-10 19h10M327 88v-9m-3 5h6"
+      />
+      <use href="#arch" transform="translate(326 102) scale(.75 1.1)" />
+      <use href="#arch" transform="translate(326 117) scale(.75 1.1)" />
+      <path
+        d="M335 145v-33l9-11 10 11v33m-22-33h25m-22 10h19m-19 9h19m-10-27V95m-3 4h6M356 145v-35h7V96l5-13 5 13v49m-11-48h12m-11 15h10m-10 19h10M366 86v-9m-3 5h6"
+      />
+      <use href="#arch" transform="translate(365 101) scale(.75 1.1)" />
+      <use href="#arch" transform="translate(365 117) scale(.75 1.1)" />
+      <path
+        d="M375 145v-24l8-11 9 11v24m-20-24h22m-15 24v-17h9v17m-46-30h5v6h-5Zm0 12h5v6h-5Zm-26-3h5v7h-5Zm0 13h5v8h-5Z"
+      />
+      <path
+        d="M394 145v-27l15-7 14 7v27m-33-27h36m-32 4h29m-29 14h29M424 145v-28l16-10 17 10v28m-36-28h39m-36 5h33m-33 13h33m-7-21 1-7m-18 4v-7"
+      />
+      <path
+        d="M461 145v-16l27-8 27 8v16m-57-16h60m-53 4h47m-26-12V97l3-10 4 10v26m-7-26h7m-5-7V75m-2 6h5m-5 21h3v7h-3Zm0 12h3v7h-3Z"
+      />
+      <use href="#palm" transform="translate(510 91) scale(.62 .79)" />
+      <use href="#palm" transform="translate(531 107) scale(.46 .54)" />
+      <path
+        d="M519 145v-14l16-4 16 4v14m-35-14h37m2 14v-17l20-9 22 9v17m-45-17h47m-41 4h36m5 13v-20l12-8 13 8v20m-27-20h29M621 145v-14l16-7 17 7v14m-36-14h39M654 145v-20l15-10 15 10v20m-33-20h36M685 145v-17l14-7 14 7v17m-31-17h34"
+      />
+      <use href="#palm" transform="translate(568 103) scale(.51 .64)" />
+      <use href="#palm" transform="translate(588 117) scale(.37 .43)" />
     </g>
-    <g opacity=".55">
-      <path d="M443 63q8-9 16 0 8-9 16 0M819 54q6-7 12 0 6-7 12 0M1307 62q7-8 14 0 7-8 14 0"/>
+    <use href="#arch" transform="translate(399 126) scale(.65 .8)" />
+    <use href="#arch" transform="translate(406 126) scale(.65 .8)" />
+    <use href="#arch" transform="translate(413 126) scale(.65 .8)" />
+    <use href="#arch" transform="translate(429 126) scale(.65 .8)" />
+    <use href="#arch" transform="translate(436 126) scale(.65 .8)" />
+    <use href="#arch" transform="translate(443 126) scale(.65 .8)" />
+    <use href="#arch" transform="translate(450 126) scale(.65 .8)" />
+    <use href="#arch" transform="translate(467 136) scale(.65 .8)" />
+    <use href="#arch" transform="translate(474 136) scale(.65 .8)" />
+    <use href="#arch" transform="translate(481 136) scale(.65 .8)" />
+    <use href="#arch" transform="translate(488 136) scale(.65 .8)" />
+    <use href="#arch" transform="translate(495 136) scale(.65 .8)" />
+    <use href="#arch" transform="translate(502 136) scale(.65 .8)" />
+    <use href="#arch" transform="translate(522 136) scale(.65 .8)" />
+    <use href="#arch" transform="translate(529 136) scale(.65 .8)" />
+    <use href="#arch" transform="translate(536 136) scale(.65 .8)" />
+    <use href="#arch" transform="translate(543 136) scale(.65 .8)" />
+    <use href="#arch" transform="translate(559 135) scale(.65 .8)" />
+    <use href="#arch" transform="translate(566 135) scale(.65 .8)" />
+    <use href="#arch" transform="translate(573 135) scale(.65 .8)" />
+    <use href="#arch" transform="translate(580 135) scale(.65 .8)" />
+    <use href="#arch" transform="translate(587 135) scale(.65 .8)" />
+    <use href="#arch" transform="translate(601 132) scale(.65 .8)" />
+    <use href="#arch" transform="translate(608 132) scale(.65 .8)" />
+    <use href="#arch" transform="translate(615 132) scale(.65 .8)" />
+    <use href="#arch" transform="translate(626 137) scale(.65 .8)" />
+    <use href="#arch" transform="translate(633 137) scale(.65 .8)" />
+    <use href="#arch" transform="translate(640 137) scale(.65 .8)" />
+    <use href="#arch" transform="translate(647 137) scale(.65 .8)" />
+    <use href="#arch" transform="translate(659 132) scale(.65 .8)" />
+    <use href="#arch" transform="translate(666 132) scale(.65 .8)" />
+    <use href="#arch" transform="translate(673 132) scale(.65 .8)" />
+    <use href="#arch" transform="translate(690 135) scale(.65 .8)" />
+    <use href="#arch" transform="translate(697 135) scale(.65 .8)" />
+    <use href="#arch" transform="translate(704 135) scale(.65 .8)" />
+    <g>
+      <path
+        d="M713 145V99h24v46m-28-46h31m-25 5h20M742 145V95h19v50m-21-50h23m-17-4h12v4m-13 7h15M766 145v-28h21v28m-22-28h24"
+      />
+    </g>
+    <use href="#window" transform="translate(717 109) scale(.7 .8)" />
+    <use href="#window" transform="translate(723 109) scale(.7 .8)" />
+    <use href="#window" transform="translate(729 109) scale(.7 .8)" />
+    <use href="#window" transform="translate(717 120) scale(.7 .8)" />
+    <use href="#window" transform="translate(723 120) scale(.7 .8)" />
+    <use href="#window" transform="translate(729 120) scale(.7 .8)" />
+    <use href="#window" transform="translate(717 131) scale(.7 .8)" />
+    <use href="#window" transform="translate(723 131) scale(.7 .8)" />
+    <use href="#window" transform="translate(729 131) scale(.7 .8)" />
+    <use href="#window" transform="translate(746 107) scale(.7 .8)" />
+    <use href="#window" transform="translate(752 107) scale(.7 .8)" />
+    <use href="#window" transform="translate(746 118) scale(.7 .8)" />
+    <use href="#window" transform="translate(752 118) scale(.7 .8)" />
+    <use href="#window" transform="translate(746 129) scale(.7 .8)" />
+    <use href="#window" transform="translate(752 129) scale(.7 .8)" />
+    <use href="#window" transform="translate(770 124) scale(.7 .8)" />
+    <use href="#window" transform="translate(776 124) scale(.7 .8)" />
+    <use href="#window" transform="translate(770 135) scale(.7 .8)" />
+    <use href="#window" transform="translate(776 135) scale(.7 .8)" />
+    <!-- Twin pylon cable bridge, drawn light enough to sit behind the ferry. -->
+    <g>
+      <path
+        d="M786 132h292M786 136h292M797 136v9m21-9v9m23-9v9m22-9v9m23-9v9m24-9v9m23-9v9m23-9v9m23-9v9m23-9v9m23-9v9m23-9v9M873 145l3-72 3-2 3 74M976 145l3-70 3-2 3 72M874 130h7m97 0h7M872 145h12m92 0h12"
+      />
+      <path
+        d="m877 76-79 56m79-47-65 47m65-38-51 38m51-30-37 30m37-21-23 21m23-12-10 12m12-55 70 55m-70-46 56 46m-56-37 42 37m-42-28 28 28m-28-19 15 19m-15-9 3 9m101-54-67 54m67-44-54 44m54-35-41 35m41-26-28 26m28-17-15 17m15-8-3 8m5-53 76 53m-76-44 62 44m-62-35 48 35m-48-26 34 26m-34-17 20 17m-20-8 7 8"
+        opacity=".75"
+      />
+      <path d="M1078 136h37m-35-4h36m-20 4v9m17-9v9" />
+    </g>
+    <g>
+      <use href="#palm" transform="translate(1053 108) scale(.6 .55)" />
+      <use href="#palm" transform="translate(1085 121) scale(.4 .35)" />
+      <use href="#palm" transform="translate(1107 126) scale(.3 .29)" />
+      <use href="#palm" transform="translate(1130 131) scale(.25 .21)" />
+      <path
+        d="M1041 145c9-3 17-5 23-2 8-5 14-3 21-1 8-4 14-4 20-1 7-4 16-3 23 1 7-3 15-4 24 2m156 1c9-7 13-5 20-3 4-5 12-7 18-2 7-4 13-3 17 1 6-8 13-7 20-3 4-3 10-3 14 0 11-6 18-7 25-2 10-8 16-6 27-3"
+      />
+      <use href="#palm" transform="translate(1357 125) scale(.39 .28)" />
+      <use href="#palm" transform="translate(1386 104) scale(.55 .62)" />
+      <use href="#palm" transform="translate(1422 129) scale(.3 .24)" />
+      <use href="#bush" transform="translate(1035 136) scale(.55 .6)" />
+      <use href="#bush" transform="translate(1118 138) scale(.6 .6)" />
+      <use href="#bush" transform="translate(1305 137) scale(.6 .65)" />
+      <use href="#bush" transform="translate(1411 134) scale(.75 .8)" />
+      <path
+        d="M1087 78q6-6 11 0 4-7 10-5m20 18q5-5 9 0 4-5 9-3m16-30q6-4 11 3 4-8 9-7m-47 12q4-4 7 0 3-4 7-2"
+      />
+    </g>
+    <path d="M0 145h1440M0 148h1440" opacity=".75" />
+    <!-- Broken horizontal strokes give the illustration its fine waterfront reflections. -->
+    <g opacity=".56">
+      <path d="M15 153h40" />
+      <path d="M80 153h29" />
+      <path d="M133 153h28" />
+      <path d="M185 153h58" />
+      <path d="M262 153h61" />
+      <path d="M346 153h67" />
+      <path d="M445 153h62" />
+      <path d="M521 153h44" />
+      <path d="M608 153h71" />
+      <path d="M700 153h17" />
+      <path d="M764 153h26" />
+      <path d="M835 153h63" />
+      <path d="M940 153h59" />
+      <path d="M1032 153h47" />
+      <path d="M1098 153h59" />
+      <path d="M1187 153h69" />
+      <path d="M1280 153h59" />
+      <path d="M1373 153h35" />
+      <path d="M1426 153h14" />
+      <path d="M12 159h73" />
+      <path d="M101 159h75" />
+      <path d="M203 159h36" />
+      <path d="M274 159h73" />
+      <path d="M365 159h35" />
+      <path d="M420 159h31" />
+      <path d="M474 159h68" />
+      <path d="M587 159h71" />
+      <path d="M690 159h33" />
+      <path d="M754 159h75" />
+      <path d="M855 159h21" />
+      <path d="M921 159h66" />
+      <path d="M1010 159h57" />
+      <path d="M1090 159h36" />
+      <path d="M1170 159h28" />
+      <path d="M1220 159h46" />
+      <path d="M1312 159h32" />
+      <path d="M1390 159h50" />
+      <path d="M4 165h66" />
+      <path d="M99 165h21" />
+      <path d="M142 165h32" />
+      <path d="M208 165h57" />
+      <path d="M293 165h41" />
+      <path d="M361 165h66" />
+      <path d="M460 165h41" />
+      <path d="M519 165h46" />
+      <path d="M602 165h69" />
+      <path d="M705 165h32" />
+      <path d="M762 165h63" />
+      <path d="M866 165h37" />
+      <path d="M932 165h73" />
+      <path d="M1042 165h18" />
+      <path d="M1077 165h71" />
+      <path d="M1190 165h60" />
+      <path d="M1284 165h44" />
+      <path d="M1370 165h66" />
+      <path d="M0 172h21" />
+      <path d="M27 172h61" />
+      <path d="M128 172h67" />
+      <path d="M233 172h50" />
+      <path d="M328 172h52" />
+      <path d="M427 172h42" />
+      <path d="M508 172h69" />
+      <path d="M605 172h34" />
+      <path d="M672 172h39" />
+      <path d="M743 172h25" />
+      <path d="M803 172h63" />
+      <path d="M884 172h67" />
+      <path d="M966 172h74" />
+      <path d="M1070 172h75" />
+      <path d="M1159 172h60" />
+      <path d="M1259 172h41" />
+      <path d="M1339 172h73" />
+      <path d="M0 180h80" />
+      <path d="M105 180h70" />
+      <path d="M209 180h24" />
+      <path d="M272 180h25" />
+      <path d="M341 180h82" />
+      <path d="M441 180h44" />
+      <path d="M513 180h39" />
+      <path d="M599 180h98" />
+      <path d="M724 180h80" />
+      <path d="M826 180h45" />
+      <path d="M888 180h37" />
+      <path d="M944 180h29" />
+      <path d="M1002 180h26" />
+      <path d="M1073 180h29" />
+      <path d="M1127 180h65" />
+      <path d="M1225 180h36" />
+      <path d="M1286 180h37" />
+      <path d="M1346 180h87" />
+      <path d="M8 189h89" />
+      <path d="M142 189h89" />
+      <path d="M264 189h55" />
+      <path d="M362 189h81" />
+      <path d="M481 189h75" />
+      <path d="M579 189h66" />
+      <path d="M664 189h47" />
+      <path d="M758 189h42" />
+      <path d="M825 189h39" />
+      <path d="M906 189h66" />
+      <path d="M1004 189h52" />
+      <path d="M1078 189h54" />
+      <path d="M1152 189h62" />
+      <path d="M1243 189h57" />
+      <path d="M1343 189h31" />
+      <path d="M1400 189h40" />
+      <path d="M9 197h95" />
+      <path d="M148 197h98" />
+      <path d="M281 197h81" />
+      <path d="M385 197h28" />
+      <path d="M438 197h44" />
+      <path d="M508 197h51" />
+      <path d="M573 197h52" />
+      <path d="M656 197h62" />
+      <path d="M762 197h97" />
+      <path d="M888 197h65" />
+      <path d="M983 197h53" />
+      <path d="M1068 197h83" />
+      <path d="M1183 197h26" />
+      <path d="M1238 197h67" />
+      <path d="M1337 197h51" />
+      <path d="M1425 197h15" />
+      <path d="M39 151h8m-9 5h12m-12 7h7m-5 8h9" opacity=".65" />
+      <path d="M81 151h8m-9 5h12m-12 7h7m-5 8h9" opacity=".65" />
+      <path d="M123 151h8m-9 5h12m-12 7h7m-5 8h9" opacity=".65" />
+      <path d="M139 151h8m-9 5h12m-12 7h7m-5 8h9" opacity=".65" />
+      <path d="M326 151h8m-9 5h12m-12 7h7m-5 8h9" opacity=".65" />
+      <path d="M364 151h8m-9 5h12m-12 7h7m-5 8h9" opacity=".65" />
+      <path d="M486 151h8m-9 5h12m-12 7h7m-5 8h9" opacity=".65" />
+      <path d="M522 151h8m-9 5h12m-12 7h7m-5 8h9" opacity=".65" />
+      <path d="M569 151h8m-9 5h12m-12 7h7m-5 8h9" opacity=".65" />
+      <path d="M716 151h8m-9 5h12m-12 7h7m-5 8h9" opacity=".65" />
+      <path d="M744 151h8m-9 5h12m-12 7h7m-5 8h9" opacity=".65" />
+      <path d="M875 151h8m-9 5h12m-12 7h7m-5 8h9" opacity=".65" />
+      <path d="M979 151h8m-9 5h12m-12 7h7m-5 8h9" opacity=".65" />
+      <path d="M1055 151h8m-9 5h12m-12 7h7m-5 8h9" opacity=".65" />
+      <path d="M1388 151h8m-9 5h12m-12 7h7m-5 8h9" opacity=".65" />
     </g>
   </g>
 </svg>

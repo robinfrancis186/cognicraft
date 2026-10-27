@@ -128,7 +128,7 @@
           ><a href="#about"
             >A little curiosity goes a long way
             <span aria-hidden="true">↓</span></a
-          ><button id="motion-toggle" aria-pressed="false">
+          ><button id="motion-toggle" data-motion-toggle aria-pressed="false">
             Pause motion <span aria-hidden="true">Ⅱ</span>
           </button>
         </div>
@@ -630,32 +630,58 @@
     </main>
     <footer id="contact">
       <div class="wrap">
-        <div class="section-label">
-          <span>TECHX COGNICRAFT 2026</span><a href="#home">BACK TO TOP ↑</a>
-        </div>
         <div class="footer-main">
-          <h2>
-            See you<br />in <span>Kochi.</span
-            ><svg class="spark" viewBox="0 0 100 100" aria-hidden="true">
-              <path d="M50 2Q51 48 98 50Q51 52 50 98Q49 52 2 50Q49 48 50 2Z" />
-            </svg>
-          </h2>
-          <div class="contact">
-            <p class="footer-date">12—13 DECEMBER 2026</p>
-            <p>
-              Have a question? Have an idea?<br />Let’s start a conversation.
+          <div class="footer-heading">
+            <p class="footer-kicker">
+              KOCHI TECHX COGNICRAFT 2026 <span aria-hidden="true"></span>
             </p>
-            <a href="tel:+918078256598"
-              ><strong>Robin Francis <span aria-hidden="true">↗</span></strong
-              ><span>+91 8078 256 598</span></a
-            ><a href="tel:+919778506288"
-              ><strong>Krishnapriya M <span aria-hidden="true">↗</span></strong
-              ><span>+91 97785 06288</span></a
-            ><a class="email-link" href="mailto:robinfrancis186@ieee.org"
+            <h2>See you in <span>Kochi.</span></h2>
+          </div>
+          <div class="contact">
+            <div class="footer-detail">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="16" rx="1" />
+                <path d="M7 2v6m10-6v6M3 11h18" />
+              </svg>
+              <div>
+                <p class="footer-date">12—13 DECEMBER 2026</p>
+                <p class="footer-location">
+                  RAJAGIRI SCHOOL OF ENGINEERING &amp; TECHNOLOGY<br />KOCHI,
+                  KERALA · KOCHI WATER METRO
+                </p>
+              </div>
+            </div>
+            <div class="footer-detail">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="m5 3 4 4-2 3c2 3 4 5 7 6l3-2 4 4-2 3C10 22 2 14 2 6Z"
+                />
+                <path d="M14 3a8 8 0 0 1 7 7m-7-3a4 4 0 0 1 3 3" />
+              </svg>
+              <div class="footer-people">
+                <a href="tel:+918078256598"
+                  ><strong>Robin Francis</strong
+                  ><span>+91 8078 256 598</span></a
+                ><a href="tel:+919778506288"
+                  ><strong>Krishnapriya M</strong
+                  ><span>+91 97785 06288</span></a
+                >
+              </div>
+            </div>
+            <a class="footer-email" href="mailto:robinfrancis186@ieee.org"
               >robinfrancis186@ieee.org ↗</a
             >
           </div>
         </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="#home">Home</a><a href="#about">The experience</a
+          ><a href="#programme">Programme</a><a href="#partners">Partners</a
+          ><a href="#visit">Visit</a
+          ><a href="mailto:robinfrancis186@ieee.org">Contact</a>
+          <button class="footer-motion" data-motion-toggle aria-pressed="false">
+            Pause motion Ⅱ
+          </button>
+        </nav>
       </div>
       <div class="footer-water" aria-hidden="true">
         <img
@@ -663,12 +689,18 @@
           src="assets/kochi-skyline.svg"
           alt=""
           loading="lazy"
-        /><img
-          class="footer-ferry"
-          src="assets/water-metro.webp"
-          alt=""
-          loading="lazy"
         />
+        <div class="footer-ferry-route">
+          <div class="footer-ferry-bob">
+            <img
+              class="footer-ferry"
+              src="assets/drawn-water-metro.svg"
+              width="220"
+              height="90"
+              alt=""
+            />
+          </div>
+        </div>
       </div>
       <div class="wrap footer-bottom">
         <span>DESIGNING INTELLIGENCE. EMPOWERING HUMANITY.</span
