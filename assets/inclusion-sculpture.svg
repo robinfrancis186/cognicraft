@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 170" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="mint-face" x1="8" y1="4" x2="92" y2="62" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EEF5FF"/>
+      <stop offset=".42" stop-color="#B6F0F0"/>
+      <stop offset="1" stop-color="#72D8DB"/>
+    </linearGradient>
+    <linearGradient id="mint-edge" x1="0" y1="25" x2="102" y2="67" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#75D5D9"/>
+      <stop offset=".55" stop-color="#439FC0"/>
+      <stop offset="1" stop-color="#164AA8"/>
+    </linearGradient>
+    <linearGradient id="ice-face" x1="8" y1="5" x2="98" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset=".55" stop-color="#EEF5FF"/>
+      <stop offset="1" stop-color="#B9D7F4"/>
+    </linearGradient>
+    <linearGradient id="ice-edge" x1="0" y1="24" x2="102" y2="63" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ACD5F2"/>
+      <stop offset=".5" stop-color="#6898DB"/>
+      <stop offset="1" stop-color="#3157BF"/>
+    </linearGradient>
+    <radialGradient id="ground">
+      <stop stop-color="#081E8D" stop-opacity=".34"/>
+      <stop offset="1" stop-color="#081E8D" stop-opacity="0"/>
+    </radialGradient>
+    <path id="ribbon" fill-rule="evenodd" d="M21 0h60c12 0 21 9 21 21v20c0 12-9 21-21 21H21C9 62 0 53 0 41V21C0 9 9 0 21 0Zm4 18c-4 0-7 3-7 7v12c0 4 3 7 7 7h52c4 0 7-3 7-7V25c0-4-3-7-7-7H25Z"/>
+    <clipPath id="front-crossing"><path d="M50 80.5h88l8 8h24V155H50Z"/></clipPath>
+  </defs>
+  <ellipse cx="113" cy="140" rx="88" ry="20" fill="url(#ground)"/>
+  <g transform="translate(27 81) rotate(-31)">
+    <use href="#ribbon" transform="translate(0 11)" fill="url(#mint-edge)"/>
+    <path d="M0 21v31c0 12 9 21 21 21h60c12 0 21-9 21-21V21M18 25v12c0 4 3 7 7 7h52c4 0 7-3 7-7V25" stroke="#8AE1E3" stroke-opacity=".32" stroke-width=".8"/>
+    <use href="#ribbon" fill="url(#mint-face)"/>
+    <path d="M21 1h60c11 0 20 9 20 20M1 40V21C1 10 10 1 21 1M19 37c0 4 3 6 6 6h52" stroke="#E8FFFF" stroke-opacity=".75" stroke-width=".8"/>
+  </g>
+  <g transform="translate(116 29) rotate(34)">
+    <use href="#ribbon" transform="translate(0 11)" fill="url(#ice-edge)"/>
+    <path d="M0 21v31c0 12 9 21 21 21h60c12 0 21-9 21-21V21" stroke="#8CB6EC" stroke-opacity=".4" stroke-width=".8"/>
+    <use href="#ribbon" fill="url(#ice-face)"/>
+    <path d="M21 1h60c11 0 20 9 20 20M1 40V21C1 10 10 1 21 1M19 37c0 4 3 6 6 6h52" stroke="#FFFFFF" stroke-opacity=".85" stroke-width=".8"/>
+    <path d="M25 18h52c4 0 7 3 7 7v12" stroke="#86ABD9" stroke-width="1"/>
+  </g>
+  <g clip-path="url(#front-crossing)">
+    <g transform="translate(27 81) rotate(-31)">
+      <use href="#ribbon" transform="translate(0 11)" fill="url(#mint-edge)"/>
+      <use href="#ribbon" fill="url(#mint-face)"/>
+      <path d="M21 1h60c11 0 20 9 20 20M19 37c0 4 3 6 6 6h52" stroke="#E8FFFF" stroke-opacity=".75" stroke-width=".8"/>
+    </g>
+  </g>
+</svg>

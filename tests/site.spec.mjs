@@ -27,6 +27,42 @@ try {
     await page.locator("body").innerText(),
     /12.*13.*December|12.*December.*13.*December/is,
   );
+  assert.equal(
+    await page.locator(".scene-caption, .collaborators").count(),
+    0,
+    "Removed caption and collaborator strip should stay absent",
+  );
+  assert.doesNotMatch(
+    await page.locator("body").innerText(),
+    /membership\s+benefits/i,
+    "Programme should omit the membership benefits copy",
+  );
+  assert.equal(
+    (await page.locator("body").textContent()).includes("\u2014"),
+    false,
+    "Site copy should not contain em dashes",
+  );
+  assert.equal(
+    await page
+      .locator(".experience-main .diagram-core, .experience-main .orbit")
+      .count(),
+    0,
+    "Experience section should use the new sculpture artwork",
+  );
+  const sculpture = page.locator(
+    '.experience-main img[src="assets/inclusion-sculpture.svg"]',
+  );
+  assert.equal(
+    await sculpture.count(),
+    1,
+    "Experience section should show the inclusion sculpture",
+  );
+  await sculpture.scrollIntoViewIfNeeded();
+  await sculpture.evaluate((image) => image.decode());
+  assert.ok(
+    await sculpture.evaluate((image) => image.naturalWidth > 0),
+    "Inclusion sculpture should load",
+  );
 
   const links = await page
     .locator("a[href], img[src], script[src], link[href]")
@@ -151,6 +187,11 @@ try {
       "Selected day should show its journey artwork",
     );
     const artwork = page.locator(`[id="${panelId}"] .journey-art img`);
+    assert.match(
+      await artwork.getAttribute("src"),
+      /-3d-v2\.webp$/,
+      "Journey artwork should use the revised 3D render",
+    );
     await artwork.scrollIntoViewIfNeeded();
     await artwork.evaluate((image) => image.decode());
     assert.ok(
@@ -496,6 +537,15 @@ try {
       await page.screenshot({
         path: `${process.env.SCREENSHOT_DIR}/${name}.png`,
       });
+    }
+    await page.locator(".experience-main").screenshot({ path: `${process.env.SCREENSHOT_DIR}/experience-card.png` });
+    for (const [device, width, height] of [["desktop", 1440, 1100], ["mobile", 390, 844]]) {
+      await page.setViewportSize({ width, height });
+      for (let day = 0; day < 2; day++) {
+        await tabs.nth(day).click();
+        await page.locator("#programme").evaluate((element) => element.scrollIntoView({ block: "start", behavior: "instant" }));
+        await page.screenshot({ path: `${process.env.SCREENSHOT_DIR}/programme-day-${day + 1}-${device}.png` });
+      }
     }
   }
   console.log(

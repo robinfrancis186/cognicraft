@@ -298,17 +298,6 @@ a:hover .circle-arrow {
     0 -5px 7px #ffffff77,
     0 10px 12px #e1faff77;
 }
-.scene-caption {
-  position: absolute;
-  bottom: 18px;
-  left: 5%;
-  right: 5%;
-  display: flex;
-  justify-content: space-between;
-  font-size: 10px;
-  letter-spacing: 0.08em;
-  color: var(--ink);
-}
 .hero-bottom {
   min-height: 65px;
   display: flex;
@@ -400,43 +389,14 @@ a:hover .circle-arrow {
   font-size: 9px;
   letter-spacing: 0.15em;
 }
-.diagram {
+.inclusion-sculpture {
+  width: 190px;
   height: 145px;
-  width: 170px;
   align-self: flex-end;
-  position: relative;
   margin-bottom: 15px;
+  object-fit: contain;
 }
-.orbit {
-  width: 160px;
-  height: 90px;
-  position: absolute;
-  top: 25px;
-  left: 0;
-  border: 1px solid #aebeff;
-  border-radius: 50%;
-  transform: rotate(-45deg);
-}
-.orbit-two {
-  transform: rotate(45deg);
-}
-.diagram-core {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-content: center;
-  font-size: 68px;
-  color: var(--mint);
-}
-.orbit-dot {
-  width: 13px;
-  height: 13px;
-  border-radius: 50%;
-  background: var(--mint);
-  position: absolute;
-  left: 8px;
-  top: 28px;
-}
+
 .experience-list article {
   display: flex;
   gap: 22px;
@@ -717,7 +677,6 @@ a:hover .circle-arrow {
 .partners > .section-label,
 .partners > .rule-label,
 .partners > .organizer-grid,
-.partners > .collaborators,
 .partners > .partner-logos,
 .partners > .sponsor-heading,
 .partners > .sponsorships,
@@ -769,31 +728,6 @@ a:hover .circle-arrow {
   font-size: 11px;
   line-height: 1.6;
   margin-top: 10px;
-}
-.collaborators {
-  display: flex;
-  justify-content: space-between;
-  gap: 18px;
-  align-items: center;
-  border-top: 1px solid var(--line);
-  padding: 22px 0 45px;
-}
-.collaborators > span {
-  font-size: 9px;
-  letter-spacing: 0.12em;
-  color: var(--muted);
-}
-.collaborators p {
-  font-size: 15px;
-  font-weight: 600;
-}
-.collaborators small {
-  font-size: 12px;
-  font-weight: 400;
-}
-.collaborators p > span {
-  color: #9ca7bf;
-  padding: 0 20px;
 }
 .partner-invitation {
   display: flex;
@@ -1336,16 +1270,6 @@ footer a:hover {
     left: 12%;
     bottom: 20%;
   }
-  .scene-caption {
-    font-size: 8px;
-    bottom: 12px;
-    left: 6%;
-    right: 6%;
-  }
-  .scene-caption > span:last-child {
-    max-width: 130px;
-    text-align: right;
-  }
   .hero-bottom {
     padding: 12px 6%;
     min-height: 60px;
@@ -1449,6 +1373,9 @@ footer a:hover {
   .journey-art img {
     aspect-ratio: 1.85;
   }
+  #day-1 .journey-art img {
+    object-position: 25% center;
+  }
   .journey-art figcaption {
     padding: 12px;
     display: block;
@@ -1543,23 +1470,6 @@ footer a:hover {
     white-space: normal;
   }
   .organizer > span {
-    font-size: 10px;
-  }
-  .collaborators {
-    display: block;
-    padding: 20px 0 35px;
-  }
-  .collaborators > span {
-    font-size: 8px;
-  }
-  .collaborators p {
-    font-size: 13px;
-    margin-top: 12px;
-  }
-  .collaborators p > span {
-    padding: 0 10px;
-  }
-  .collaborators small {
     font-size: 10px;
   }
   .rule-label {
