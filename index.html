@@ -3,283 +3,339 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#eef5ff" />
-    <title>TechX CogniCraft 2026 · Ideas in motion, humanity at heart</title>
+    <meta name="theme-color" content="#f5efe3" />
+    <title>IEEE CS SYP TechX CogniCraft 2026 | Kochi</title>
     <meta
       name="description"
-      content="Designing intelligence. Empowering humanity. Join TechX CogniCraft, 12–13 December 2026, at RSET Kochi and aboard the Kochi Water Metro. Explore the planned two-day programme and partnership opportunities."
+      content="Build cognitive assistive technology at TechX CogniCraft, a free residential event on 12 and 13 December 2026 at Rajagiri and aboard the Kochi Water Metro."
     />
-    <meta property="og:title" content="TechX CogniCraft 2026 · Kochi" />
+    <meta
+      property="og:title"
+      content="TechX CogniCraft 2026 | 12–13 December, Kochi"
+    />
     <meta
       property="og:description"
-      content="Two days. New possibilities. 12–13 December 2026 · RSET campus + Kochi Water Metro."
+      content="Two days of talks, prototyping and a buildathon afloat. Free residential event at RSET and the Kochi Water Metro."
     />
     <meta property="og:type" content="website" />
     <meta
       property="og:image"
-      content="https://robinfrancis186.github.io/cognicraft/assets/kochi-waterfront.webp"
+      content="https://techxcognicraft.vercel.app/assets/kochi-pixel-harbour.webp"
     />
-    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link
       rel="preload"
-      href="assets/dm-sans-900.ttf"
+      href="assets/jersey-10.ttf"
       as="font"
       type="font/ttf"
       crossorigin
     />
-    <link rel="preload" href="assets/kochi-waterfront.webp" as="image" />
     <link rel="stylesheet" href="styles.css" />
-    <script src="script.js" defer></script>
-    <noscript>
-      <style>
-        .day-tabs {
-          display: none;
+    <script defer src="script.js"></script>
+    <noscript
+      ><style>
+        .campaign [role="tablist"],
+        .menu-toggle,
+        [data-motion-toggle] {
+          display: none !important;
         }
         #day-2[hidden] {
           display: block !important;
         }
-      </style>
-    </noscript>
+        .masthead #navigation {
+          position: static;
+          display: flex;
+          flex-wrap: wrap;
+          border: 0;
+          box-shadow: none;
+        }
+        .masthead .mast-inner {
+          flex-wrap: wrap;
+        }
+      </style></noscript
+    >
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <header class="site-header wrap">
-      <a class="brand" href="#home" aria-label="CogniCraft home"
-        >CogniCraft<span class="brand-spark" aria-hidden="true">✳</span></a
-      >
-      <button
-        class="menu-toggle"
-        aria-expanded="false"
-        aria-controls="navigation"
-      >
-        Menu <span aria-hidden="true">＋</span>
-      </button>
-      <nav id="navigation" aria-label="Main navigation">
-        <a href="#about">The experience</a><a href="#programme">Programme</a
-        ><a href="#partners">Partners</a
-        ><a href="#visit">Find us <span aria-hidden="true">↗</span></a>
-      </nav>
+    <header class="masthead">
+      <div class="container mast-inner">
+        <a class="mast-brand" href="#home" aria-label="CogniCraft home">
+          <svg class="pixel-brand" viewBox="0 0 15 15" aria-hidden="true">
+            <path
+              fill="#d2ec38"
+              d="M0 0h4v3h3v3H4V5H2V3H0zM15 0h-4v3H8v3h3V5h2V3h2zM0 15h4v-3h3V9H4v1H2v2H0zM15 15h-4v-3H8V9h3v1h2v2h2z"
+            />
+            <path fill="#fff" d="M6 6h3v3H6z" />
+          </svg>
+          CogniCraft
+        </a>
+        <button
+          type="button"
+          class="menu-toggle"
+          aria-controls="navigation"
+          aria-expanded="false"
+        >
+          Menu <span aria-hidden="true">☰</span>
+        </button>
+        <nav id="navigation" aria-label="Main navigation">
+          <a href="#about">Experience</a><a href="#programme">Programme</a
+          ><a href="#partners">Partners</a><a href="#visit">Visit</a>
+        </nav>
+        <a class="mast-register" href="https://luma.com/opt4pve5"
+          >Register <span aria-hidden="true">↗</span></a
+        >
+      </div>
     </header>
-    <main id="main">
-      <section class="hero" id="home" aria-labelledby="event-title">
-        <div class="wrap hero-content">
-          <div class="hero-title">
-            <h1 id="event-title">CogniCraft</h1>
-            <svg class="spark" viewBox="0 0 100 100" aria-hidden="true">
-              <path d="M50 2Q51 48 98 50Q51 52 50 98Q49 52 2 50Q49 48 50 2Z" />
-            </svg>
+    <main class="campaign" id="main">
+      <section id="home" class="game-hero" aria-labelledby="event-title">
+        <div class="container">
+          <div class="level-rule">
+            <span>LEVEL 2026</span><i aria-hidden="true"></i
+            ><b>12–13 DECEMBER <em>/</em> KOCHI</b>
           </div>
-          <div class="hero-details">
-            <div>
-              <p class="hero-tagline">
+          <div class="hero-layout">
+            <div class="hero-copy">
+              <h1 id="event-title">
+                <img
+                  class="event-mark"
+                  src="assets/techx-campaign.png"
+                  width="400"
+                  height="157"
+                  alt="IEEE CS SYP TechX"
+                /><span>CogniCraft</span>
+              </h1>
+              <p class="hero-theme">
                 Designing intelligence.<br />Empowering humanity.
               </p>
-              <a class="arrow-link" href="#programme"
-                ><span class="circle-arrow" aria-hidden="true">↗</span>Explore
-                the programme</a
-              >
-            </div>
-            <div class="hero-date">
-              <p>
-                <time datetime="2026-12-12">12</time>-<time
-                  datetime="2026-12-13"
-                  >13 DEC 2026</time
-                >
+              <p class="hero-text">
+                Two days in Kochi building assistive technology for
+                neurodivergent people, from the RSET campus to a buildathon
+                aboard the Water Metro.
               </p>
-              <span>RSET CAMPUS + KOCHI WATER METRO</span
-              ><span class="techx"
-                >A TECHX INNOVATION EXPERIENCE · KOCHI, INDIA</span
+              <div class="hero-actions">
+                <a class="ticket-link" href="https://luma.com/opt4pve5"
+                  >Register on Luma <span aria-hidden="true">↗</span></a
+                ><a class="programme-link" href="#programme"
+                  >See programme <span aria-hidden="true">↓</span></a
+                >
+              </div>
+            </div>
+            <figure class="harbour-window">
+              <div class="window-bar">
+                <span><i aria-hidden="true"></i> KOCHI WATERFRONT</span
+                ><button
+                  id="motion-toggle"
+                  type="button"
+                  data-motion-toggle
+                  aria-pressed="false"
+                >
+                  Pause motion Ⅱ
+                </button>
+              </div>
+              <img
+                class="harbour-art"
+                src="assets/kochi-pixel-harbour.webp"
+                width="1536"
+                height="1024"
+                fetchpriority="high"
+                alt="Pixel art of a Kochi Water Metro ferry passing palm trees and fishing nets, with a laptop on the waterfront."
+              />
+              <figcaption>
+                <span><b>01</b> RSET CAMPUS</span><i aria-hidden="true"></i
+                ><span><b>02</b> WATER METRO</span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="fact-strip">
+          <div class="container fact-inner">
+            <div>
+              <span>EVENT DATES</span
+              ><strong
+                ><time datetime="2026-12-12">12</time>–<time
+                  datetime="2026-12-13"
+                  >13 Dec 2026</time
+                ></strong
               >
             </div>
-          </div>
-        </div>
-        <div
-          class="waterfront"
-          role="img"
-          aria-label="An artistic Kochi waterfront with a cable bridge, palm trees and a floating Water Metro ferry"
-        >
-          <img
-            class="waterfront-scene"
-            src="assets/kochi-waterfront.webp"
-            width="1983"
-            height="793"
-            alt=""
-            fetchpriority="high"
-          />
-          <div class="ferry-route">
-            <div class="ferry-float">
-              <img
-                class="hero-ferry"
-                src="assets/water-metro.webp"
-                width="2030"
-                height="793"
-                alt=""
+            <div><span>LOCATION</span><strong>Kochi, Kerala</strong></div>
+            <div>
+              <span>ADMISSION</span><strong>Free &amp; residential</strong>
+            </div>
+            <div class="power-credit">
+              <span>POWERED BY</span
+              ><img
+                src="assets/manus-fellow-credit.webp"
+                width="402"
+                height="65"
+                alt="Manus Fellow"
               />
-              <div class="ferry-wake"></div>
             </div>
           </div>
-        </div>
-        <div class="hero-bottom">
-          <span>12-13 DECEMBER / KOCHI</span
-          ><a href="#about"
-            >A little curiosity goes a long way
-            <span aria-hidden="true">↓</span></a
-          ><button id="motion-toggle" data-motion-toggle aria-pressed="false">
-            Pause motion <span aria-hidden="true">Ⅱ</span>
-          </button>
         </div>
       </section>
-
       <section
-        class="about section wrap"
         id="about"
+        class="arcade-experience"
         aria-labelledby="about-title"
       >
-        <div class="section-label">
-          <span>01 / THE EXPERIENCE</span
-          ><span>TECHNOLOGY WITH A HUMAN PURPOSE</span>
-        </div>
-        <div class="section-intro">
-          <h2 id="about-title">
-            Big ideas.<br />Real human <span class="blue">impact.</span>
-          </h2>
-          <div class="intro-copy">
-            <p class="lead">
-              What if your next idea made someone’s everyday a little easier?
-            </p>
-            <p>
-              TechX CogniCraft brings students, makers, healthcare professionals
-              and industry minds together to explore cognitive assistive
-              technologies for neurodivergent people. Two days to learn,
-              collaborate and turn empathy into something tangible.
-            </p>
+        <div class="container">
+          <div class="arc-section-top">
+            <span>THE EXPERIENCE</span><span>TWO INNOVATION TRACKS</span>
           </div>
-        </div>
-        <div class="experience-grid">
-          <article class="experience-main">
-            <img
-              class="inclusion-sculpture"
-              src="assets/inclusion-sculpture.svg"
-              width="220"
-              height="170"
-              alt=""
-              aria-hidden="true"
-              loading="lazy"
-            />
-            <div>
-              <span class="small-label">THE COMMON THREAD</span>
-              <h3>Build for a world<br />that includes everyone.</h3>
+          <div class="arc-about-intro">
+            <h2 id="about-title">
+              WHAT IS TECHX<br /><span>COGNICRAFT?</span>
+            </h2>
+            <div class="arc-about-copy">
+              <p class="arc-lead">
+                Because technology should include everyone.
+              </p>
               <p>
-                AI, healthcare, 3D printing and human-centred design meet at the
-                intersection of technology and inclusion.
+                Students, makers and healthcare professionals come together to
+                design tools for neurodivergent people. Choose a software or
+                hardware track, learn from mentors and build a prototype with
+                your team.
               </p>
             </div>
-          </article>
-          <div class="experience-list">
-            <article>
-              <span class="list-number">01</span>
-              <div>
-                <h3>Learn from new perspectives</h3>
-                <p>
-                  Expert talks, honest conversations and a panel on designing
-                  inclusive futures.
-                </p>
+          </div>
+          <div class="arc-track-grid">
+            <article class="arc-track arc-track-software">
+              <div class="arc-track-top">
+                <span>INNOVATION TRACK / 01</span
+                ><span aria-hidden="true">[ SOFTWARE ]</span>
               </div>
-              <span aria-hidden="true">↗</span>
+              <svg
+                class="arc-pixel-art"
+                viewBox="0 0 112 88"
+                fill="none"
+                aria-hidden="true"
+                shape-rendering="crispEdges"
+              >
+                <path
+                  d="M20 8h72v4h4v48h-4v4h8v8h8v8H4v-8h8v-8h8v-4h-4V12h4Z"
+                  fill="var(--ink)"
+                />
+                <path d="M24 16h64v40H24Z" fill="var(--paper)" />
+                <path d="M28 20h56v32H28Z" fill="var(--cobalt)" />
+                <path d="M28 20h56v8H28Z" fill="#A7C3FF" />
+                <path d="M32 24h4v4h-4Zm8 0h4v4h-4Z" fill="var(--ink)" />
+                <path
+                  d="m42 32-8 8 8 8h4v-4h-4v-4h4v-4h-4Zm24 0 8 8-8 8h-4v-4h4v-4h-4v-4h4ZM54 32h4v8h-4v8h-4v-8h4Z"
+                  fill="var(--lime)"
+                />
+                <path d="M24 64h64v4h8v4H16v-4h8Z" fill="#A7C3FF" />
+                <path d="M44 68h24v4H44Z" fill="var(--paper)" />
+                <path d="M12 76h88v4H12Z" fill="var(--paper)" />
+                <path
+                  d="M8 12h4v8H8ZM100 36h4v12h-4ZM32 84h48v4H32Z"
+                  fill="var(--cobalt)"
+                />
+              </svg>
+              <h3>COGNITIVE<br />SOFTWARE</h3>
+              <p>
+                Build digital tools that support cognition, communication and
+                everyday independence. Experiment with adaptive interfaces and
+                cognitive learning tools.
+              </p>
             </article>
-            <article>
-              <span class="list-number">02</span>
-              <div>
-                <h3>Make something that matters</h3>
-                <p>
-                  Hands-on 3D modelling, cognitive software and physical
-                  assistive device tracks.
-                </p>
+            <article class="arc-track arc-track-devices">
+              <div class="arc-track-top">
+                <span>INNOVATION TRACK / 02</span
+                ><span aria-hidden="true">[ HARDWARE ]</span>
               </div>
-              <span aria-hidden="true">↗</span>
-            </article>
-            <article>
-              <span class="list-number">03</span>
-              <div>
-                <h3>Take your ideas afloat</h3>
-                <p>
-                  A signature buildathon and Nano Mentoring aboard the Kochi
-                  Water Metro.
-                </p>
-              </div>
-              <span aria-hidden="true">↗</span>
+              <svg
+                class="arc-pixel-art"
+                viewBox="0 0 112 88"
+                fill="none"
+                aria-hidden="true"
+                shape-rendering="crispEdges"
+              >
+                <path
+                  d="M28 40V16h4v-4h8v4h4V4h4V0h8v4h4v12h4V8h4V4h8v4h4v20h4V16h4v-4h8v4h4v32h-4v12h-4v8h-8v8h-8v12H44V76h-8v-8h-8v-8h-8V48h-4V36h4v-4h8Z"
+                  fill="var(--ink)"
+                />
+                <path
+                  d="M36 20h4v24h8V8h8v36h8V20h4v-8h8v36h8V32h4V20h8v28h-4v12h-8v8h-8v8H44v-8h-8v-8h-8V48h-4V40h4v4h4v4h8v-4h-4Z"
+                  fill="var(--paper)"
+                />
+                <path
+                  d="M32 48h12v8H32ZM48 44h28v8H48ZM44 60h36v8H44ZM48 76h24v8H48Z"
+                  fill="var(--cobalt)"
+                />
+                <path
+                  d="M48 48h8v8h-8Zm16 0h8v8h-8ZM52 64h16v4H52ZM36 28h4v4h-4ZM52 20h4v4h-4ZM72 28h4v4h-4ZM88 36h4v4h-4Z"
+                  fill="var(--lime)"
+                />
+                <path
+                  d="M28 16h4v24h-4ZM44 8h4v32h-4ZM60 20h4v24h-4ZM80 32h4v16h-4Z"
+                  fill="#AAC3FF"
+                />
+                <path d="M8 60h4v12H8ZM100 68h4v8h-4Z" fill="var(--cobalt)" />
+              </svg>
+              <h3>PHYSICAL<br />COGNITIVE DEVICES</h3>
+              <p>
+                Design and 3D-print assistive devices for everyday tasks. Model,
+                print and refine a prototype with your team.
+              </p>
             </article>
           </div>
-        </div>
-        <div class="tracks">
-          <span>TWO WAYS TO MAKE A DIFFERENCE</span>
-          <p>
-            Cognitive software <span aria-hidden="true">↔</span> Physical
-            cognitive devices
-          </p>
         </div>
       </section>
 
       <section
-        class="programme section"
         id="programme"
+        class="arcade-programme"
         aria-labelledby="programme-title"
       >
-        <div class="wrap">
-          <div class="section-label">
-            <span>02 / THE PROGRAMME</span
-            ><span>ON CAMPUS. ON WATER. ONWARDS.</span>
+        <div class="container">
+          <div class="arc-section-top">
+            <span>THE PROGRAMME</span><span>12–13 DECEMBER 2026 / KOCHI</span>
           </div>
-          <div class="section-intro">
-            <h2 id="programme-title">
-              Two days.<br /><span class="mint">New possibilities.</span>
-            </h2>
-            <div class="programme-brand">
-              <img
-                src="assets/techx-blueprint.webp"
-                width="632"
-                height="251"
-                alt="TechX CogniCraft 2026 blueprint wordmark"
-                loading="lazy"
-              />
-              <p class="lead">
-                From a spark of curiosity<br />to a prototype with purpose.
-              </p>
-            </div>
+          <div class="arc-programme-heading">
+            <h2 id="programme-title">ON CAMPUS.<br /><span>ON WATER.</span></h2>
+            <p>
+              Explore the two-day programme.<br /><strong
+                >All times are local to Kochi (IST).</strong
+              >
+            </p>
           </div>
-          <div class="day-tabs" role="tablist" aria-label="Event day">
+          <div class="arc-day-tabs" role="tablist" aria-label="Event day">
             <button
+              type="button"
               id="day-1-tab"
               role="tab"
               aria-selected="true"
               aria-controls="day-1"
               tabindex="0"
             >
-              <span class="day-number">01</span
-              ><span><strong>12 DECEMBER</strong><span>RSET campus</span></span
-              ><span class="day-icon" aria-hidden="true">↗</span>
+              <span class="arc-day-number" aria-hidden="true">01</span
+              ><span
+                ><strong>DAY ONE</strong><span>12 DEC / RSET CAMPUS</span></span
+              ><span class="arc-tab-arrow" aria-hidden="true">↗</span>
             </button>
             <button
+              type="button"
               id="day-2-tab"
               role="tab"
               aria-selected="false"
               aria-controls="day-2"
               tabindex="-1"
             >
-              <span class="day-number">02</span
+              <span class="arc-day-number" aria-hidden="true">02</span
               ><span
-                ><strong>13 DECEMBER</strong
-                ><span>Kochi Water Metro</span></span
-              ><span class="day-icon" aria-hidden="true">≈</span>
+                ><strong>DAY TWO</strong><span>13 DEC / WATER METRO</span></span
+              ><span class="arc-tab-arrow" aria-hidden="true">↗</span>
             </button>
           </div>
           <div
             id="day-1"
+            class="arc-day-panel"
             role="tabpanel"
             aria-labelledby="day-1-tab"
             tabindex="0"
           >
-            <figure class="journey-art">
+            <figure class="arc-journey-art">
               <img
                 src="assets/day-one-campus-3d-v2.webp"
                 width="2172"
@@ -288,57 +344,60 @@
                 loading="lazy"
               />
               <figcaption>
-                <span>On campus, ideas take shape.</span
+                <span>ON CAMPUS, IDEAS TAKE SHAPE.</span
                 ><span>3D EVENT CONCEPT</span>
               </figcaption>
             </figure>
-            <div class="day-intro">
-              <p>Ground your ideas. Expand your thinking.</p>
-              <span>DAY 01 · SATURDAY · ALL TIMES IST</span>
+            <div class="arc-timetable-intro">
+              <h3>ON-CAMPUS PROGRAMME</h3>
+              <span>SATURDAY / ALL TIMES IST</span>
             </div>
-            <div class="schedule">
+            <div class="arc-schedule">
               <article>
-                <time>09:00-10:00</time>
-                <h3>Arrive. Connect. Settle in.</h3>
-                <p>Registration, arrival and campus check-in.</p>
+                <time>09:00–10:00</time>
+                <h4>Campus check-in</h4>
+                <p>
+                  Arrive at Rajagiri, register and check in for the overnight
+                  stay.
+                </p>
               </article>
               <article>
-                <time>10:00-10:50</time>
-                <h3>Let’s begin something good.</h3>
+                <time>10:00–10:50</time>
+                <h4>Opening session</h4>
                 <p>Inauguration and welcome.</p>
               </article>
               <article>
-                <time>10:50-12:50</time>
-                <h3>Put people at the centre.</h3>
+                <time>10:50–12:50</time>
+                <h4>Inclusive innovation keynote</h4>
                 <p>
                   Keynote on inclusive innovation, followed by an expert talk on
                   digital rehabilitation and assistive technology.
                 </p>
               </article>
               <article>
-                <time>12:50-13:50</time>
-                <h3>A table full of possibilities.</h3>
+                <time>12:50–13:50</time>
+                <h4>Networking lunch</h4>
                 <p>Networking lunch with fellow participants.</p>
               </article>
               <article>
-                <time>13:50-15:50</time>
-                <h3>From prototype to possibility.</h3>
+                <time>13:50–15:50</time>
+                <h4>Assistive technology in Kerala</h4>
                 <p>
                   Kerala’s assistive technology ecosystem, plus AI, cloud and
                   responsible innovation.
                 </p>
               </article>
               <article>
-                <time>16:05-18:05</time>
-                <h3>Less theory. More making.</h3>
+                <time>16:05–18:05</time>
+                <h4>3D printing workshop</h4>
                 <p>
                   Hands-on 3D printing and modelling, followed by team formation
                   and track briefing. Tea from 15:50.
                 </p>
               </article>
               <article>
-                <time>18:20-22:20</time>
-                <h3>Good conversations go further.</h3>
+                <time>18:20–22:20</time>
+                <h4>Panel and mentoring</h4>
                 <p>
                   Designing Inclusive Futures panel, dinner, cultural evening,
                   campfire and Nano Mentoring.
@@ -348,12 +407,13 @@
           </div>
           <div
             id="day-2"
+            class="arc-day-panel"
             role="tabpanel"
             aria-labelledby="day-2-tab"
             tabindex="0"
             hidden
           >
-            <figure class="journey-art">
+            <figure class="arc-journey-art">
               <img
                 src="assets/day-two-afloat-3d-v2.webp"
                 width="2172"
@@ -362,277 +422,309 @@
                 loading="lazy"
               />
               <figcaption>
-                <span>On the water, ideas go further.</span
+                <span>ON THE WATER, IDEAS GO FURTHER.</span
                 ><span>3D EVENT CONCEPT</span>
               </figcaption>
             </figure>
-            <div class="day-intro">
-              <p>A new setting. A fresh way to build.</p>
-              <span>DAY 02 · SUNDAY · ALL TIMES IST</span>
+            <div class="arc-timetable-intro">
+              <h3>ALL ABOARD, BRIGHT MINDS.</h3>
+              <span>SUNDAY / ALL TIMES IST</span>
             </div>
-            <div class="schedule">
+            <div class="arc-schedule">
               <article>
-                <time>07:00-09:30</time>
-                <h3>The journey starts here.</h3>
+                <time>07:00–09:30</time>
+                <h4>Breakfast and boarding</h4>
                 <p>
                   Breakfast, campus check-out, bus transfer to the Water Metro
                   terminal and boarding.
                 </p>
               </article>
               <article>
-                <time>09:30-10:30</time>
-                <h3>All aboard, bright minds.</h3>
+                <time>09:30–10:30</time>
+                <h4>Onboard mentoring</h4>
                 <p>Onboard setup and a second round of Nano Mentoring.</p>
               </article>
               <article>
-                <time>10:30-12:30</time>
-                <h3>Ideas in motion.</h3>
+                <time>10:30–12:30</time>
+                <h4>Buildathon, first sprint</h4>
                 <p>Buildathon session one: the core build sprint afloat.</p>
               </article>
               <article>
-                <time>12:30-14:00</time>
-                <h3>Refuel. Rethink. Refine.</h3>
+                <time>12:30–14:00</time>
+                <h4>Mentoring and lunch</h4>
                 <p>Mentorship and lunch on the water.</p>
               </article>
               <article>
-                <time>14:00-15:00</time>
-                <h3>Make the final leap.</h3>
+                <time>14:00–15:00</time>
+                <h4>Buildathon, final sprint</h4>
                 <p>
                   Buildathon session two: final sprint and pitch preparation.
                 </p>
               </article>
               <article>
-                <time>15:00-16:30</time>
-                <h3>Bring your idea ashore.</h3>
+                <time>15:00–16:30</time>
+                <h4>Prototype demos</h4>
                 <p>
                   Disembarkation, transfer to the presentation venue, final
                   pitches and live prototype demos.
                 </p>
               </article>
               <article>
-                <time>16:30-18:00</time>
-                <h3>Celebrate what comes next.</h3>
+                <time>16:30–18:00</time>
+                <h4>Awards and closing</h4>
                 <p>Jury evaluation, awards, closing remarks and departure.</p>
               </article>
             </div>
           </div>
-          <p class="programme-note">
-            <span aria-hidden="true">✳</span> Planned programme. Timings and
-            sessions are subject to organizer confirmation.
+          <p class="arc-programme-note">
+            <span aria-hidden="true">↳</span> Planned programme. Timings and
+            sessions are subject to organiser confirmation.
           </p>
         </div>
       </section>
-
       <section
-        class="partners section wrap"
+        class="cog-partners"
         id="partners"
         aria-labelledby="partners-title"
       >
-        <div class="section-label">
-          <span>03 / BETTER TOGETHER</span><span>LET’S BUILD WHAT’S NEXT</span>
-        </div>
-        <div class="section-intro">
-          <h2 id="partners-title">
-            Good things<br />happen <span class="blue">together.</span>
-          </h2>
-          <div class="intro-copy">
-            <p class="lead">A shared belief in a more inclusive tomorrow.</p>
+        <div class="container">
+          <div class="cog-section-marker">
+            <span>OUR PARTNERS</span><span>TECHX COGNICRAFT 2026</span>
+          </div>
+          <div class="cog-lower-heading">
+            <h2 id="partners-title">
+              THE PEOPLE<br /><mark>BEHIND COGNICRAFT.</mark>
+            </h2>
+          </div>
+          <div
+            class="cog-credits"
+            id="partner-logos"
+            aria-label="Organisations featured on the CogniCraft event poster"
+          >
+            <div class="cog-credit cog-credit-syp">
+              <img
+                src="assets/ieee-cs-syp-activities.webp"
+                width="208"
+                height="52"
+                alt="IEEE Computer Society SYP Activities"
+                loading="lazy"
+              />
+            </div>
+            <div class="cog-credit cog-credit-atii">
+              <img
+                src="assets/ieee-kerala-atii.jpg"
+                width="1280"
+                height="360"
+                alt="IEEE Kerala Assistive Technology and Inclusive Innovation Group"
+                loading="lazy"
+              />
+            </div>
+            <div class="cog-credit cog-credit-foss">
+              <img
+                src="assets/foss-united.svg"
+                width="144"
+                height="113"
+                alt="FOSS United"
+                loading="lazy"
+              />
+            </div>
+            <div class="cog-credit cog-credit-sps">
+              <img
+                src="assets/ieee-sps.png"
+                width="1531"
+                height="959"
+                alt="IEEE Signal Processing Society"
+                loading="lazy"
+              />
+            </div>
+            <div class="cog-credit cog-credit-ieee">
+              <img
+                src="assets/ieee-official-poster.webp"
+                width="162"
+                height="53"
+                alt="IEEE"
+                loading="lazy"
+              />
+            </div>
+          </div>
+          <div class="cog-credit-notes">
+            <div>
+              <span>THE TECHX EXPERIENCE</span>
+              <div class="techx-credit-crop"><img
+                src="assets/ieee-cs-techx.png"
+                width="345"
+                height="257"
+                alt="IEEE Computer Society TechX"
+                loading="lazy"
+              /></div>
+            </div>
+            <div class="cog-powered">
+              <span>POWERED BY</span
+              ><img
+                src="assets/manus-fellow-credit.webp"
+                width="402"
+                height="65"
+                alt="Manus | fellow"
+                loading="lazy"
+              />
+            </div>
+            <div>
+              <span>IN COLLABORATION WITH</span
+              ><img
+                src="assets/rset-official.png"
+                width="205"
+                height="116"
+                alt="Rajagiri School of Engineering and Technology, autonomous"
+                loading="lazy"
+              />
+            </div>
+          </div>
+          <div class="cog-sponsor-intro">
+            <h3>PARTNER WITH <span>COGNICRAFT.</span></h3>
             <p>
-              Connect with a community turning purposeful ideas into real-world
-              possibilities. We welcome organisations who want to be part of the
-              journey.
+              Support the workshops, prototypes and mentoring that make this
+              free event possible.
             </p>
           </div>
-        </div>
-        <h3 class="rule-label">THE PEOPLE BRINGING IT TO LIFE</h3>
-        <div class="organizer-grid">
-          <div class="organizer-logo organizer-logo-cs">
-            <img
-              src="assets/ieee-cs-techx.png"
-              width="345"
-              height="257"
-              alt="IEEE Computer Society TechX"
-              loading="lazy"
-            />
+          <div class="cog-sponsor-levels" aria-label="Sponsorship levels">
+            <div><span>TITLE</span><strong>₹1,50,000</strong></div>
+            <div><span>PLATINUM</span><strong>₹1,00,000</strong></div>
+            <div><span>GOLD</span><strong>₹75,000</strong></div>
+            <div><span>SILVER</span><strong>₹50,000</strong></div>
           </div>
-          <div class="organizer-logo organizer-logo-atii">
-            <img
-              src="assets/ieee-kerala-atii.jpg"
-              width="1280"
-              height="360"
-              alt="IEEE Kerala Assistive Technology and Inclusive Innovation Group"
-              loading="lazy"
-            />
+          <div class="cog-partner-cta">
+            <p>Custom collaborations &amp; in-kind partnerships are welcome.</p>
+            <a
+              href="mailto:robinfrancis186@ieee.org?subject=CogniCraft%202026%20Partnership"
+              >LET’S COLLABORATE <span aria-hidden="true">↗</span></a
+            >
           </div>
-          <div class="organizer-logo organizer-logo-rset">
-            <img
-              src="assets/rset-official.png"
-              width="205"
-              height="116"
-              alt="Rajagiri School of Engineering and Technology (RSET)"
-              loading="lazy"
-            />
-          </div>
-          <div class="organizer-logo organizer-logo-foss">
-            <img
-              src="assets/foss-united.svg"
-              width="144"
-              height="113"
-              alt="FOSS United"
-              loading="lazy"
-            />
-          </div>
-          <div class="organizer-logo organizer-logo-sps">
-            <img
-              src="assets/ieee-sps.png"
-              width="1531"
-              height="959"
-              alt="IEEE Signal Processing Society (SPS)"
-              loading="lazy"
-            />
-          </div>
-        </div>
-        <h3 class="rule-label">OUR PARTNER COMMUNITY</h3>
-        <!-- Add confirmed partner logo images with descriptive alt text inside this grid. -->
-        <div class="partner-logos" id="partner-logos">
-          <a class="partner-invitation" href="#contact"
-            ><span class="partner-star" aria-hidden="true">✳</span
-            ><span
-              ><strong>Your organisation. <br />Our next chapter.</strong
-              ><span>Partner announcements are on the way.</span></span
-            ><span class="circle-arrow" aria-hidden="true">↗</span></a
-          >
-        </div>
-        <div class="sponsor-heading">
-          <h3>Find your place in the story.</h3>
-          <p>
-            Support purposeful innovation. Let’s find the right partnership for
-            you.
-          </p>
-        </div>
-        <div class="sponsorships">
-          <div><span>TITLE</span><strong>₹1,50,000</strong></div>
-          <div><span>PLATINUM</span><strong>₹1,00,000</strong></div>
-          <div><span>GOLD</span><strong>₹75,000</strong></div>
-          <div><span>SILVER</span><strong>₹50,000</strong></div>
-        </div>
-        <div class="partner-bottom">
-          <p>Custom collaborations &amp; in-kind partnerships are welcome.</p>
-          <a
-            class="arrow-link"
-            href="mailto:robinfrancis186@ieee.org?subject=CogniCraft%202026%20Partnership"
-            ><span class="circle-arrow" aria-hidden="true">↗</span>Become a
-            partner</a
-          >
         </div>
       </section>
 
-      <section class="visit section" id="visit" aria-labelledby="visit-title">
-        <div class="wrap">
-          <div class="section-label">
-            <span>04 / THE DESTINATION</span><span>KOCHI, KERALA · INDIA</span>
+      <section class="cog-visit" id="visit" aria-labelledby="visit-title">
+        <div class="container">
+          <div class="cog-section-marker">
+            <span>THE VENUES</span><span>KOCHI, KERALA · INDIA</span>
           </div>
-          <div class="section-intro">
-            <h2 id="visit-title">
-              A change of scene.<br /><span class="blue"
-                >A world of ideas.</span
-              >
-            </h2>
-            <p class="lead">
-              One city. Two extraordinary settings.<br />And a whole new
-              perspective.
-            </p>
+          <div class="cog-host-heading">
+            <h2 id="visit-title">MEET OUR <mark>HOST.</mark></h2>
+            <p>Rajagiri School of Engineering<br />and Technology</p>
           </div>
-          <figure class="venue-art">
+          <figure class="cog-campus">
             <img
-              src="assets/kochi-paper-cut.webp"
-              width="1122"
-              height="474"
-              alt="Paper-cut illustration of Kochi’s palms, fishing nets and a Water Metro ferry in layered teal waves"
+              src="assets/rset-campus-poster.webp"
+              width="1080"
+              height="497"
+              alt="The Rajagiri School of Engineering and Technology campus in Kochi, pictured in the event’s host announcement"
               loading="lazy"
             />
-            <svg
-              class="paper-waves"
-              viewBox="0 0 1200 120"
-              preserveAspectRatio="none"
-              aria-hidden="true"
-            >
-              <path
-                class="wave-back"
-                d="M-80 75Q100 5 280 65T640 65T1000 50T1280 55V140H-80Z"
-              />
-              <path
-                class="wave-front"
-                d="M-80 95Q100 40 280 90T640 85T1000 80T1280 85V140H-80Z"
-              />
-            </svg>
-          </figure>
-          <div class="venues">
-            <article>
-              <span class="venue-day">DAY 01 / 12 DEC</span>
-              <h3>Rooted in learning.</h3>
-              <p>Rajagiri School of Engineering<br />&amp; Technology (RSET)</p>
-              <span class="venue-address">Kakkanad, Kochi, Kerala</span
+            <figcaption>
+              <span>DAY 01 / 12 DECEMBER 2026</span
               ><a
                 href="https://www.google.com/maps/search/?api=1&amp;query=Rajagiri+School+of+Engineering+and+Technology+Kochi"
                 target="_blank"
                 rel="noopener noreferrer"
-                >Find the campus <span aria-hidden="true">↗</span></a
+                >FIND THE CAMPUS <span aria-hidden="true">↗</span></a
               >
+            </figcaption>
+          </figure>
+          <div class="cog-venue-route">
+            <article>
+              <span class="cog-venue-number">01</span>
+              <div>
+                <span class="cog-venue-label">LEARN / DESIGN / CONNECT</span>
+                <h3>RSET CAMPUS</h3>
+                <p>
+                  Rajagiri School of Engineering &amp; Technology<br />Kakkanad,
+                  Kochi, Kerala
+                </p>
+              </div>
             </article>
-            <article class="water-venue">
-              <span class="venue-day">DAY 02 / 13 DEC</span>
-              <h3>Inspired by the water.</h3>
-              <p>Kochi Water Metro<br />Buildathon afloat</p>
-              <span class="venue-address"
-                >Boarding terminal and route to be announced.</span
-              ><a href="#contact"
-                >Ask about the journey <span aria-hidden="true">↗</span></a
-              >
+            <span class="cog-route-arrow" aria-hidden="true">→</span>
+            <article>
+              <span class="cog-venue-number">02</span>
+              <div>
+                <span class="cog-venue-label"
+                  >BUILD / EXPERIMENT / SHOWCASE</span
+                >
+                <h3>KOCHI WATER METRO</h3>
+                <p>
+                  A buildathon afloat on 13 December.<br />Boarding terminal and
+                  route to be announced.
+                </p>
+              </div>
             </article>
           </div>
-          <div class="faq">
-            <h3>A few things<br />you might be wondering.</h3>
-            <div>
-              <details>
-                <summary>Who is CogniCraft for?</summary>
-                <p>
-                  Engineering students, makers, healthcare professionals,
-                  industry experts and young professionals interested in
-                  cognitive assistive technologies and inclusive innovation.
-                </p>
-              </details>
+          <div class="cog-faq">
+            <div class="cog-faq-heading">
+              <span>ATTENDEE INFORMATION</span>
+              <h3>BEFORE YOU ARRIVE.</h3>
+              <a
+                href="https://luma.com/opt4pve5"
+                target="_blank"
+                rel="noopener noreferrer"
+                >REQUEST TO JOIN ON LUMA <span aria-hidden="true">↗</span></a
+              >
+              <p>Registration is subject to host approval.</p>
+            </div>
+            <div class="cog-faq-items">
               <details>
                 <summary>How do I register?</summary>
                 <p>
-                  CogniCraft is a free event. Registrations are not open yet.
-                  Once registration opens, you will be able to register here on
-                  this website.
+                  Visit the
+                  <a
+                    href="https://luma.com/opt4pve5"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Manus Fellow Event | Water Metro Edition page on Luma</a
+                  >
+                  and request to join. Registration is open and requires host
+                  approval.
                 </p>
               </details>
               <details>
-                <summary>Is this a residential event?</summary>
+                <summary>Who is CogniCraft for?</summary>
                 <p>
-                  Yes. CogniCraft is a residential event with one night's stay
-                  at Rajagiri. The organising team coordinates and manages all
-                  facilities, and transport to the Kochi Water Metro is
-                  arranged.
+                  Students, developers, makers, designers, healthcare
+                  professionals, founders and creators interested in inclusive
+                  innovation, cognitive assistive technologies and building with
+                  AI.
                 </p>
               </details>
               <details>
-                <summary>Where will the Water Metro journey begin?</summary>
+                <summary>Is the event free and residential?</summary>
+                <p>
+                  Yes. CogniCraft is a free, two-day residential event with one
+                  night at Rajagiri. The organising team coordinates the stay
+                  and arranges transport to the Kochi Water Metro.
+                </p>
+              </details>
+              <details>
+                <summary>What should I bring?</summary>
+                <p>
+                  Bring your laptop, charger and ideas to build on. You can take
+                  part even if you have never used Manus.
+                </p>
+              </details>
+              <details>
+                <summary>Where does the Water Metro journey begin?</summary>
                 <p>
                   The boarding terminal, route and final presentation venue will
-                  be announced. Transport from Rajagiri to the Kochi Water Metro
-                  is arranged by the organising team.
+                  be announced by the organisers. Transport from Rajagiri to the
+                  Kochi Water Metro is arranged.
                 </p>
               </details>
               <details>
                 <summary>Can my organisation collaborate?</summary>
                 <p>
-                  Yes. Sponsorship, custom and in-kind partnership enquiries are
-                  welcome. Contact Robin Francis to discuss the available
-                  opportunities and agreed benefits.
+                  Yes. Sponsorship, custom collaborations and in-kind
+                  partnerships are welcome.
+                  <a
+                    href="mailto:robinfrancis186@ieee.org?subject=CogniCraft%202026%20Partnership"
+                    >Contact Robin Francis</a
+                  >
+                  to discuss opportunities and agreed benefits.
                 </p>
               </details>
             </div>

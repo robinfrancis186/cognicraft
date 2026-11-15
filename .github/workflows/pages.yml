@@ -35,7 +35,7 @@ jobs:
             --include='*.jpg' --include='*.jpeg' --include='*.webp' \
             --include='*.avif' --include='*.gif' --include='*.ico' \
             --include='*.woff' --include='*.woff2' --include='*.ttf' \
-            --include='FONT-LICENSE.txt' \
+            --include='FONT-*LICENSE.txt' \
             --include='*.mp4' --include='*.webm' --include='*.ics' \
             --exclude='*' assets/ _site/assets/
       - name: Upload website

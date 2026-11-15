@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { mkdir } from "node:fs/promises";
+import { mkdir, readFile } from "node:fs/promises";
 import { pathToFileURL } from "node:url";
 
 const playwrightModule = process.env.PLAYWRIGHT_MODULE;
@@ -23,14 +23,10 @@ try {
   assert.equal(response.status(), 200, "Homepage should load");
   assert.match(await page.title(), /CogniCraft/i);
   assert.equal(await page.locator("h1").count(), 1, "Use one main heading");
+  assert.match(await page.locator("h1").innerText(), /CogniCraft/i, "Poster hero should identify the event");
   assert.match(
     await page.locator("body").innerText(),
     /12.*13.*December|12.*December.*13.*December/is,
-  );
-  assert.equal(
-    await page.locator(".scene-caption, .collaborators").count(),
-    0,
-    "Removed caption and collaborator strip should stay absent",
   );
   assert.doesNotMatch(
     await page.locator("body").innerText(),
@@ -42,27 +38,26 @@ try {
     false,
     "Site copy should not contain em dashes",
   );
-  assert.equal(
-    await page
-      .locator(".experience-main .diagram-core, .experience-main .orbit")
-      .count(),
-    0,
-    "Experience section should use the new sculpture artwork",
-  );
-  const sculpture = page.locator(
-    '.experience-main img[src="assets/inclusion-sculpture.svg"]',
-  );
-  assert.equal(
-    await sculpture.count(),
-    1,
-    "Experience section should show the inclusion sculpture",
-  );
-  await sculpture.scrollIntoViewIfNeeded();
-  await sculpture.evaluate((image) => image.decode());
-  assert.ok(
-    await sculpture.evaluate((image) => image.naturalWidth > 0),
-    "Inclusion sculpture should load",
-  );
+  const harbour = page.locator(".harbour-window img.harbour-art");
+  assert.equal(await harbour.getAttribute("src"), "assets/kochi-pixel-harbour.webp");
+  await harbour.evaluate((image) => image.decode());
+  assert.ok(await harbour.evaluate((image) => image.naturalWidth > 0), "Pixel harbour should decode in the hero frame");
+  const tracks = page.locator(".arc-track-grid article");
+  assert.equal(await tracks.count(), 2, "Experience should offer two innovation tracks");
+  assert.match(await tracks.nth(0).getByRole("heading").innerText(), /COGNITIVE\s+SOFTWARE/);
+  assert.match(await tracks.nth(1).getByRole("heading").innerText(), /PHYSICAL\s+COGNITIVE DEVICES/);
+  assert.equal(await page.locator(".hero-actions .ticket-link").getAttribute("href"), "https://luma.com/opt4pve5", "Primary registration CTA should open the event on Luma");
+  assert.ok(await page.locator('a[href="https://luma.com/opt4pve5"]').count() >= 3, "Registration should be available from the header, hero and attendee information");
+  assert.match(await page.locator(".fact-strip").innerText(), /Free\s*&\s*residential/i);
+  await page.locator("#partners").scrollIntoViewIfNeeded();
+  for (const file of ["ieee-cs-syp-activities.webp", "ieee-kerala-atii.jpg", "foss-united.svg", "ieee-sps.png", "ieee-official-poster.webp", "ieee-cs-techx.png", "manus-fellow-credit.webp", "rset-official.png"]) {
+    const logo = page.locator(`#partners img[src="assets/${file}"]`);
+    assert.equal(await logo.count(), 1, `Partner credits should include ${file}`);
+    assert.ok((await logo.getAttribute("alt"))?.trim(), `Partner logo ${file} needs an accessible label`);
+    await logo.scrollIntoViewIfNeeded();
+    await logo.evaluate((image) => image.decode());
+    assert.ok(await logo.evaluate((image) => image.naturalWidth > 0), `Partner logo ${file} should decode`);
+  }
 
   const links = await page
     .locator("a[href], img[src], script[src], link[href]")
@@ -122,18 +117,6 @@ try {
     "Eager images should render",
   );
 
-  const reveals = page.locator(".reveal");
-  assert.ok(await reveals.count(), "Page should include scroll reveals");
-  for (const reveal of await reveals.all()) {
-    if (!(await reveal.isVisible())) continue;
-    await reveal.evaluate((element) =>
-      element.scrollIntoView({ block: "center", behavior: "instant" }),
-    );
-    await page.waitForFunction(
-      (element) => Number(getComputedStyle(element).opacity) >= 0.99,
-      await reveal.elementHandle(),
-    );
-  }
   await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
 
   const motion = page.locator("#motion-toggle");
@@ -183,10 +166,10 @@ try {
       "Selected day should be visible",
     );
     assert.ok(
-      await page.locator(`[id="${panelId}"] .journey-art`).isVisible(),
+      await page.locator(`[id="${panelId}"] .arc-journey-art`).isVisible(),
       "Selected day should show its journey artwork",
     );
-    const artwork = page.locator(`[id="${panelId}"] .journey-art img`);
+    const artwork = page.locator(`[id="${panelId}"] .arc-journey-art img`);
     assert.match(
       await artwork.getAttribute("src"),
       /-3d-v2\.webp$/,
@@ -332,7 +315,7 @@ try {
   await noScript.goto(site.href, { waitUntil: "networkidle" });
   assert.deepEqual(
     await noScript
-      .locator("main h2, main h3, .journey-art")
+      .locator("main h2, main h3, main h4, .arc-journey-art")
       .evaluateAll((elements) =>
         elements
           .filter(
@@ -345,7 +328,7 @@ try {
           .map((element) => element.id || element.textContent.trim()),
       ),
     [],
-    "Scroll-reveal content should remain visible without JavaScript",
+    "Event content should remain visible without JavaScript",
   );
   assert.ok(
     await noScript.locator("#day-1").isVisible(),
@@ -417,6 +400,41 @@ try {
       voyage.positions[2].left >= voyage.scene.right - 1,
       `Footer ferry should finish fully off-right at ${width}px`,
     );
+    if (process.env.FOOTER_BASELINE_DIR) {
+      await footerPage.evaluate(() => document.fonts.ready);
+      await footerPage.locator("footer img").evaluateAll((images) => Promise.all(images.map((image) => image.decode())));
+      await footerPage.locator(".footer-ferry-route").evaluate((route) => {
+        for (const animation of route.getAnimations({ subtree: true })) {
+          animation.pause();
+          animation.currentTime = animation.effect.target === route ? Number(animation.effect.getTiming().duration) * 0.75 : 0;
+        }
+      });
+      const baseline = JSON.parse(await readFile(`${process.env.FOOTER_BASELINE_DIR}/${width}.json`, "utf8"));
+      const layout = await footerPage.locator("footer").evaluate((footer) => {
+        const top = footer.getBoundingClientRect().top;
+        const properties = ["fontFamily", "fontSize", "fontWeight", "lineHeight", "letterSpacing", "color", "backgroundColor", "display", "position", "paddingTop", "paddingRight", "paddingBottom", "paddingLeft", "gap", "borderTopWidth", "borderTopColor", "transform"];
+        return [footer, ...footer.querySelectorAll("*")].map((element) => {
+          const rect = element.getBoundingClientRect();
+          const style = getComputedStyle(element);
+          return {
+            tag: element.tagName,
+            class: element.className.baseVal ?? element.className,
+            text: element.children.length ? undefined : element.textContent.trim(),
+            rect: [rect.x, rect.y - top, rect.width, rect.height].map((value) => Math.round(value * 100) / 100),
+            style: Object.fromEntries(properties.map((property) => [property, style[property]])),
+          };
+        });
+      });
+      assert.equal(layout.length, baseline.length, `Footer structure should match HEAD at ${width}px`);
+      for (let index = 0; index < layout.length; index++) {
+        const current = layout[index];
+        const expected = baseline[index];
+        const label = `Footer ${current.class || current.tag} at ${width}px`;
+        assert.deepEqual([current.tag, current.class, current.text], [expected.tag, expected.class, expected.text], `${label} markup should match HEAD`);
+        assert.deepEqual(current.style, expected.style, `${label} computed styles should match HEAD`);
+        assert.ok(current.rect.every((value, axis) => Math.abs(value - expected.rect[axis]) <= 0.05), `${label} box should match HEAD: ${current.rect} vs ${expected.rect}`);
+      }
+    }
   }
   await footerPage.reload({ waitUntil: "networkidle" });
   await footerMotion.click();
@@ -429,6 +447,7 @@ try {
   const pausedVoyage = await footerPage
     .locator(".footer-ferry-route")
     .evaluate(async (route) => {
+      await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
       const before = route
         .querySelector(".footer-ferry")
         .getBoundingClientRect()
@@ -493,9 +512,9 @@ try {
       await footerPage.locator(".footer-ferry-route").evaluate((route) => {
         for (const animation of route.getAnimations({ subtree: true })) {
           animation.pause();
-          if (animation.effect.target === route)
-            animation.currentTime =
-              Number(animation.effect.getTiming().duration) * 0.75;
+          animation.currentTime = animation.effect.target === route
+            ? Number(animation.effect.getTiming().duration) * 0.75
+            : 0;
         }
       });
       await footerPage
@@ -523,8 +542,10 @@ try {
     });
     for (const [name, selector] of Object.entries({
       hero: "#home",
+      tracks: "#about",
       programme: "#programme",
       partners: "#partners",
+      visit: "#visit",
       footer: "footer",
     })) {
       if (name === "hero") await page.evaluate(() => window.scrollTo(0, 0));
@@ -538,7 +559,7 @@ try {
         path: `${process.env.SCREENSHOT_DIR}/${name}.png`,
       });
     }
-    await page.locator(".experience-main").screenshot({ path: `${process.env.SCREENSHOT_DIR}/experience-card.png` });
+    await page.locator(".arc-track-grid").screenshot({ path: `${process.env.SCREENSHOT_DIR}/innovation-tracks.png` });
     for (const [device, width, height] of [["desktop", 1440, 1100], ["mobile", 390, 844]]) {
       await page.setViewportSize({ width, height });
       for (let day = 0; day < 2; day++) {
@@ -549,7 +570,7 @@ try {
     }
   }
   console.log(
-    "PASS: content, local assets and fonts, anchors, reveals, no-JS fallback, day tabs and artwork, FAQ, mobile menu, responsive widths, footer voyage, pause/resume, reduced motion, browser errors",
+    "PASS: poster hero, tracks, registration, partner logos, assets and fonts, anchors, no-JS fallback, day tabs and artwork, FAQ, mobile menu, responsive widths, footer preservation and voyage, pause/resume, reduced motion, browser errors",
   );
 } finally {
   await browser.close();
