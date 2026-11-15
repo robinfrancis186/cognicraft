@@ -7,21 +7,22 @@
     <title>IEEE CS SYP TechX CogniCraft 2026 | Kochi</title>
     <meta
       name="description"
-      content="Build cognitive assistive technology at TechX CogniCraft, a free residential event on 12 and 13 December 2026 at Rajagiri and aboard the Kochi Water Metro."
+      content="Build your own cognitive assistive technology project at TechX CogniCraft, a free residential solo hackathon on 12 and 13 December 2026 at Rajagiri and aboard the Kochi Water Metro."
     />
     <meta
       property="og:title"
-      content="TechX CogniCraft 2026 | 12–13 December, Kochi"
+      content="TechX CogniCraft 2026 | 12-13 December, Kochi"
     />
     <meta
       property="og:description"
-      content="Two days of talks, prototyping and a buildathon afloat. Free residential event at RSET and the Kochi Water Metro."
+      content="A solo hackathon with talks, mentoring and a build sprint afloat. Free residential event at RSET and the Kochi Water Metro."
     />
     <meta property="og:type" content="website" />
     <meta
       property="og:image"
-      content="https://techxcognicraft.vercel.app/assets/kochi-harbour-preview.png"
+      content="https://techxcognicraft.vercel.app/assets/kochi-harbour-preview.jpg"
     />
+    <link rel="preload" as="image" href="assets/kochi-engraved-harbour.webp" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link
       rel="preload"
@@ -91,7 +92,7 @@
         <div class="container">
           <div class="level-rule">
             <span>LEVEL 2026</span><i aria-hidden="true"></i
-            ><b>12–13 DECEMBER <em>/</em> KOCHI</b>
+            ><b>12-13 DECEMBER <em>/</em> KOCHI</b>
           </div>
           <div class="hero-layout">
             <div class="hero-copy">
@@ -108,9 +109,9 @@
                 Designing intelligence.<br />Empowering humanity.
               </p>
               <p class="hero-text">
-                Two days in Kochi building assistive technology for
-                neurodivergent people, from the RSET campus to a buildathon
-                aboard the Water Metro.
+                A solo hackathon in Kochi. Build your own assistive technology
+                project for neurodivergent people, from the RSET campus to a
+                build sprint aboard the Water Metro.
               </p>
               <div class="hero-actions">
                 <a class="ticket-link" href="https://luma.com/opt4pve5"
@@ -144,399 +145,80 @@
                   A Water Metro voyage through Kochi
                 </title>
                 <desc id="harbour-description">
-                  An original pen illustration of a modern Water Metro catamaran
-                  sailing across Kochi harbour, past Chinese fishing nets, palms
-                  and a colonial waterfront.
+                  An original illustrated Kochi waterfront with Chinese fishing
+                  nets and palms, and a modern Water Metro catamaran sailing
+                  across the harbour in the foreground.
                 </desc>
                 <defs>
-                  <pattern
-                    id="harbour-hatch"
-                    width="7"
-                    height="7"
-                    patternUnits="userSpaceOnUse"
-                    patternTransform="rotate(30)"
-                  >
+                  <clipPath id="harbour-reflection-bands">
                     <path
-                      d="M0 0v7"
-                      stroke="#234cf5"
-                      stroke-width="1"
-                      opacity=".25"
+                      d="M0 118q140 2 340 0v2q-165 3-340 0zm0 8q160-2 350 1v3q-175-2-350 1zm10 10q145 4 330 1v4q-180 3-330-2zm8 10q150-1 315 2v4q-165-3-315 1zm32 13q126 2 258 0v3q-135 3-258 0zm20 11q104-2 220 1v2q-118-1-220 0z"
                     />
-                  </pattern>
-                  <pattern
-                    id="harbour-net"
-                    width="12"
-                    height="12"
-                    patternUnits="userSpaceOnUse"
-                    patternTransform="rotate(18)"
-                  >
-                    <path
-                      d="M0 0h12v12"
-                      fill="none"
-                      stroke="#142447"
-                      stroke-width=".8"
-                      opacity=".45"
-                    />
-                  </pattern>
-                  <g
-                    id="harbour-palm"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path
-                      d="M0 96C2 67 9 37 18 12M6 96c0-28 7-60 12-84M18 12C7-6-13-10-28-2-11-4 7 3 18 12ZM18 12C13-10 20-22 31-28c-8 16-11 25-13 40ZM18 12C34-8 52-7 64 2 46-2 31 4 18 12ZM18 12C44 10 55 20 58 33 44 22 31 17 18 12ZM18 12C30 28 29 42 21 51c2-19 0-29-3-39ZM18 12C-4 13-17 25-19 37-5 22 6 16 18 12Z"
-                    />
-                    <path
-                      d="m15 24 5 2m-8 8 5 2m-7 9 5 2m-8 10 5 2m-8 10 5 2m-7 10 5 2m-7 10 5 2"
-                      opacity=".55"
-                    />
-                  </g>
-                  <g id="harbour-arch" fill="none">
-                    <path d="M0 15V5a5 5 0 0 1 10 0v10ZM5 0v15M0 7h10" />
-                  </g>
-                  <g id="harbour-window" fill="none">
-                    <path d="M0 0h8v12H0ZM4 0v12M0 6h8" />
-                  </g>
+                  </clipPath>
+                  <image
+                    id="harbour-vessel"
+                    href="assets/kochi-engraved-water-metro.webp"
+                    x="6"
+                    y="31"
+                    width="330"
+                    height="109.56"
+                  />
                 </defs>
                 <path fill="#f5f0e4" d="M0 0h780v490H0Z" />
+                <image
+                  class="harbour-engraved-background"
+                  href="assets/kochi-engraved-harbour.webp"
+                  x="0"
+                  y="0"
+                  width="780"
+                  height="490"
+                  preserveAspectRatio="xMidYMid slice"
+                />
                 <g
-                  class="harbour-sky"
+                  class="harbour-ripple harbour-light"
                   fill="none"
-                  stroke="#234cf5"
-                  stroke-width="1.8"
+                  stroke="#fff7dc"
                   stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <circle
-                    cx="650"
-                    cy="83"
-                    r="37"
-                    fill="#f39a51"
-                    stroke="#142447"
-                    stroke-width="2.4"
-                  />
-                  <path
-                    d="M589 108h97m-82 7h65m-49 7h37"
-                    stroke="#f5f0e4"
-                    stroke-width="3"
-                  />
-                  <path
-                    d="M283 81h76m-59-7h40m144-25h67m-53-7h35M69 45h53m-40-7h28M736 144h42"
-                    opacity=".42"
-                  />
-                  <path
-                    d="M382 80q10-10 18 1 8-13 20-11m107 53q9-8 16 1 7-11 17-8M166 68q8-7 14 1 6-9 14-8"
-                    stroke="#142447"
-                    stroke-width="2.3"
-                  />
-                </g>
-                <g
-                  class="harbour-distant-shore"
-                  stroke="#234cf5"
-                  stroke-width="1.7"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  stroke-width="2.1"
+                  opacity=".48"
                 >
                   <path
-                    d="M205 226c37-8 49-2 72-10 23-5 41 2 65-3 52-9 77 0 109-8 41-7 70 5 109-1 49-6 66 7 98 3 49-5 83 3 122 5v30H205Z"
-                    fill="#dbe2f0"
-                    stroke="none"
-                  />
-                  <g fill="#f5f0e4">
-                    <path
-                      d="M293 226v-55l32-13 31 13v55m-67-55h71m-66 5h61m-29-18v-8m-3 3h6M356 226v-49l23-17 24 17v49m-50-49h53m-47 5h40M401 226v-34l30-14 28 14v34m-61-34h64m-57 6h49"
-                    />
-                    <path
-                      d="M466 226v-65h13v-27l9-16 9 16v92m-20-92h22m-21 17h20m-12-33v-12m-4 6h8M499 226v-46l20-21 21 21v46m-44-46h47m-39 11h31m-17-30v-14m-4 6h8M541 226v-65h13v-26l9-18 9 18v91m-20-91h22m-21 16h19m-10-33v-13m-4 6h8M574 226v-44l25-11 28 11v44m-56-44h59m-52 6h45"
-                    />
-                    <path
-                      d="M635 226v-36l25-15 26 15v36m-54-36h57m-50 6h43M692 226v-43h31v43m-34-43h37m-32 6h27M729 226v-29l23-10 28 10v29m-54-29h54"
-                    />
-                  </g>
-                  <path
-                    d="M286 226h494m-494 6h494"
-                    fill="none"
-                    stroke-width="2.1"
-                  />
-                  <use href="#harbour-arch" transform="translate(305 184)" />
-                  <use href="#harbour-arch" transform="translate(325 184)" />
-                  <use
-                    href="#harbour-arch"
-                    transform="translate(305 208) scale(1 .9)"
-                  />
-                  <use
-                    href="#harbour-arch"
-                    transform="translate(325 208) scale(1 .9)"
-                  />
-                  <use href="#harbour-window" transform="translate(367 190)" />
-                  <use href="#harbour-window" transform="translate(385 190)" />
-                  <use href="#harbour-window" transform="translate(367 211)" />
-                  <use href="#harbour-window" transform="translate(385 211)" />
-                  <use href="#harbour-arch" transform="translate(411 205)" />
-                  <use href="#harbour-arch" transform="translate(430 205)" />
-                  <use
-                    href="#harbour-arch"
-                    transform="translate(479 163) scale(.8 1.1)"
-                  />
-                  <use
-                    href="#harbour-arch"
-                    transform="translate(479 191) scale(.8 1.1)"
-                  />
-                  <use href="#harbour-arch" transform="translate(512 193)" />
-                  <use href="#harbour-arch" transform="translate(512 211)" />
-                  <use
-                    href="#harbour-arch"
-                    transform="translate(553 165) scale(.8 1.1)"
-                  />
-                  <use
-                    href="#harbour-arch"
-                    transform="translate(553 192) scale(.8 1.1)"
-                  />
-                  <use href="#harbour-window" transform="translate(584 200)" />
-                  <use href="#harbour-window" transform="translate(604 200)" />
-                  <use href="#harbour-arch" transform="translate(645 204)" />
-                  <use href="#harbour-arch" transform="translate(663 204)" />
-                  <use href="#harbour-window" transform="translate(701 196)" />
-                  <use href="#harbour-window" transform="translate(713 196)" />
-                  <use href="#harbour-window" transform="translate(741 208)" />
-                  <use href="#harbour-window" transform="translate(760 208)" />
-                  <path
-                    d="M296 177h58v5h-58Zm62 6h42v5h-42ZM402 198h55v5h-55Zm174-10h47v5h-47ZM694 188h28v5h-28Z"
-                    fill="url(#harbour-hatch)"
-                    stroke="none"
-                  />
-                  <use
-                    href="#harbour-palm"
-                    transform="translate(272 164) scale(.56 .63)"
-                  />
-                  <use
-                    href="#harbour-palm"
-                    transform="translate(451 154) scale(.62 .75)"
-                  />
-                  <use
-                    href="#harbour-palm"
-                    transform="translate(623 156) scale(.6 .73)"
-                  />
-                  <use
-                    href="#harbour-palm"
-                    transform="translate(737 157) scale(.62 .72)"
+                    d="M599 294h23m16 5h33m-56 9h28m-52 9h42m12 9h21m-69 8h39m-16 11h53m-90 10h42m17 11h37m-83 10h47m-19 12h62m-101 10h55m-29 13h44"
                   />
                 </g>
-                <g
-                  class="harbour-fishing-nets"
-                  fill="none"
-                  stroke="#142447"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path
-                    d="M0 244h252m-252 6h252M21 239v22m34-22v22m38-22v22m39-22v22m39-22v22m39-22v22"
-                    stroke-width="3"
-                  />
-                  <path
-                    d="m18 242 122-163 4-1 11 165M140 79l-12 163M145 81l93 48-96 107M142 82 27 232m120-143 87 42M32 226l203-94M19 243l219-114M140 79l-15-4m16-4v16"
-                    stroke-width="2.6"
-                  />
-                  <path
-                    d="m38 231 86 10 99-98-86 34Z"
-                    fill="url(#harbour-net)"
-                    stroke-width="1.4"
-                  />
-                  <path
-                    d="m40 235 84 10 105-104M55 224l69 13 89-84M78 213l48 20 72-66m-82 73 1 13m-72-22-3 13m166-92 6 7"
-                    stroke-width="1.2"
-                  />
-                  <path
-                    d="M0 172 41 144l-3-1-12 99m15-97 16 97M0 178l39-31m2-3 38 31-52 67M1 223l56 5M7 201l38 23m-14-70 3 15m8-27v-10m-4 7h9"
-                    stroke-width="2.1"
-                  />
-                  <use
-                    href="#harbour-palm"
-                    transform="translate(50 130) scale(.92 1.16)"
-                    stroke-width="2"
-                  />
-                  <path
-                    d="M1 236c9-12 17-12 24-5 8-11 19-10 26 0 11-8 19-5 26 3m83 7c9-8 15-8 21-2 7-9 17-9 24-1 10-10 20-9 31-1"
-                    stroke-width="2.3"
-                  />
-                  <path
-                    d="M7 254h232m-210 5h43m42 0h35m34 0h35"
-                    stroke="#234cf5"
-                    stroke-width="1.5"
-                  />
-                </g>
-                <g
-                  class="harbour-water"
-                  fill="none"
-                  stroke="#234cf5"
-                  stroke-linecap="round"
-                >
-                  <path
-                    d="M0 270c60 3 91-4 138-1 64 4 109-4 172-1m22-1c63 5 88-1 139 1m35 0c57-4 98 2 152-1m24 0h98M2 289h46m20-2 77 1m42 2 53-2m21 1h55m255 0h83m17 3h100M21 315h88m29-2h52m404 0h60m29-3h96M0 340h72m34 0h39m428 2h99m21 0h87M35 376h74m26 0h58m326 1h76m27-2h62m23 1h73M0 405h95m24-2h74m33 2h66m178 0h101m37-3h66m34 1h72M33 437h89m28 0h49m41-2h95m38 2h64m45 0h82m30-4h87m31 4h58M0 467h73m35 0h121m32-2h75m31 0h82m24 2h100m35-3h67m28 3h77"
-                    stroke-width="2"
-                    opacity=".7"
-                  />
-                  <path
-                    d="M292 240h49m-36 7h26m65-4h52m-41 7h22m41-6h35m-28 7h22m53-11h40m-32 6h24m53-3h31m-18 7h11m54-10h32m-24 7h17M28 266h26m35 5h47m-31 9h17m62-14h38"
-                    stroke-width="1.3"
-                    opacity=".5"
-                  />
-                  <g class="harbour-ripple">
-                    <path
-                      d="M38 355h67m18-2h33m452 4h58m18-3h45M216 420h56m28-3h83m146 4h44m27-2h35"
-                      stroke-width="2"
-                    />
-                  </g>
-                  <g class="harbour-ripple harbour-ripple-near">
-                    <path
-                      d="M11 455h64m113 0h67m157 1h55m98-3h65m91 3h39M73 392h54m138 1h48m271-2h58"
-                      stroke-width="2.3"
-                    />
-                  </g>
-                </g>
-                <g transform="translate(0 275)">
+                <g transform="translate(0 264)">
                   <g class="harbour-ferry-route">
                     <g class="harbour-ferry-bob">
                       <g
-                        fill="none"
-                        stroke="#234cf5"
-                        stroke-width="1.8"
-                        stroke-linecap="round"
-                        opacity=".65"
+                        clip-path="url(#harbour-reflection-bands)"
+                        opacity=".34"
                       >
-                        <path
-                          d="M-28 117h49m-37 7h42m-15 9h24m14 6h76m65 0h95m58-9h34m-15-7h36m-25-8h40M48 146h62m24 0h47m23-2h84M-15 111l25-2m304 2 34-2"
+                        <use
+                          href="#harbour-vessel"
+                          transform="matrix(1 .104 0 -.28 1 150)"
                         />
                       </g>
                       <g
-                        stroke="#142447"
-                        stroke-linejoin="round"
+                        class="harbour-ripple harbour-wake"
+                        fill="none"
                         stroke-linecap="round"
                       >
                         <path
-                          d="m12 91 310-4-19 37-20 7H39l-15-9Z"
-                          fill="#f5f0e4"
-                          stroke-width="3.1"
+                          d="M-28 132q23-5 59 0m-37 8q30-4 48 0m-26 8h35m222-13q36-1 57-8m-18 14 36-4m-28 10h43"
+                          stroke="#faf4e6"
+                          stroke-width="1.9"
+                          opacity=".74"
                         />
                         <path
-                          d="m24 110 283-4-4 18-20 7H39l-15-9Z"
-                          fill="#234cf5"
-                          stroke-width="2.4"
-                        />
-                        <path
-                          d="m19 102 292-4M35 119l249-1m-5 0 17-7"
-                          fill="none"
-                          stroke="#f5f0e4"
-                          stroke-width="2"
-                        />
-                        <path
-                          d="M44 131v6h30l4-6m185 0 4 6h22l7-10"
-                          fill="#142447"
-                          stroke-width="2"
-                        />
-                        <path
-                          d="m38 88 12-58 229 1 21 53Z"
-                          fill="#f5f0e4"
-                          stroke-width="2.7"
-                        />
-                        <path
-                          d="M49 31h231l-5-9H60Z"
-                          fill="#234cf5"
-                          stroke-width="2.6"
-                        />
-                        <path
-                          d="M65 22V13h99v9M172 22V12h53v10"
-                          fill="#f5f0e4"
-                          stroke-width="2.1"
-                        />
-                        <path
-                          d="M71 16h87m-80-3v9m15-9v9m15-9v9m15-9v9m15-9v9m15-9v9m26-6h40m-33-4v10m13-10v10m13-10v10"
-                          stroke="#234cf5"
-                          stroke-width="1.5"
-                        />
-                        <path
-                          d="M231 22V9h26l11 13Z"
-                          fill="#d2ec38"
-                          stroke-width="2.1"
-                        />
-                        <path
-                          d="M242 9V0m-7 4h13m-58 8V4m-4 3h8M50 43h28v34H44Zm37 0h31v34H81Zm40 0h31v34h-31Zm40 0h31v34h-31Zm40 0h31v34h-31Zm40 0h27l15 34h-42Z"
-                          fill="#142447"
-                          stroke-width="1.5"
-                        />
-                        <path
-                          d="m52 47 17-1-22 25m44-24 17-1-23 25m46-24h15l-15 17m41-17h14l-14 17m40-17h14l-14 17m40-17h13l11 23"
-                          fill="none"
-                          stroke="#f5f0e4"
-                          stroke-width="1.8"
-                          opacity=".75"
-                        />
-                        <path
-                          d="M55 82h214v8H53Z"
-                          fill="#d2ec38"
-                          stroke-width="1.6"
-                        />
-                        <path
-                          d="M20 91V75h17m-15 6h16m-13-6v15m11-15v15M294 86V70h18v17m-18-10h18m-10-7v17"
-                          fill="none"
-                          stroke-width="2"
-                        />
-                        <path
-                          d="M78 30v59m41-58v58m40-58v58m41-58v58m40-58v57"
-                          fill="none"
-                          stroke-width="1.7"
-                        />
-                        <path
-                          d="M27 102h7m274-9h7"
-                          fill="none"
-                          stroke-width="2.5"
-                        />
-                        <circle
-                          cx="35"
-                          cy="89"
-                          r="8"
-                          fill="#f39a51"
-                          stroke-width="2"
-                        />
-                        <circle
-                          cx="35"
-                          cy="89"
-                          r="3.5"
-                          fill="#f5f0e4"
-                          stroke-width="1.2"
-                        />
-                        <path
-                          d="M141 97h53m-46 4h41"
-                          stroke="#234cf5"
-                          stroke-width="1.4"
+                          d="M-11 135h35m-8 9h28m250-9 36-5m-14 11h33"
+                          stroke="#345c89"
+                          stroke-width="1.1"
+                          opacity=".65"
                         />
                       </g>
+                      <use href="#harbour-vessel" />
                     </g>
                   </g>
-                </g>
-                <g
-                  class="harbour-foreground"
-                  stroke="#142447"
-                  stroke-width="2.4"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="m0 445 87 8 38 37H0Z" fill="url(#harbour-hatch)" />
-                  <path d="M0 457h73m-52 8h65m-49 9h60m-40 9h49" fill="none" />
-                  <path
-                    d="M16 490v-69l7-6 10 3 1 72m-18-64h18m-18 10h18m-18 40h18m-10-58v72"
-                    fill="#f5f0e4"
-                  />
-                  <path
-                    d="M13 442c-8 4-11 9-6 12l32 2c9-4 8-10 1-12Zm4-8c-7 2-10 7-3 11l25 1c7-4 6-8 0-11Z"
-                    fill="#d2ec38"
-                    stroke-width="2"
-                  />
-                  <path
-                    d="M780 423c-32 2-49 18-53 35 24-2 43-15 53-35Zm0 27c-19-2-35 6-45 20 21 5 33-5 45-20Zm-49 40c0-22-9-36-25-45-5 19 7 34 25 45Zm-6 0c-21-10-41-9-56-1m67-2 44-60m-49 57-20-32"
-                    fill="#d2ec38"
-                  />
                 </g>
               </svg>
 
@@ -552,7 +234,7 @@
             <div>
               <span>EVENT DATES</span
               ><strong
-                ><time datetime="2026-12-12">12</time>–<time
+                ><time datetime="2026-12-12">12</time>-<time
                   datetime="2026-12-13"
                   >13 Dec 2026</time
                 ></strong
@@ -562,15 +244,15 @@
             <div>
               <span>ADMISSION</span><strong>Free &amp; residential</strong>
             </div>
-            <div class="power-credit">
-              <span>POWERED BY</span
+            <a class="power-credit" href="https://manus.im/">
+              <span>POWERED BY <b aria-hidden="true">↗</b></span
               ><img
                 src="assets/manus-fellow-credit.webp"
                 width="402"
                 height="65"
                 alt="Manus Fellow"
               />
-            </div>
+            </a>
           </div>
         </div>
       </section>
@@ -594,8 +276,9 @@
               <p>
                 Students, makers and healthcare professionals come together to
                 design tools for neurodivergent people. Choose a software or
-                hardware track, learn from mentors and build a prototype with
-                your team.
+                hardware track and build your own prototype. Every participant
+                works on an individual project, with shared learning and
+                guidance from mentors.
               </p>
             </div>
           </div>
@@ -634,9 +317,9 @@
               </svg>
               <h3>COGNITIVE<br />SOFTWARE</h3>
               <p>
-                Build digital tools that support cognition, communication and
-                everyday independence. Experiment with adaptive interfaces and
-                cognitive learning tools.
+                Build your own digital prototype to support cognition,
+                communication and everyday independence. Experiment with
+                adaptive interfaces and cognitive learning tools.
               </p>
             </article>
             <article class="arc-track arc-track-devices">
@@ -676,7 +359,7 @@
               <h3>PHYSICAL<br />COGNITIVE DEVICES</h3>
               <p>
                 Design and 3D-print assistive devices for everyday tasks. Model,
-                print and refine a prototype with your team.
+                print and refine your own prototype with guidance from mentors.
               </p>
             </article>
           </div>
@@ -690,12 +373,12 @@
       >
         <div class="container">
           <div class="arc-section-top">
-            <span>THE PROGRAMME</span><span>12–13 DECEMBER 2026 / KOCHI</span>
+            <span>THE PROGRAMME</span><span>12-13 DECEMBER 2026 / KOCHI</span>
           </div>
           <div class="arc-programme-heading">
             <h2 id="programme-title">ON CAMPUS.<br /><span>ON WATER.</span></h2>
             <p>
-              Explore the two-day programme.<br /><strong
+              Two days of learning and solo building.<br /><strong
                 >All times are local to Kochi (IST).</strong
               >
             </p>
@@ -740,11 +423,11 @@
                 src="assets/day-one-workshop.webp"
                 width="2172"
                 height="724"
-                alt="3D event concept of three adult student makers examining a printed adaptive spoon grip in a warmly lit indoor workshop"
+                alt="Event concept of three adult participants learning about a printed adaptive spoon grip in a warmly lit workshop"
                 loading="lazy"
               />
               <figcaption>
-                <span>PROTOTYPING AN ADAPTIVE SPOON GRIP</span
+                <span>LEARNING THROUGH PROTOTYPING</span
                 ><span>3D EVENT CONCEPT</span>
               </figcaption>
             </figure>
@@ -754,7 +437,7 @@
             </div>
             <div class="arc-schedule">
               <article>
-                <time>09:00–10:00</time>
+                <time>09:00-10:00</time>
                 <h4>Campus check-in</h4>
                 <p>
                   Arrive at Rajagiri, register and check in for the overnight
@@ -762,12 +445,12 @@
                 </p>
               </article>
               <article>
-                <time>10:00–10:50</time>
+                <time>10:00-10:50</time>
                 <h4>Opening session</h4>
                 <p>Inauguration and welcome.</p>
               </article>
               <article>
-                <time>10:50–12:50</time>
+                <time>10:50-12:50</time>
                 <h4>Inclusive innovation keynote</h4>
                 <p>
                   Keynote on inclusive innovation, followed by an expert talk on
@@ -775,12 +458,12 @@
                 </p>
               </article>
               <article>
-                <time>12:50–13:50</time>
+                <time>12:50-13:50</time>
                 <h4>Networking lunch</h4>
                 <p>Networking lunch with fellow participants.</p>
               </article>
               <article>
-                <time>13:50–15:50</time>
+                <time>13:50-15:50</time>
                 <h4>Assistive technology in Kerala</h4>
                 <p>
                   Kerala’s assistive technology ecosystem, plus AI, cloud and
@@ -788,15 +471,15 @@
                 </p>
               </article>
               <article>
-                <time>16:05–18:05</time>
+                <time>16:05-18:05</time>
                 <h4>3D printing workshop</h4>
                 <p>
-                  Hands-on 3D printing and modelling, followed by team formation
-                  and track briefing. Tea from 15:50.
+                  Hands-on 3D printing and modelling, followed by track briefing
+                  and planning for your individual project. Tea from 15:50.
                 </p>
               </article>
               <article>
-                <time>18:20–22:20</time>
+                <time>18:20-22:20</time>
                 <h4>Panel and mentoring</h4>
                 <p>
                   Designing Inclusive Futures panel, dinner, cultural evening,
@@ -818,11 +501,11 @@
                 src="assets/day-two-afloat-3d-v2.webp"
                 width="2172"
                 height="724"
-                alt="3D-rendered passenger ferry with adult participants collaborating on board in Kochi’s golden-hour light"
+                alt="Event concept of adult participants learning and sharing perspectives aboard a passenger ferry in Kochi’s golden-hour light"
                 loading="lazy"
               />
               <figcaption>
-                <span>ON THE WATER, IDEAS GO FURTHER.</span
+                <span>SHARED LEARNING. INDIVIDUAL PROJECTS.</span
                 ><span>3D EVENT CONCEPT</span>
               </figcaption>
             </figure>
@@ -832,7 +515,7 @@
             </div>
             <div class="arc-schedule">
               <article>
-                <time>07:00–09:30</time>
+                <time>07:00-09:30</time>
                 <h4>Breakfast and boarding</h4>
                 <p>
                   Breakfast, campus check-out, bus transfer to the Water Metro
@@ -840,37 +523,44 @@
                 </p>
               </article>
               <article>
-                <time>09:30–10:30</time>
+                <time>09:30-10:30</time>
                 <h4>Onboard mentoring</h4>
-                <p>Onboard setup and a second round of Nano Mentoring.</p>
+                <p>
+                  Set up your individual project and meet mentors for a second
+                  round of Nano Mentoring.
+                </p>
               </article>
               <article>
-                <time>10:30–12:30</time>
-                <h4>Buildathon, first sprint</h4>
-                <p>Buildathon session one: the core build sprint afloat.</p>
+                <time>10:30-12:30</time>
+                <h4>Solo build, first sprint</h4>
+                <p>
+                  Develop your own prototype during the core build sprint
+                  afloat.
+                </p>
               </article>
               <article>
-                <time>12:30–14:00</time>
+                <time>12:30-14:00</time>
                 <h4>Mentoring and lunch</h4>
                 <p>Mentorship and lunch on the water.</p>
               </article>
               <article>
-                <time>14:00–15:00</time>
-                <h4>Buildathon, final sprint</h4>
+                <time>14:00-15:00</time>
+                <h4>Solo build, final sprint</h4>
                 <p>
-                  Buildathon session two: final sprint and pitch preparation.
+                  Refine your prototype and prepare to present your individual
+                  project.
                 </p>
               </article>
               <article>
-                <time>15:00–16:30</time>
+                <time>15:00-16:30</time>
                 <h4>Prototype demos</h4>
                 <p>
                   Disembarkation, transfer to the presentation venue, final
-                  pitches and live prototype demos.
+                  individual pitches and live prototype demos.
                 </p>
               </article>
               <article>
-                <time>16:30–18:00</time>
+                <time>16:30-18:00</time>
                 <h4>Awards and closing</h4>
                 <p>Jury evaluation, awards, closing remarks and departure.</p>
               </article>
@@ -960,8 +650,8 @@
                 />
               </div>
             </div>
-            <div class="cog-powered">
-              <span>POWERED BY</span
+            <a class="cog-powered" href="https://manus.im/">
+              <span>POWERED BY <b aria-hidden="true">↗</b></span
               ><img
                 src="assets/manus-fellow-credit.webp"
                 width="402"
@@ -969,7 +659,7 @@
                 alt="Manus | fellow"
                 loading="lazy"
               />
-            </div>
+            </a>
             <div>
               <span>IN COLLABORATION WITH</span
               ><img
@@ -1049,8 +739,8 @@
                 >
                 <h3>KOCHI WATER METRO</h3>
                 <p>
-                  A buildathon afloat on 13 December.<br />Boarding terminal and
-                  route to be announced.
+                  A solo build sprint afloat on 13 December.<br />Boarding
+                  terminal and route to be announced.
                 </p>
               </div>
             </article>
@@ -1065,7 +755,9 @@
                 rel="noopener noreferrer"
                 >REQUEST TO JOIN ON LUMA <span aria-hidden="true">↗</span></a
               >
-              <p>Registration is subject to host approval.</p>
+              <p>
+                Solo participation. Registration is subject to host approval.
+              </p>
             </div>
             <div class="cog-faq-items">
               <details>
@@ -1080,6 +772,15 @@
                   >
                   and request to join. Registration is open and requires host
                   approval.
+                </p>
+              </details>
+              <details>
+                <summary>Do I need a team to participate?</summary>
+                <p>
+                  No. CogniCraft is a solo hackathon, and each participant
+                  builds an individual project. You can still learn alongside
+                  others, network and get guidance from mentors throughout the
+                  event.
                 </p>
               </details>
               <details>

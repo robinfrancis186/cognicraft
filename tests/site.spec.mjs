@@ -38,10 +38,40 @@ try {
     false,
     "Site copy should not contain em dashes",
   );
+  assert.match(await page.locator(".hero-copy").innerText(), /solo|individual/i, "Hero should explain solo participation");
+  assert.match(await page.locator("#day-1").innerText(), /solo|individual/i, "Day one should describe individual preparation");
+  assert.doesNotMatch(await page.locator("body").textContent(), /team[\s-]*formation|your\s+team|form(?:ing)?\s+(?:a\s+)?team/i, "Programme copy should not require forming a team");
+  const soloFaq = page.locator("details").filter({ has: page.locator("summary").filter({ hasText: /solo|individual|teams?/i }) });
+  assert.equal(await soloFaq.count(), 1, "FAQ should explain how solo participation works");
+  await soloFaq.locator("summary").click();
+  assert.match(await soloFaq.locator("p").innerText(), /solo|individual/i, "Participation FAQ should confirm individual entry");
+  await soloFaq.locator("summary").click();
+  assert.equal(await page.locator('img[src="assets/manus-fellow-credit.webp"]').count(), 2, "Both Manus credits should be present");
+  const manusLinks = page.locator('a[href="https://manus.im/"]').filter({ has: page.locator('img[src="assets/manus-fellow-credit.webp"]') });
+  assert.equal(await manusLinks.count(), 2, "Both Manus credits should link to Manus");
+  for (const link of await manusLinks.all()) {
+    await link.focus();
+    assert.ok(await link.evaluate((element) => element === document.activeElement && element.tabIndex >= 0), "Manus credit link should receive keyboard focus");
+    await link.evaluate((element) => {
+      window.manusActivation = null;
+      element.addEventListener("click", (event) => { event.preventDefault(); window.manusActivation = element.href; }, { once: true });
+    });
+    await page.keyboard.press("Enter");
+    assert.equal(await page.evaluate(() => window.manusActivation), "https://manus.im/", "Enter should activate the Manus credit link");
+  }
   const harbour = page.locator(".harbour-window svg.harbour-art");
   assert.equal(await harbour.getAttribute("role"), "img", "Animated harbour should have image semantics");
   const harbourLabel = await harbour.evaluate((svg) => svg.getAttribute("aria-label") || (svg.getAttribute("aria-labelledby") || "").split(/\s+/).map((id) => document.getElementById(id)?.textContent || "").join(" "));
   assert.match(harbourLabel, /Kochi|Water Metro/i, "Animated harbour should have a descriptive accessible label");
+  const sceneImages = harbour.locator("image");
+  assert.equal(await sceneImages.count(), 2, "The harbour and ferry should load as separate layers");
+  for (const layer of await sceneImages.all()) {
+    await layer.evaluate(async (element) => {
+      const image = new Image();
+      image.src = element.href.baseVal;
+      await image.decode();
+    });
+  }
   const heroMovement = await harbour.locator(".harbour-ferry-route").evaluate(async (route) => {
     const before = getComputedStyle(route).transform;
     const running = route.getAnimations().some((animation) => animation.playState === "running");
