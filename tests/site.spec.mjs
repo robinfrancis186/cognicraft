@@ -38,10 +38,21 @@ try {
     false,
     "Site copy should not contain em dashes",
   );
-  const harbour = page.locator(".harbour-window img.harbour-art");
-  assert.equal(await harbour.getAttribute("src"), "assets/kochi-pixel-harbour.webp");
-  await harbour.evaluate((image) => image.decode());
-  assert.ok(await harbour.evaluate((image) => image.naturalWidth > 0), "Pixel harbour should decode in the hero frame");
+  const harbour = page.locator(".harbour-window svg.harbour-art");
+  assert.equal(await harbour.getAttribute("role"), "img", "Animated harbour should have image semantics");
+  const harbourLabel = await harbour.evaluate((svg) => svg.getAttribute("aria-label") || (svg.getAttribute("aria-labelledby") || "").split(/\s+/).map((id) => document.getElementById(id)?.textContent || "").join(" "));
+  assert.match(harbourLabel, /Kochi|Water Metro/i, "Animated harbour should have a descriptive accessible label");
+  const heroMovement = await harbour.locator(".harbour-ferry-route").evaluate(async (route) => {
+    const before = getComputedStyle(route).transform;
+    const running = route.getAnimations().some((animation) => animation.playState === "running");
+    await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    return { before, after: getComputedStyle(route).transform, running };
+  });
+  assert.ok(heroMovement.running, "Hero ferry should travel by default");
+  assert.notEqual(heroMovement.after, heroMovement.before, "Hero ferry should visibly move across frames");
+  for (const selector of [".harbour-ferry-bob", ".harbour-ripple"]) {
+    assert.ok(await harbour.locator(selector).first().evaluate((element) => element.getAnimations().some((animation) => animation.playState === "running")), `Hero ${selector} should animate independently`);
+  }
   const tracks = page.locator(".arc-track-grid article");
   assert.equal(await tracks.count(), 2, "Experience should offer two innovation tracks");
   assert.match(await tracks.nth(0).getByRole("heading").innerText(), /COGNITIVE\s+SOFTWARE/);
@@ -58,6 +69,13 @@ try {
     await logo.evaluate((image) => image.decode());
     assert.ok(await logo.evaluate((image) => image.naturalWidth > 0), `Partner logo ${file} should decode`);
   }
+  assert.equal(await page.locator(".cog-sponsor-intro, .cog-sponsor-levels").count(), 0, "Sponsorship sales blocks should be absent");
+  assert.doesNotMatch(await page.locator("#partners").innerText(), /₹|sponsorship|platinum|silver|gold/i, "Partner section should show credits without sponsorship pricing");
+  const campus = page.locator(".cog-campus img");
+  assert.equal(await campus.getAttribute("src"), "assets/rset-kochi-campus.webp", "Venue should use the new Kochi campus photograph");
+  await campus.scrollIntoViewIfNeeded();
+  await campus.evaluate((image) => image.decode());
+  assert.ok(await campus.evaluate((image) => image.naturalWidth > 0), "Campus photograph should decode");
 
   const links = await page
     .locator("a[href], img[src], script[src], link[href]")
@@ -128,6 +146,15 @@ try {
       .evaluate((element) => element.classList.contains("motion-paused")),
     "Pause should stop animation",
   );
+  const pausedHero = await harbour.evaluate(async (svg) => {
+    await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    const elements = [...svg.querySelectorAll(".harbour-ferry-route, .harbour-ferry-bob, .harbour-ripple")];
+    const before = elements.map((element) => getComputedStyle(element).transform);
+    await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    return { before, after: elements.map((element) => getComputedStyle(element).transform), running: svg.getAnimations({ subtree: true }).filter((animation) => animation.playState === "running").length };
+  });
+  assert.equal(pausedHero.running, 0, "Pause should freeze all harbour animation");
+  assert.deepEqual(pausedHero.after, pausedHero.before, "Paused ferry and water should remain still across frames");
   await page
     .locator("#partners")
     .evaluate((element) =>
@@ -170,10 +197,10 @@ try {
       "Selected day should show its journey artwork",
     );
     const artwork = page.locator(`[id="${panelId}"] .arc-journey-art img`);
-    assert.match(
+    assert.equal(
       await artwork.getAttribute("src"),
-      /-3d-v2\.webp$/,
-      "Journey artwork should use the revised 3D render",
+      index === 0 ? "assets/day-one-workshop.webp" : "assets/day-two-afloat-3d-v2.webp",
+      "Journey artwork should use the current day-specific asset",
     );
     await artwork.scrollIntoViewIfNeeded();
     await artwork.evaluate((image) => image.decode());
@@ -245,6 +272,7 @@ try {
     "Reduced motion control should be disabled",
   );
   assert.match(await motion.innerText(), /Reduced motion enabled/);
+  assert.equal(await harbour.evaluate((svg) => svg.getAnimations({ subtree: true }).filter((animation) => animation.playState === "running").length), 0, "Reduced motion should stop ferry and water animation");
   const moving = await page.locator("body *").evaluateAll((elements) =>
     elements
       .filter((element) => {

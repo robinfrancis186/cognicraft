@@ -1061,7 +1061,7 @@ a:hover {
     transition: none;
   }
 }
-/* Poster credits, sponsorships and practical event information. */
+/* Poster credits and practical event information. */
 .cog-partners,
 .cog-visit {
   padding-block: 96px;
@@ -1215,72 +1215,6 @@ a:hover {
   width: 100%;
   height: 55px;
 }
-.cog-sponsor-intro {
-  display: grid;
-  grid-template-columns: 1.45fr 1fr;
-  align-items: end;
-  gap: 60px;
-  margin: 58px 0 26px;
-}
-.cog-sponsor-intro h3 {
-  font-family: var(--pixel);
-  font-size: clamp(25px, 3vw, 42px);
-  line-height: 1.3;
-  letter-spacing: -0.02em;
-  font-weight: 400;
-}
-.cog-sponsor-intro h3 span {
-  color: var(--cobalt);
-}
-.cog-sponsor-intro p {
-  font-size: 15px;
-  line-height: 1.65;
-  max-width: 355px;
-}
-.cog-sponsor-levels {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  border: 2px solid var(--ink);
-  background: var(--paper);
-}
-.cog-sponsor-levels > div {
-  padding: 23px 20px 25px;
-  border-right: 1px solid var(--ink);
-}
-.cog-sponsor-levels > div:first-child {
-  background: var(--cobalt);
-  color: #fff;
-}
-.cog-sponsor-levels > div:last-child {
-  border: 0;
-}
-.cog-sponsor-levels span {
-  display: block;
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.06em;
-  font-weight: 700;
-  margin-bottom: 18px;
-}
-.cog-sponsor-levels strong {
-  font-size: clamp(22px, 2.6vw, 34px);
-  font-weight: 800;
-  letter-spacing: -0.045em;
-  white-space: nowrap;
-}
-.cog-partner-cta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 24px;
-  margin-top: 24px;
-}
-.cog-partner-cta p {
-  font-family: var(--mono);
-  font-size: 11px;
-  max-width: 420px;
-}
-.cog-partner-cta a,
 .cog-faq-heading > a {
   display: inline-flex;
   align-items: center;
@@ -1298,12 +1232,10 @@ a:hover {
     background 0.2s,
     transform 0.2s;
 }
-.cog-partner-cta a:hover,
 .cog-faq-heading > a:hover {
   background: #fff;
   transform: translate(-2px, -2px);
 }
-.cog-partner-cta a span,
 .cog-faq-heading > a span {
   font-size: 22px;
   line-height: 1;
@@ -1337,6 +1269,7 @@ a:hover {
 }
 .cog-campus figcaption {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   gap: 20px;
@@ -1353,6 +1286,19 @@ a:hover {
 }
 .cog-campus figcaption a:hover {
   color: var(--lime);
+}
+.cog-campus-credit {
+  flex: 1 0 100%;
+  padding-top: 10px;
+  border-top: 1px solid #ffffff45;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: 0;
+}
+.cog-campus-credit a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 .cog-venue-route {
   display: grid;
@@ -1485,8 +1431,7 @@ a:hover {
   .cog-visit {
     padding-top: 20px;
   }
-  .cog-lower-heading,
-  .cog-sponsor-intro {
+  .cog-lower-heading {
     gap: 30px;
   }
   .cog-credits {
@@ -1515,12 +1460,6 @@ a:hover {
   }
   .cog-credit-notes .cog-powered {
     padding-inline: 14px;
-  }
-  .cog-sponsor-levels > div {
-    padding: 20px 13px;
-  }
-  .cog-sponsor-levels strong {
-    font-size: 24px;
   }
   .cog-host-heading > p {
     font-size: 15px;
@@ -1572,8 +1511,7 @@ a:hover {
     line-height: 1.5;
     max-width: 125px;
   }
-  .cog-lower-heading,
-  .cog-sponsor-intro {
+  .cog-lower-heading {
     display: block;
     margin-top: 34px;
   }
@@ -1637,49 +1575,6 @@ a:hover {
   .cog-credit-notes img {
     height: 48px;
     max-width: 120px;
-  }
-  .cog-sponsor-intro {
-    margin: 36px 0 24px;
-  }
-  .cog-sponsor-intro h3 {
-    font-size: 26px;
-  }
-  .cog-sponsor-intro p {
-    margin-top: 16px;
-    font-size: 14px;
-  }
-  .cog-sponsor-levels {
-    grid-template-columns: 1fr 1fr;
-  }
-  .cog-sponsor-levels > div {
-    padding: 22px 16px;
-    border-bottom: 1px solid var(--ink);
-  }
-  .cog-sponsor-levels > div:nth-child(2) {
-    border-right: 0;
-  }
-  .cog-sponsor-levels > div:nth-child(3) {
-    border-bottom: 0;
-  }
-  .cog-sponsor-levels span {
-    font-size: 10px;
-    margin-bottom: 13px;
-  }
-  .cog-sponsor-levels strong {
-    font-size: clamp(23px, 6vw, 32px);
-  }
-  .cog-partner-cta {
-    display: block;
-    margin-top: 20px;
-  }
-  .cog-partner-cta p {
-    font-size: 11px;
-    line-height: 1.7;
-  }
-  .cog-partner-cta a {
-    margin-top: 18px;
-    width: 100%;
-    padding: 15px 18px;
   }
   .cog-host-heading {
     display: block;
@@ -1758,11 +1653,9 @@ a:hover {
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .cog-partner-cta a,
   .cog-faq-heading > a {
     transition: none;
   }
-  .cog-partner-cta a:hover,
   .cog-faq-heading > a:hover {
     transform: none;
   }
@@ -1791,9 +1684,6 @@ a:hover {
   to {
     background: var(--orange);
   }
-}
-.campaign #day-1 .arc-journey-art img {
-  object-position: 25% center;
 }
 @media (max-width: 700px) {
   .cog-credit-notes img {
@@ -2080,5 +1970,63 @@ footer a:hover {
   *:after {
     animation: none !important;
     transition: none !important;
+  }
+}
+
+/* Original harbour pen illustration: SVG groups keep pause controls effective. */
+.campaign .harbour-scene {
+  display: block;
+  background: #f5f0e4;
+  image-rendering: auto;
+  overflow: hidden;
+}
+.campaign .harbour-ferry-route {
+  transform: translateX(220px);
+  animation: harbour-sailing 36s linear infinite;
+  animation-delay: -18s;
+  will-change: transform;
+}
+.campaign .harbour-ferry-bob {
+  transform-origin: 165px 95px;
+  animation: harbour-bobbing 4.6s ease-in-out infinite;
+}
+.campaign .harbour-ripple {
+  animation: harbour-rippling 7s ease-in-out infinite alternate;
+}
+.campaign .harbour-ripple-near {
+  animation-duration: 9s;
+  animation-direction: alternate-reverse;
+}
+@keyframes harbour-sailing {
+  from {
+    transform: translateX(-350px);
+  }
+  to {
+    transform: translateX(800px);
+  }
+}
+@keyframes harbour-bobbing {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-0.3deg);
+  }
+  50% {
+    transform: translateY(-3px) rotate(0.3deg);
+  }
+}
+@keyframes harbour-rippling {
+  from {
+    transform: translateX(-7px);
+  }
+  to {
+    transform: translateX(8px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .campaign .harbour-ferry-route,
+  .campaign .harbour-ferry-bob,
+  .campaign .harbour-ripple {
+    animation: none !important;
+    will-change: auto;
   }
 }
