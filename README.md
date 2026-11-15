@@ -2,7 +2,7 @@
 
 The event website for 12–13 December 2026 at Rajagiri School of Engineering & Technology and aboard the Kochi Water Metro. The site uses the organisers’ November campaign posters as its visual reference. The blue contact footer retains its original line-drawn waterfront and looping ferry.
 
-[Production site](https://techxcognicraft.vercel.app/) · [GitHub Pages](https://robinfrancis186.github.io/cognicraft/)
+[Production site](https://techxcognicraft.vercel.app/)
 
 ## Running locally
 

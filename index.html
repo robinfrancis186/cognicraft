@@ -18,11 +18,24 @@
       content="A solo hackathon with talks, mentoring and a build sprint afloat. Free residential event at RSET and the Kochi Water Metro."
     />
     <meta property="og:type" content="website" />
+    <link rel="canonical" href="https://techxcognicraft.vercel.app/" />
+    <meta property="og:url" content="https://techxcognicraft.vercel.app/" />
     <meta
       property="og:image"
       content="https://techxcognicraft.vercel.app/assets/kochi-harbour-preview.jpg"
     />
-    <link rel="preload" as="image" href="assets/kochi-engraved-harbour.webp" />
+    <link
+      rel="preload"
+      as="image"
+      href="assets/kochi-engraved-harbour.webp"
+      media="(min-width: 701px)"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="assets/kochi-engraved-harbour-mobile.webp"
+      media="(max-width: 700px)"
+    />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link
       rel="preload"
@@ -82,8 +95,14 @@
           <a href="#about">Experience</a><a href="#programme">Programme</a
           ><a href="#partners">Partners</a><a href="#visit">Visit</a>
         </nav>
-        <a class="mast-register" href="https://luma.com/opt4pve5"
-          >Register <span aria-hidden="true">↗</span></a
+        <a
+          class="mast-register"
+          href="https://luma.com/opt4pve5"
+          aria-label="Request to join"
+          ><span
+            ><span class="mast-request-prefix">Request to </span
+            ><span class="mast-join-word">join</span></span
+          ><span aria-hidden="true">↗</span></a
         >
       </div>
     </header>
@@ -115,11 +134,15 @@
               </p>
               <div class="hero-actions">
                 <a class="ticket-link" href="https://luma.com/opt4pve5"
-                  >Register on Luma <span aria-hidden="true">↗</span></a
+                  >Request to join on Luma <span aria-hidden="true">↗</span></a
                 ><a class="programme-link" href="#programme"
                   >See programme <span aria-hidden="true">↓</span></a
                 >
               </div>
+              <p class="registration-note">
+                On Luma, look for “Manus Fellow Event | Water Metro Edition”.
+                The host reviews each request.
+              </p>
             </div>
             <figure class="harbour-window">
               <div class="window-bar">
@@ -133,94 +156,101 @@
                   Pause motion Ⅱ
                 </button>
               </div>
-              <svg
-                class="harbour-art harbour-scene"
-                viewBox="0 0 780 490"
-                xmlns="http://www.w3.org/2000/svg"
-                role="img"
-                aria-labelledby="harbour-title harbour-description"
-                preserveAspectRatio="xMidYMid slice"
-              >
-                <title id="harbour-title">
-                  A Water Metro voyage through Kochi
-                </title>
-                <desc id="harbour-description">
-                  An original illustrated Kochi waterfront with Chinese fishing
-                  nets and palms, and a modern Water Metro catamaran sailing
-                  across the harbour in the foreground.
-                </desc>
-                <defs>
-                  <clipPath id="harbour-reflection-bands">
-                    <path
-                      d="M0 118q140 2 340 0v2q-165 3-340 0zm0 8q160-2 350 1v3q-175-2-350 1zm10 10q145 4 330 1v4q-180 3-330-2zm8 10q150-1 315 2v4q-165-3-315 1zm32 13q126 2 258 0v3q-135 3-258 0zm20 11q104-2 220 1v2q-118-1-220 0z"
-                    />
-                  </clipPath>
-                  <image
-                    id="harbour-vessel"
-                    href="assets/kochi-engraved-water-metro.webp"
-                    x="6"
-                    y="31"
-                    width="330"
-                    height="109.56"
+              <div class="harbour-viewport">
+                <picture class="harbour-picture">
+                  <source
+                    media="(max-width: 700px)"
+                    srcset="assets/kochi-engraved-harbour-mobile.webp"
                   />
-                </defs>
-                <path fill="#f5f0e4" d="M0 0h780v490H0Z" />
-                <image
-                  class="harbour-engraved-background"
-                  href="assets/kochi-engraved-harbour.webp"
-                  x="0"
-                  y="0"
-                  width="780"
-                  height="490"
+                  <img
+                    class="harbour-engraved-background"
+                    src="assets/kochi-engraved-harbour.webp"
+                    width="1536"
+                    height="1024"
+                    alt=""
+                    fetchpriority="high"
+                    decoding="async"
+                  />
+                </picture>
+                <svg
+                  class="harbour-art harbour-scene"
+                  viewBox="0 0 780 490"
+                  xmlns="http://www.w3.org/2000/svg"
+                  role="img"
+                  aria-labelledby="harbour-title harbour-description"
                   preserveAspectRatio="xMidYMid slice"
-                />
-                <g
-                  class="harbour-ripple harbour-light"
-                  fill="none"
-                  stroke="#fff7dc"
-                  stroke-linecap="round"
-                  stroke-width="2.1"
-                  opacity=".48"
                 >
-                  <path
-                    d="M599 294h23m16 5h33m-56 9h28m-52 9h42m12 9h21m-69 8h39m-16 11h53m-90 10h42m17 11h37m-83 10h47m-19 12h62m-101 10h55m-29 13h44"
-                  />
-                </g>
-                <g transform="translate(0 264)">
-                  <g class="harbour-ferry-route">
-                    <g class="harbour-ferry-bob">
-                      <g
-                        clip-path="url(#harbour-reflection-bands)"
-                        opacity=".34"
-                      >
-                        <use
-                          href="#harbour-vessel"
-                          transform="matrix(1 .104 0 -.28 1 150)"
-                        />
+                  <title id="harbour-title">
+                    A Water Metro voyage through Kochi
+                  </title>
+                  <desc id="harbour-description">
+                    An original illustrated Kochi waterfront with Chinese
+                    fishing nets and palms, and a modern Water Metro catamaran
+                    sailing across the harbour in the foreground.
+                  </desc>
+                  <defs>
+                    <clipPath id="harbour-reflection-bands">
+                      <path
+                        d="M0 118q140 2 340 0v2q-165 3-340 0zm0 8q160-2 350 1v3q-175-2-350 1zm10 10q145 4 330 1v4q-180 3-330-2zm8 10q150-1 315 2v4q-165-3-315 1zm32 13q126 2 258 0v3q-135 3-258 0zm20 11q104-2 220 1v2q-118-1-220 0z"
+                      />
+                    </clipPath>
+                    <image
+                      id="harbour-vessel"
+                      href="assets/kochi-engraved-water-metro.webp"
+                      x="6"
+                      y="31"
+                      width="330"
+                      height="109.56"
+                    />
+                  </defs>
+                  <g
+                    class="harbour-ripple harbour-light"
+                    fill="none"
+                    stroke="#fff7dc"
+                    stroke-linecap="round"
+                    stroke-width="2.1"
+                    opacity=".48"
+                  >
+                    <path
+                      d="M599 294h23m16 5h33m-56 9h28m-52 9h42m12 9h21m-69 8h39m-16 11h53m-90 10h42m17 11h37m-83 10h47m-19 12h62m-101 10h55m-29 13h44"
+                    />
+                  </g>
+                  <g transform="translate(0 264)">
+                    <g class="harbour-ferry-route">
+                      <g class="harbour-ferry-bob">
+                        <g
+                          clip-path="url(#harbour-reflection-bands)"
+                          opacity=".34"
+                        >
+                          <use
+                            href="#harbour-vessel"
+                            transform="matrix(1 .104 0 -.28 1 150)"
+                          />
+                        </g>
+                        <g
+                          class="harbour-ripple harbour-wake"
+                          fill="none"
+                          stroke-linecap="round"
+                        >
+                          <path
+                            d="M-28 132q23-5 59 0m-37 8q30-4 48 0m-26 8h35m222-13q36-1 57-8m-18 14 36-4m-28 10h43"
+                            stroke="#faf4e6"
+                            stroke-width="1.9"
+                            opacity=".74"
+                          />
+                          <path
+                            d="M-11 135h35m-8 9h28m250-9 36-5m-14 11h33"
+                            stroke="#345c89"
+                            stroke-width="1.1"
+                            opacity=".65"
+                          />
+                        </g>
+                        <use href="#harbour-vessel" />
                       </g>
-                      <g
-                        class="harbour-ripple harbour-wake"
-                        fill="none"
-                        stroke-linecap="round"
-                      >
-                        <path
-                          d="M-28 132q23-5 59 0m-37 8q30-4 48 0m-26 8h35m222-13q36-1 57-8m-18 14 36-4m-28 10h43"
-                          stroke="#faf4e6"
-                          stroke-width="1.9"
-                          opacity=".74"
-                        />
-                        <path
-                          d="M-11 135h35m-8 9h28m250-9 36-5m-14 11h33"
-                          stroke="#345c89"
-                          stroke-width="1.1"
-                          opacity=".65"
-                        />
-                      </g>
-                      <use href="#harbour-vessel" />
                     </g>
                   </g>
-                </g>
-              </svg>
+                </svg>
+              </div>
 
               <figcaption>
                 <span><b>01</b> RSET CAMPUS</span><i aria-hidden="true"></i
@@ -275,10 +305,9 @@
               </p>
               <p>
                 Students, makers and healthcare professionals come together to
-                design tools for neurodivergent people. Choose a software or
-                hardware track and build your own prototype. Every participant
-                works on an individual project, with shared learning and
-                guidance from mentors.
+                design tools for neurodivergent people. Choose one of two tracks
+                and build your own prototype with guidance from mentors. On day
+                two, you'll demo it and give an individual pitch.
               </p>
             </div>
           </div>
@@ -315,12 +344,19 @@
                   fill="var(--cobalt)"
                 />
               </svg>
-              <h3>COGNITIVE<br />SOFTWARE</h3>
+              <h3>Software-Based<br />Solutions</h3>
               <p>
-                Build your own digital prototype to support cognition,
-                communication and everyday independence. Experiment with
-                adaptive interfaces and cognitive learning tools.
+                Develop interactive digital solutions, AI-powered tools,
+                applications, and games that support cognitive development,
+                learning, memory, attention, and problem-solving.
               </p>
+              <div class="arc-track-example">
+                <span>EXAMPLE SOLO PROJECT</span>
+                <p>
+                  A memory-matching game with adjustable difficulty and clear
+                  visual prompts.
+                </p>
+              </div>
             </article>
             <article class="arc-track arc-track-devices">
               <div class="arc-track-top">
@@ -356,12 +392,29 @@
                 />
                 <path d="M8 60h4v12H8ZM100 68h4v8h-4Z" fill="var(--cobalt)" />
               </svg>
-              <h3>PHYSICAL<br />COGNITIVE DEVICES</h3>
+              <h3>Physical-Based<br />Solutions</h3>
               <p>
-                Design and 3D-print assistive devices for everyday tasks. Model,
-                print and refine your own prototype with guidance from mentors.
+                Design and develop affordable physical assistive technologies,
+                including 3D-printed devices, tactile learning tools, mechanical
+                cognitive-training aids, and other functional hardware
+                prototypes that support cognitive development and accessibility.
               </p>
+              <div class="arc-track-example">
+                <span>EXAMPLE SOLO PROJECT</span>
+                <p>
+                  A tactile shape-matching board designed for affordable 3D
+                  printing.
+                </p>
+              </div>
             </article>
+          </div>
+          <div class="arc-track-goal">
+            <span>ONE SHARED GOAL</span>
+            <p>
+              Both tracks will focus on cognitive assistive technologies, with
+              the goal of creating affordable, accessible, and scalable
+              solutions.
+            </p>
           </div>
         </div>
       </section>
@@ -441,7 +494,7 @@
                 <h4>Campus check-in</h4>
                 <p>
                   Arrive at Rajagiri, register and check in for the overnight
-                  stay.
+                  stay. <a href="#arrival">See arrival details</a>.
                 </p>
               </article>
               <article>
@@ -694,6 +747,7 @@
             <figcaption>
               <span>DAY 01 / 12 DECEMBER 2026</span
               ><a
+                class="cog-campus-map"
                 href="https://www.google.com/maps/search/?api=1&amp;query=Rajagiri+School+of+Engineering+and+Technology+Kochi"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -738,17 +792,68 @@
                   >BUILD / EXPERIMENT / SHOWCASE</span
                 >
                 <h3>KOCHI WATER METRO</h3>
-                <p>
-                  A solo build sprint afloat on 13 December.<br />Boarding
-                  terminal and route to be announced.
-                </p>
+                <p>A solo build sprint afloat on 13 December.</p>
               </div>
             </article>
           </div>
+          <section
+            id="arrival"
+            class="cog-arrival"
+            aria-labelledby="arrival-title"
+          >
+            <h3 id="arrival-title">BEFORE YOU ARRIVE.</h3>
+            <p class="cog-arrival-intro">
+              CogniCraft is a free, two-day residential event.
+            </p>
+            <div class="cog-arrival-grid">
+              <div>
+                <h4>YOUR ARRIVAL</h4>
+                <dl>
+                  <dt>Campus check-in</dt>
+                  <dd>
+                    12 December, 09:00-10:00 IST (planned), at RSET campus.
+                  </dd>
+                  <dt>Bring with you</dt>
+                  <dd>Your laptop and charger.</dd>
+                </dl>
+              </div>
+              <div>
+                <h4>ARRANGED BY ORGANISERS</h4>
+                <ul>
+                  <li>One night at Rajagiri.</li>
+                  <li>Transport from Rajagiri to the Kochi Water Metro.</li>
+                </ul>
+              </div>
+              <div class="cog-arrival-pending">
+                <h4>TO BE ANNOUNCED</h4>
+                <ul>
+                  <li>Exact campus check-in room.</li>
+                  <li>Water Metro boarding terminal and route.</li>
+                  <li>Final demo venue.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="cog-accessibility">
+              <div>
+                <h4>ACCESSIBILITY ENQUIRIES</h4>
+                <p>
+                  Contact Robin Francis to discuss boarding, the overnight stay
+                  or sensory needs before the event.
+                </p>
+              </div>
+              <div class="cog-accessibility-links">
+                <a
+                  href="mailto:robinfrancis186@ieee.org?subject=CogniCraft%202026%20Accessibility%20Enquiry"
+                  >Email Robin <span aria-hidden="true">↗</span></a
+                >
+                <a href="tel:+918078256598">Call +91 8078 256 598</a>
+              </div>
+            </div>
+          </section>
           <div class="cog-faq">
             <div class="cog-faq-heading">
               <span>ATTENDEE INFORMATION</span>
-              <h3>BEFORE YOU ARRIVE.</h3>
+              <h3>A FEW QUESTIONS.</h3>
               <a
                 href="https://luma.com/opt4pve5"
                 target="_blank"
@@ -793,26 +898,10 @@
                 </p>
               </details>
               <details>
-                <summary>Is the event free and residential?</summary>
+                <summary>Do I need experience with Manus?</summary>
                 <p>
-                  Yes. CogniCraft is a free, two-day residential event with one
-                  night at Rajagiri. The organising team coordinates the stay
-                  and arranges transport to the Kochi Water Metro.
-                </p>
-              </details>
-              <details>
-                <summary>What should I bring?</summary>
-                <p>
-                  Bring your laptop, charger and ideas to build on. You can take
-                  part even if you have never used Manus.
-                </p>
-              </details>
-              <details>
-                <summary>Where does the Water Metro journey begin?</summary>
-                <p>
-                  The boarding terminal, route and final presentation venue will
-                  be announced by the organisers. Transport from Rajagiri to the
-                  Kochi Water Metro is arranged.
+                  No prior Manus experience is required. Come ready to learn and
+                  experiment.
                 </p>
               </details>
             </div>

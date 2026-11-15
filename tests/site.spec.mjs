@@ -18,6 +18,11 @@ try {
   const page = await browser.newPage({
     viewport: { width: 1440, height: 1000 },
   });
+  const backgroundRequests = [];
+  page.on("request", (request) => {
+    if (/\/kochi-engraved-harbour(?:-mobile)?\.webp$/.test(new URL(request.url()).pathname))
+      backgroundRequests.push(request.url());
+  });
   page.on("pageerror", (error) => errors.push(error.message));
   const response = await page.goto(site.href, { waitUntil: "networkidle" });
   assert.equal(response.status(), 200, "Homepage should load");
@@ -63,8 +68,50 @@ try {
   assert.equal(await harbour.getAttribute("role"), "img", "Animated harbour should have image semantics");
   const harbourLabel = await harbour.evaluate((svg) => svg.getAttribute("aria-label") || (svg.getAttribute("aria-labelledby") || "").split(/\s+/).map((id) => document.getElementById(id)?.textContent || "").join(" "));
   assert.match(harbourLabel, /Kochi|Water Metro/i, "Animated harbour should have a descriptive accessible label");
+  const background = page.locator(".harbour-viewport picture img.harbour-engraved-background");
+  await background.evaluate((image) => image.decode());
+  assert.ok(
+    (await background.evaluate((image) => image.currentSrc)).endsWith(
+      "/assets/kochi-engraved-harbour.webp",
+    ),
+    "Desktop should load the full harbour background",
+  );
+  assert.equal(
+    backgroundRequests.length,
+    1,
+    "Desktop should request its selected background only once",
+  );
+  const mobileHero = await browser.newPage({
+    viewport: { width: 390, height: 844 },
+    deviceScaleFactor: 2,
+  });
+  const mobileBackgroundRequests = [];
+  mobileHero.on("request", (request) => {
+    if (/\/kochi-engraved-harbour(?:-mobile)?\.webp$/.test(new URL(request.url()).pathname))
+      mobileBackgroundRequests.push(request.url());
+  });
+  await mobileHero.goto(site.href, { waitUntil: "networkidle" });
+  const mobileBackground = mobileHero.locator("picture img.harbour-engraved-background");
+  await mobileBackground.evaluate((image) => image.decode());
+  assert.ok(
+    (await mobileBackground.evaluate((image) => image.currentSrc)).endsWith(
+      "/assets/kochi-engraved-harbour-mobile.webp",
+    ),
+    "Mobile should load its optimized background",
+  );
+  assert.equal(
+    mobileBackgroundRequests.length,
+    1,
+    "Mobile should request only one background without downloading the desktop fallback",
+  );
+  assert.ok(mobileBackgroundRequests[0].endsWith("/assets/kochi-engraved-harbour-mobile.webp"));
+  await mobileHero.close();
   const sceneImages = harbour.locator("image");
-  assert.equal(await sceneImages.count(), 2, "The harbour and ferry should load as separate layers");
+  assert.equal(
+    await sceneImages.count(),
+    1,
+    "Animated SVG should load the ferry above its separate responsive background",
+  );
   for (const layer of await sceneImages.all()) {
     await layer.evaluate(async (element) => {
       const image = new Image();
@@ -85,10 +132,39 @@ try {
   }
   const tracks = page.locator(".arc-track-grid article");
   assert.equal(await tracks.count(), 2, "Experience should offer two innovation tracks");
-  assert.match(await tracks.nth(0).getByRole("heading").innerText(), /COGNITIVE\s+SOFTWARE/);
-  assert.match(await tracks.nth(1).getByRole("heading").innerText(), /PHYSICAL\s+COGNITIVE DEVICES/);
+  assert.match(
+    await tracks.nth(0).getByRole("heading").innerText(),
+    /Software-Based\s+Solutions/i,
+  );
+  assert.match(
+    await tracks.nth(1).getByRole("heading").innerText(),
+    /Physical-Based\s+Solutions/i,
+  );
+  for (const track of await tracks.all()) {
+    assert.equal(
+      await track.locator(".arc-track-example").count(),
+      1,
+      "Each track should include a concrete solo project example",
+    );
+    assert.match(await track.locator(".arc-track-example").innerText(), /solo\s+project/i);
+  }
+  const trackGoal = await page.locator(".arc-track-goal").innerText();
+  for (const concept of [/cognitive assistive/i, /affordable/i, /accessible/i, /scalable/i])
+    assert.match(
+      trackGoal,
+      concept,
+      "Shared track goal should explain inclusive, practical assistive technology",
+    );
   assert.equal(await page.locator(".hero-actions .ticket-link").getAttribute("href"), "https://luma.com/opt4pve5", "Primary registration CTA should open the event on Luma");
   assert.ok(await page.locator('a[href="https://luma.com/opt4pve5"]').count() >= 3, "Registration should be available from the header, hero and attendee information");
+  for (const cta of await page
+    .locator(".mast-register, .hero-actions .ticket-link, .cog-faq-heading > a")
+    .all())
+    assert.match(
+      (await cta.getAttribute("aria-label")) || (await cta.innerText()),
+      /request.*join/i,
+      "Registration CTAs should communicate the request-to-join flow",
+    );
   assert.match(await page.locator(".fact-strip").innerText(), /Free\s*&\s*residential/i);
   await page.locator("#partners").scrollIntoViewIfNeeded();
   for (const file of ["ieee-cs-syp-activities.webp", "ieee-kerala-atii.jpg", "foss-united.svg", "ieee-sps.png", "ieee-official-poster.webp", "ieee-cs-techx.png", "manus-fellow-credit.webp", "rset-official.png"]) {
@@ -106,6 +182,43 @@ try {
   await campus.scrollIntoViewIfNeeded();
   await campus.evaluate((image) => image.decode());
   assert.ok(await campus.evaluate((image) => image.naturalWidth > 0), "Campus photograph should decode");
+  const arrival = page.locator(".cog-arrival");
+  await arrival.scrollIntoViewIfNeeded();
+  assert.ok(
+    await arrival.isVisible(),
+    "Arrival guidance should be visible without opening an FAQ",
+  );
+  const arrivalCopy = await arrival.innerText();
+  for (const detail of [
+    /12\s+Dec/i,
+    /09:00/,
+    /10:00/,
+    /IST/,
+    /one night|overnight/i,
+    /transport|transfer/i,
+    /laptop/i,
+    /charger/i,
+    /announced|TBA|confirm/i,
+  ])
+    assert.match(
+      arrivalCopy,
+      detail,
+      "Arrival guidance should include practical event arrangements and pending details",
+    );
+  const accessibility = page.locator(".cog-accessibility");
+  assert.match(
+    await accessibility.innerText(),
+    /accessib|sensory/i,
+    "Arrival section should explain how to request accessibility support",
+  );
+  for (const protocol of ["mailto:", "tel:"]) {
+    const contact = accessibility.locator(`a[href^="${protocol}"]`).first();
+    await contact.focus();
+    assert.ok(
+      await contact.evaluate((element) => element === document.activeElement),
+      "Arrival support contacts should be keyboard accessible",
+    );
+  }
 
   const links = await page
     .locator("a[href], img[src], script[src], link[href]")
@@ -269,6 +382,51 @@ try {
       ),
       `Horizontal overflow at ${width}px`,
     );
+    const mapLink = page.locator(".cog-campus-map");
+    await mapLink.scrollIntoViewIfNeeded();
+    const mapTarget = await mapLink.evaluate((link) => {
+      const box = link.getBoundingClientRect();
+      const hit = document.elementFromPoint(box.left + box.width / 2, box.top + box.height / 2);
+      return {
+        width: box.width,
+        height: box.height,
+        clickable: hit === link || link.contains(hit),
+      };
+    });
+    assert.ok(
+      mapTarget.width >= 44 && mapTarget.height >= 44,
+      `Campus map should have a 44px target at ${width}px`,
+    );
+    assert.ok(mapTarget.clickable, `Campus map should receive pointer hits at ${width}px`);
+    if (width === 320) {
+      assert.deepEqual(
+        await tracks.evaluateAll((elements) =>
+          elements
+            .filter((element) => element.scrollWidth > element.clientWidth + 1)
+            .map((element) => element.className),
+        ),
+        [],
+        "Track content should fit at 320px",
+      );
+      assert.ok(
+        await tracks
+          .locator("p")
+          .evaluateAll((paragraphs) =>
+            paragraphs.every(
+              (paragraph) => parseFloat(getComputedStyle(paragraph).fontSize) >= 14,
+            ),
+          ),
+        "Track descriptions and examples should remain readable at 320px",
+      );
+      for (const cta of await page.locator(".mast-register, .hero-actions .ticket-link").all()) {
+        if (!(await cta.isVisible())) continue;
+        const box = await cta.boundingBox();
+        assert.ok(
+          box.x >= 0 && box.x + box.width <= width + 1 && box.height >= 44,
+          "Registration CTAs should remain visible and usable at 320px",
+        );
+      }
+    }
   }
 
   await page.setViewportSize({ width: 390, height: 844 });
@@ -626,6 +784,16 @@ try {
         await page.screenshot({ path: `${process.env.SCREENSHOT_DIR}/programme-day-${day + 1}-${device}.png` });
       }
     }
+    await page.setViewportSize({ width: 320, height: 900 });
+    await page
+      .locator(".arc-track-grid")
+      .screenshot({ path: `${process.env.SCREENSHOT_DIR}/tracks-320.png` });
+    await page
+      .locator(".cog-arrival")
+      .screenshot({ path: `${process.env.SCREENSHOT_DIR}/arrival-320.png` });
+    await page
+      .locator(".cog-campus figcaption")
+      .screenshot({ path: `${process.env.SCREENSHOT_DIR}/campus-map-320.png` });
   }
   console.log(
     "PASS: poster hero, tracks, registration, partner logos, assets and fonts, anchors, no-JS fallback, day tabs and artwork, FAQ, mobile menu, responsive widths, footer preservation and voyage, pause/resume, reduced motion, browser errors",

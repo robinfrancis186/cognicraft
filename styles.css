@@ -297,6 +297,12 @@ a:hover {
   gap: clamp(14px, 2vw, 32px);
   flex-wrap: wrap;
 }
+.registration-note {
+  margin: 16px 0 0;
+  max-width: 48ch;
+  font-size: 14px;
+  line-height: 1.5;
+}
 .ticket-link {
   display: inline-flex;
   align-items: center;
@@ -696,6 +702,7 @@ a:hover {
 .campaign #about .arc-track h3 {
   font: 400 clamp(24px, 2.8vw, 37px)/1.2 var(--pixel);
   letter-spacing: -0.045em;
+  text-transform: uppercase;
   margin: 0 0 21px;
   min-height: 2.4em;
 }
@@ -706,6 +713,38 @@ a:hover {
     sans-serif;
   margin: 0 0 32px;
   max-width: 420px;
+}
+.campaign #about .arc-track-example {
+  width: 100%;
+  margin-top: auto;
+  padding: 20px 0 24px;
+  border-top: 2px solid var(--ink);
+}
+.campaign #about .arc-track-example > span,
+.campaign #about .arc-track-goal > span {
+  display: block;
+  margin-bottom: 10px;
+  font: 700 11px/1.5 var(--mono);
+  letter-spacing: 0.04em;
+}
+.campaign #about .arc-track .arc-track-example p {
+  margin: 0;
+  font-size: 14px;
+}
+.campaign #about .arc-track-goal {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 2px solid var(--ink);
+}
+.campaign #about .arc-track-goal p {
+  margin: 0;
+  font:
+    400 16px/1.65 DM,
+    Arial,
+    sans-serif;
 }
 .campaign #programme {
   padding: 90px 0 80px;
@@ -881,6 +920,11 @@ a:hover {
     sans-serif;
   margin: 0;
 }
+.arc-schedule a {
+  color: var(--cobalt);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 .campaign #programme .arc-programme-note {
   margin: 30px 0 0;
   display: flex;
@@ -970,8 +1014,15 @@ a:hover {
     min-height: 0;
   }
   .campaign #about .arc-track p {
-    font-size: 13px;
+    font-size: 14px;
     margin-bottom: 26px;
+  }
+  .campaign #about .arc-track-goal {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .campaign #about .arc-track-goal p {
+    font-size: 14px;
   }
   .campaign #about .arc-track-top > span:last-child {
     display: block;
@@ -1295,6 +1346,16 @@ a:hover {
 .cog-campus figcaption a:hover {
   color: var(--lime);
 }
+.cog-campus-map {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid #ffffff80;
+  font-size: 11px;
+}
 .cog-campus-credit {
   flex: 1 0 100%;
   padding-top: 10px;
@@ -1307,6 +1368,8 @@ a:hover {
 .cog-campus-credit a {
   text-decoration: underline;
   text-underline-offset: 3px;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 .cog-venue-route {
   display: grid;
@@ -1351,6 +1414,95 @@ a:hover {
   font-size: 40px;
   text-align: center;
   color: var(--cobalt);
+}
+.cog-arrival {
+  padding-top: 48px;
+}
+.cog-arrival > h3 {
+  font: 400 clamp(26px, 3vw, 42px)/1.3 var(--pixel);
+  letter-spacing: -0.025em;
+}
+.cog-arrival-intro {
+  margin-top: 16px;
+  font-size: 15px;
+}
+.cog-arrival-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr 1fr;
+  margin-top: 28px;
+  border-block: 2px solid var(--ink);
+}
+.cog-arrival-grid > div {
+  min-width: 0;
+  padding: 26px 24px;
+  border-left: 1px solid #1c2e3d55;
+}
+.cog-arrival-grid > div:first-child {
+  padding-left: 0;
+  border: 0;
+}
+.cog-arrival h4 {
+  margin: 0 0 16px;
+  font: 700 11px/1.5 var(--mono);
+  letter-spacing: 0.025em;
+}
+.cog-arrival-grid dl {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.65;
+}
+.cog-arrival-grid dt {
+  font-weight: 700;
+}
+.cog-arrival-grid dd {
+  margin: 3px 0 14px;
+}
+.cog-arrival-grid dd:last-child {
+  margin-bottom: 0;
+}
+.cog-arrival-grid ul {
+  margin: 0;
+  padding-left: 16px;
+  font-size: 14px;
+  line-height: 1.65;
+}
+.cog-arrival-grid li + li {
+  margin-top: 10px;
+}
+.cog-arrival-pending h4 {
+  color: var(--cobalt);
+}
+.cog-accessibility {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  padding: 24px 0;
+  border-bottom: 1px solid #1c2e3d55;
+}
+.cog-accessibility h4 {
+  margin-bottom: 8px;
+}
+.cog-accessibility p {
+  max-width: 580px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.cog-accessibility-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: none;
+}
+.cog-accessibility-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  min-height: 44px;
+  font: 700 12px/1.5 var(--mono);
+  color: var(--cobalt);
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 .cog-faq {
   display: grid;
@@ -1601,11 +1753,16 @@ a:hover {
   }
   .cog-campus figcaption {
     padding: 13px 12px;
-    font-size: 8px;
+    font-size: 10px;
     gap: 12px;
   }
-  .cog-campus figcaption a {
-    white-space: nowrap;
+  .cog-campus-map {
+    width: 100%;
+    justify-content: space-between;
+    padding-inline: 12px;
+  }
+  .cog-campus-credit {
+    line-height: 1.85;
   }
   .cog-venue-route {
     grid-template-columns: 1fr;
@@ -1629,6 +1786,28 @@ a:hover {
   }
   .cog-route-arrow {
     display: none;
+  }
+  .cog-arrival {
+    padding-top: 34px;
+  }
+  .cog-arrival-grid {
+    grid-template-columns: 1fr;
+    margin-top: 22px;
+  }
+  .cog-arrival-grid > div,
+  .cog-arrival-grid > div:first-child {
+    padding: 22px 0;
+    border: 0;
+  }
+  .cog-arrival-grid > div + div {
+    border-top: 1px solid #1c2e3d55;
+  }
+  .cog-accessibility {
+    display: block;
+    padding-block: 22px;
+  }
+  .cog-accessibility-links {
+    margin-top: 10px;
   }
   .cog-faq {
     grid-template-columns: 1fr;
@@ -1981,10 +2160,28 @@ footer a:hover {
   }
 }
 
-/* The etched waterfront stays still; SVG groups keep motion controls effective. */
+/* Native picture selection downloads one shoreline for the current screen. */
+.campaign .harbour-viewport {
+  position: relative;
+  overflow: hidden;
+  background: #f5f0e4;
+  isolation: isolate;
+}
+.campaign .harbour-picture {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+.campaign .harbour-picture img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .campaign .harbour-scene {
   display: block;
-  background: #f5f0e4;
+  position: relative;
+  background: transparent;
   image-rendering: auto;
   overflow: hidden;
 }
@@ -2045,5 +2242,74 @@ footer a:hover {
   .campaign .harbour-ripple {
     animation: none !important;
     will-change: auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .mast-request-prefix {
+    display: none;
+  }
+  .mast-join-word {
+    text-transform: capitalize;
+  }
+  .game-hero .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .game-hero .ticket-link {
+    width: 100%;
+    min-height: 48px;
+    justify-content: space-between;
+  }
+  .mast-register,
+  .masthead nav a,
+  .game-hero .programme-link {
+    min-height: 44px;
+  }
+  .masthead nav a {
+    display: flex;
+    align-items: center;
+  }
+  .campaign .window-bar {
+    min-height: 56px;
+    gap: 8px;
+    padding-block: 6px;
+  }
+  .campaign .window-bar > span {
+    min-width: 0;
+    font-size: 9px;
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+  }
+  .campaign #motion-toggle {
+    min-height: 44px;
+    min-width: 44px;
+    max-width: 55%;
+    padding: 8px;
+    border: 1px solid #f5efe355;
+    background: #f5efe30d;
+    color: inherit;
+    font: inherit;
+    letter-spacing: 0;
+    line-height: 1.4;
+    text-align: right;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}
+@media (max-width: 360px) {
+  .mast-inner {
+    gap: 6px;
+  }
+  .mast-brand {
+    font-size: 24px;
+    gap: 6px;
+  }
+  .menu-toggle {
+    font-size: 12px;
+    gap: 4px;
+    padding-inline: 4px;
+    flex-shrink: 0;
   }
 }
