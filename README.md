@@ -14,7 +14,7 @@ Edit the event information and partner credits in `index.html`, the layout in `s
 
 The organisers confirmed a solo hackathon with individual projects, free admission, one night at Rajagiri and arranged transport to the Water Metro. Times and sessions are planned. The boarding terminal, route and final presentation venue are to be announced. The public contacts come from the event poster. The private proposal stays outside the public repository.
 
-Registration links follow the QR code and printed URL in the 15 November registration poster. The linked Luma listing is titled **Manus Fellow Event | Water Metro Edition** and accepts requests subject to approval. No attendee information is collected on this static site.
+Registration links follow the QR code and printed URL in the 15 November registration poster. The linked Luma listing is titled **Manus Fellow Event | Water Metro Edition** and accepts requests subject to approval. The organiser confirmed that one approved Luma registration covers both days of TechX CogniCraft: Day 1 at RSET and Day 2 aboard the Kochi Water Metro. No attendee information is collected on this static site.
 
 ## Artwork and typography
 
