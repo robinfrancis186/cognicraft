@@ -18,7 +18,9 @@ Registration links follow the QR code and printed URL in the 15 November registr
 
 ## Artwork and typography
 
-The campaign TechX mark, IEEE CS SYP Activities and IEEE marks, and Manus Fellow credit are taken from the supplied posters. The Kerala ATII logo was supplied separately. Other partner marks come from the [IEEE CS SYP website](https://syp.computer.org/), [Rajagiri](https://rajagiritech.ac.in/home/images/logon.png), [FOSS United](https://fossunited.org/) and [IEEE Signal Processing Society](https://signalprocessingsociety.org/our-story/sps-branding-materials). Add only confirmed organisations and describe each logo with alt text.
+The hero and partner credits share the [official TechX logo](https://syp.computer.org/wp-content/uploads/2025/04/TechXLogo.png). The SYP Activities mark comes from the [IEEE Computer Society TechX guidelines](https://ieeecs-media.computer.org/media/conferences/resources/rules-guideline-techx.pdf), the blue IEEE master logo from [IEEE Brand Experience](https://brand-experience.ieee.org/guidelines/master-brand-and-logos/), and the RSET mark from an [official Rajagiri course handout](https://www.rajagiritech.ac.in/home/mech/pdf/S2%20COURSE%20HANDOUT.pdf).
+
+The Manus Fellow credit comes from the supplied poster. The Kerala ATII logo was supplied separately. Other marks come from [FOSS United](https://fossunited.org/) and [IEEE Signal Processing Society](https://signalprocessingsociety.org/our-story/sps-branding-materials).
 
 Jersey 10 and DM Sans are self-hosted under the SIL Open Font License. See `assets/FONT-JERSEY-LICENSE.txt` and `assets/FONT-LICENSE.txt`.
 

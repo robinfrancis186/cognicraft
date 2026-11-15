@@ -134,6 +134,13 @@ a:hover {
   --mono:
     ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   --content: 1280px;
+  --type-body: clamp(0.9375rem, 0.875rem + 0.2vw, 1.0625rem);
+  --type-support: max(0.875rem, calc(var(--type-body) * 0.875));
+  --type-subheading: calc(var(--type-body) * 1.6);
+  --type-section: clamp(2.5rem, 5vw, 4.25rem);
+  --type-label: clamp(0.625rem, 0.59375rem + 0.18vw, 0.75rem);
+  --leading-copy: 1.65;
+  --leading-heading: 1.2;
 }
 .campaign,
 .masthead {
@@ -189,7 +196,7 @@ a:hover {
 .menu-toggle,
 .programme-link {
   font-weight: 700;
-  font-size: 14px;
+  font-size: var(--type-support);
 }
 .masthead nav a:hover,
 .programme-link:hover {
@@ -237,7 +244,7 @@ a:hover {
   display: flex;
   align-items: center;
   gap: 0;
-  font: 700 12px/1 var(--mono);
+  font: 700 var(--type-label)/1.3 var(--mono);
   letter-spacing: 0.08em;
 }
 .level-rule > span {
@@ -252,7 +259,7 @@ a:hover {
   margin-right: 14px;
 }
 .level-rule b {
-  font-size: 11px;
+  font-size: var(--type-label);
 }
 .level-rule em {
   font-style: normal;
@@ -269,8 +276,7 @@ a:hover {
   margin: 0;
 }
 .event-mark {
-  width: clamp(122px, 12vw, 182px);
-  height: auto;
+  width: clamp(152px, 15vw, 200px);
   display: block;
 }
 .hero-copy h1 span {
@@ -281,15 +287,15 @@ a:hover {
 }
 .hero-theme {
   font-weight: 900;
-  font-size: clamp(24px, 2.1vw, 34px);
-  line-height: 1.11;
+  font-size: var(--type-subheading);
+  line-height: var(--leading-heading);
   letter-spacing: -0.045em;
 }
 .hero-text {
   max-width: 43ch;
   margin: 14px 0 23px;
-  font-size: clamp(15px, 1.12vw, 18px);
-  line-height: 1.52;
+  font-size: var(--type-body);
+  line-height: var(--leading-copy);
 }
 .hero-actions {
   display: flex;
@@ -300,8 +306,8 @@ a:hover {
 .registration-note {
   margin: 16px 0 0;
   max-width: 48ch;
-  font-size: 14px;
-  line-height: 1.5;
+  font-size: var(--type-support);
+  line-height: var(--leading-copy);
 }
 .ticket-link {
   display: inline-flex;
@@ -314,6 +320,7 @@ a:hover {
   box-shadow: 4px 4px var(--ink);
   color: var(--ink);
   font-weight: 900;
+  font-size: var(--type-body);
 }
 .ticket-link span,
 .programme-link span {
@@ -353,7 +360,7 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font: 700 10px/1.3 var(--mono);
+  font: 700 var(--type-label)/1.4 var(--mono);
   letter-spacing: 0.08em;
 }
 .window-bar {
@@ -382,6 +389,7 @@ a:hover {
   background: var(--paper);
   padding: 12px 10px 9px;
   border-top: 4px solid var(--ink);
+  font-size: var(--type-label);
 }
 .harbour-window figcaption b {
   color: var(--cobalt);
@@ -416,7 +424,7 @@ a:hover {
   border: 0;
 }
 .fact-inner span {
-  font: 700 10px/1.2 var(--mono);
+  font: 700 var(--type-label)/1.3 var(--mono);
   letter-spacing: 0.12em;
   color: var(--lime);
 }
@@ -442,7 +450,6 @@ a:hover {
 }
 .power-credit span {
   color: var(--ink);
-  font-size: 9px;
 }
 .power-credit img {
   height: 20px;
@@ -526,9 +533,7 @@ a:hover {
   .level-rule > span {
     padding: 7px 9px;
   }
-  .level-rule b {
-    font-size: 9px;
-  }
+
   .hero-layout {
     display: flex;
     flex-direction: column;
@@ -541,13 +546,10 @@ a:hover {
     margin-bottom: 0.14em;
   }
   .event-mark {
-    width: 118px;
+    width: 152px;
   }
-  .hero-theme {
-    font-size: 25px;
-  }
+
   .hero-text {
-    font-size: 15px;
     margin: 12px 0 18px;
     max-width: 48ch;
   }
@@ -555,20 +557,15 @@ a:hover {
     gap: 18px;
   }
   .ticket-link {
-    font-size: 14px;
     min-height: 44px;
     padding: 9px 13px;
     gap: 10px;
   }
-  .programme-link {
-    font-size: 13px;
-  }
+
   .harbour-art {
     aspect-ratio: 1.9;
   }
-  .harbour-window figcaption {
-    font-size: 9px;
-  }
+
   .fact-inner {
     grid-template-columns: 1fr 1fr;
     padding-block: 16px;
@@ -623,7 +620,7 @@ a:hover {
   gap: 24px;
   padding-bottom: 16px;
   border-bottom: 2px solid currentColor;
-  font: 700 11px/1.5 var(--mono);
+  font: 700 var(--type-label)/1.5 var(--mono);
   letter-spacing: 0.08em;
 }
 .campaign #about .arc-about-intro {
@@ -636,7 +633,7 @@ a:hover {
 .campaign #about h2,
 .campaign #programme h2 {
   margin: 0;
-  font: 400 clamp(38px, 5.1vw, 68px)/1.08 var(--pixel);
+  font: 400 var(--type-section)/1.08 var(--pixel);
   letter-spacing: -0.045em;
   text-transform: uppercase;
 }
@@ -649,12 +646,12 @@ a:hover {
 .campaign #about .arc-about-copy p {
   margin: 0;
   font:
-    400 17px/1.65 DM,
+    400 var(--type-body)/var(--leading-copy) DM,
     Arial,
     sans-serif;
 }
 .campaign #about .arc-about-copy .arc-lead {
-  font: 700 clamp(18px, 2vw, 24px)/1.45 var(--mono);
+  font: 700 var(--type-subheading)/1.4 var(--mono);
   margin-top: 20px;
   letter-spacing: -0.045em;
 }
@@ -683,7 +680,7 @@ a:hover {
   display: flex;
   justify-content: space-between;
   gap: 12px;
-  font: 700 10px/1.5 var(--mono);
+  font: 700 var(--type-label)/1.5 var(--mono);
   letter-spacing: 0.04em;
   border-bottom: 2px solid var(--ink);
   padding-bottom: 13px;
@@ -700,7 +697,7 @@ a:hover {
   transform-origin: center;
 }
 .campaign #about .arc-track h3 {
-  font: 400 clamp(24px, 2.8vw, 37px)/1.2 var(--pixel);
+  font: 400 var(--type-subheading)/var(--leading-heading) var(--pixel);
   letter-spacing: -0.045em;
   text-transform: uppercase;
   margin: 0 0 21px;
@@ -708,7 +705,7 @@ a:hover {
 }
 .campaign #about .arc-track p {
   font:
-    400 16px/1.65 DM,
+    400 var(--type-body)/var(--leading-copy) DM,
     Arial,
     sans-serif;
   margin: 0 0 32px;
@@ -724,12 +721,12 @@ a:hover {
 .campaign #about .arc-track-goal > span {
   display: block;
   margin-bottom: 10px;
-  font: 700 11px/1.5 var(--mono);
+  font: 700 var(--type-label)/1.5 var(--mono);
   letter-spacing: 0.04em;
 }
 .campaign #about .arc-track .arc-track-example p {
   margin: 0;
-  font-size: 14px;
+  font-size: var(--type-support);
 }
 .campaign #about .arc-track-goal {
   display: grid;
@@ -742,7 +739,7 @@ a:hover {
 .campaign #about .arc-track-goal p {
   margin: 0;
   font:
-    400 16px/1.65 DM,
+    400 var(--type-body)/var(--leading-copy) DM,
     Arial,
     sans-serif;
 }
@@ -765,7 +762,7 @@ a:hover {
 }
 .campaign #programme .arc-programme-heading > p {
   font:
-    400 16px/1.65 DM,
+    400 18px/1.65 DM,
     Arial,
     sans-serif;
   margin: 0 0 3px;
@@ -825,11 +822,11 @@ a:hover {
   gap: 7px;
 }
 .campaign #programme .arc-day-tabs strong {
-  font: 400 20px/1.2 var(--pixel);
+  font: 400 22px/1.2 var(--pixel);
   letter-spacing: -0.045em;
 }
 .campaign #programme .arc-day-tabs button > span:nth-child(2) > span {
-  font: 700 10px/1.5 var(--mono);
+  font: 700 12px/1.5 var(--mono);
   letter-spacing: 0.03em;
 }
 .campaign #programme .arc-tab-arrow {
@@ -865,7 +862,7 @@ a:hover {
   color: var(--ink);
   background: var(--lime);
   border-top: 2px solid var(--ink);
-  font: 700 10px/1.5 var(--mono);
+  font: 700 12px/1.5 var(--mono);
   letter-spacing: 0.04em;
 }
 .campaign #programme .arc-timetable-intro {
@@ -877,11 +874,11 @@ a:hover {
 }
 .campaign #programme .arc-timetable-intro h3 {
   margin: 0;
-  font: 400 clamp(17px, 2.3vw, 27px)/1.4 var(--pixel);
+  font: 400 var(--type-subheading)/var(--leading-heading) var(--pixel);
   letter-spacing: -0.04em;
 }
 .campaign #programme .arc-timetable-intro > span {
-  font: 700 10px/1.5 var(--mono);
+  font: 700 12px/1.5 var(--mono);
   letter-spacing: 0.04em;
   white-space: nowrap;
   color: var(--lime);
@@ -904,18 +901,20 @@ a:hover {
   border-bottom: 0;
 }
 .campaign #programme .arc-schedule time {
-  font: 700 12px/1.6 var(--mono);
+  font: 700 14px/1.6 var(--mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
   white-space: nowrap;
   color: var(--cobalt);
 }
 .campaign #programme .arc-schedule h4 {
-  font: 700 16px/1.45 var(--mono);
+  font: 700 18px/1.45 var(--mono);
   letter-spacing: -0.045em;
   margin: 0;
 }
 .campaign #programme .arc-schedule p {
   font:
-    400 15px/1.55 DM,
+    400 17px/1.55 DM,
     Arial,
     sans-serif;
   margin: 0;
@@ -930,7 +929,7 @@ a:hover {
   display: flex;
   align-items: center;
   gap: 13px;
-  font: 400 11px/1.7 var(--mono);
+  font: 400 13px/1.7 var(--mono);
   max-width: 700px;
 }
 .campaign #programme .arc-programme-note > span {
@@ -951,9 +950,7 @@ a:hover {
   .campaign #about .arc-track-top > span:last-child {
     display: none;
   }
-  .campaign #about .arc-track h3 {
-    font-size: 26px;
-  }
+
   .campaign #programme .arc-programme-heading {
     gap: 30px;
   }
@@ -972,7 +969,7 @@ a:hover {
     font-size: 34px;
   }
   .campaign #programme .arc-day-tabs strong {
-    font-size: 17px;
+    font-size: 19px;
   }
 }
 @media (max-width: 600px) {
@@ -981,7 +978,6 @@ a:hover {
   }
   .campaign #about .arc-section-top,
   .campaign #programme .arc-section-top {
-    font-size: 9px;
     gap: 16px;
   }
   .campaign #about .arc-section-top > span:last-child,
@@ -994,15 +990,8 @@ a:hover {
     gap: 24px;
     margin: 28px 0 30px;
   }
-  .campaign #about h2,
-  .campaign #programme h2 {
-    font-size: clamp(29px, 8vw, 46px);
-  }
-  .campaign #about .arc-about-copy p {
-    font-size: 13px;
-  }
+
   .campaign #about .arc-about-copy .arc-lead {
-    font-size: 18px;
     max-width: 330px;
   }
   .campaign #about .arc-track-grid {
@@ -1010,20 +999,16 @@ a:hover {
     gap: 24px;
   }
   .campaign #about .arc-track h3 {
-    font-size: 27px;
     min-height: 0;
   }
   .campaign #about .arc-track p {
-    font-size: 14px;
     margin-bottom: 26px;
   }
   .campaign #about .arc-track-goal {
     grid-template-columns: 1fr;
     gap: 0;
   }
-  .campaign #about .arc-track-goal p {
-    font-size: 14px;
-  }
+
   .campaign #about .arc-track-top > span:last-child {
     display: block;
   }
@@ -1039,7 +1024,7 @@ a:hover {
   }
   .campaign #programme .arc-programme-heading > p {
     margin-top: 23px;
-    font-size: 12px;
+    font-size: 14px;
   }
   .campaign #programme .arc-programme-heading strong {
     margin-top: 8px;
@@ -1058,10 +1043,10 @@ a:hover {
     font-size: 29px;
   }
   .campaign #programme .arc-day-tabs strong {
-    font-size: 14px;
+    font-size: 16px;
   }
   .campaign #programme .arc-day-tabs button > span:nth-child(2) > span {
-    font-size: 8px;
+    font-size: 10px;
     line-height: 1.7;
     max-width: 120px;
   }
@@ -1074,7 +1059,7 @@ a:hover {
   }
   .campaign #programme .arc-journey-art figcaption {
     padding: 11px;
-    font-size: 8px;
+    font-size: 10px;
     gap: 16px;
   }
   .campaign #programme .arc-journey-art figcaption > span:last-child {
@@ -1086,11 +1071,10 @@ a:hover {
     margin: 30px 0 15px;
   }
   .campaign #programme .arc-timetable-intro h3 {
-    font-size: 17px;
     margin-bottom: 10px;
   }
   .campaign #programme .arc-timetable-intro > span {
-    font-size: 9px;
+    font-size: 11px;
   }
   .campaign #programme .arc-schedule article {
     grid-template-columns: 1fr;
@@ -1099,16 +1083,16 @@ a:hover {
   }
   .campaign #programme .arc-schedule p {
     grid-column: auto;
-    font-size: 14px;
+    font-size: 16px;
   }
   .campaign #programme .arc-schedule h4 {
-    font-size: 15px;
+    font-size: 17px;
   }
   .campaign #programme .arc-schedule time {
-    font-size: 11px;
+    font-size: 13px;
   }
   .campaign #programme .arc-programme-note {
-    font-size: 10px;
+    font-size: 12px;
     align-items: start;
   }
   .campaign #programme .arc-programme-note > span {
@@ -1136,7 +1120,7 @@ a:hover {
   border-top: 2px solid var(--ink);
   padding-top: 14px;
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: var(--type-label);
   font-weight: 700;
   letter-spacing: 0.04em;
 }
@@ -1156,11 +1140,12 @@ a:hover {
 .cog-lower-heading h2,
 .cog-host-heading h2 {
   font-family: var(--pixel);
-  font-size: clamp(32px, 4.3vw, 65px);
-  line-height: 1.2;
+  font-size: var(--type-section);
+  line-height: 1.15;
   letter-spacing: -0.025em;
   font-weight: 400;
 }
+.arc-about-copy mark,
 .cog-lower-heading mark,
 .cog-host-heading mark {
   background: var(--lime);
@@ -1171,8 +1156,8 @@ a:hover {
 }
 .cog-lower-heading > p {
   max-width: 355px;
-  font-size: 16px;
-  line-height: 1.7;
+  font-size: var(--type-body);
+  line-height: var(--leading-copy);
   padding-bottom: 8px;
 }
 .cog-credits {
@@ -1239,7 +1224,7 @@ a:hover {
 }
 .cog-credit-notes span {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: var(--type-label);
   letter-spacing: 0.04em;
   font-weight: 700;
   text-align: center;
@@ -1252,17 +1237,27 @@ a:hover {
   mix-blend-mode: multiply;
 }
 .techx-credit-crop {
-  width: min(100%, 180px);
   aspect-ratio: 337 / 68;
   overflow: hidden;
-  margin-block: auto;
   mix-blend-mode: multiply;
 }
+.cog-credit-notes .techx-credit-crop {
+  width: min(100%, 180px);
+  margin-block: auto;
+}
+.event-mark img,
 .cog-credit-notes .techx-credit-crop img {
+  display: block;
   width: 102.374%;
   height: auto;
   max-width: none;
   transform: translate(-2.319%, -35.019%);
+}
+.cog-credit-notes .rset-credit {
+  width: min(100%, 170px);
+  max-width: none;
+  height: auto;
+  margin-block: auto;
 }
 .cog-credit-notes .cog-powered {
   border-inline: 1px solid #1c2e3d40;
@@ -1283,7 +1278,7 @@ a:hover {
   padding: 14px 18px;
   background: var(--lime);
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: var(--type-support);
   font-weight: 700;
   letter-spacing: 0.02em;
   color: var(--ink);
@@ -1310,9 +1305,9 @@ a:hover {
   margin: 48px 0 26px;
 }
 .cog-host-heading > p {
-  font-size: 18px;
+  font-size: var(--type-subheading);
   font-weight: 700;
-  line-height: 1.5;
+  line-height: 1.4;
   text-align: right;
 }
 .cog-campus {
@@ -1336,7 +1331,7 @@ a:hover {
   background: var(--cobalt);
   color: #fff;
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: var(--type-label);
   letter-spacing: 0.04em;
 }
 .cog-campus figcaption a {
@@ -1354,13 +1349,13 @@ a:hover {
   min-height: 44px;
   padding: 10px 16px;
   border: 1px solid #ffffff80;
-  font-size: 11px;
+  font-size: var(--type-label);
 }
 .cog-campus-credit {
   flex: 1 0 100%;
   padding-top: 10px;
   border-top: 1px solid #ffffff45;
-  font-size: 10px;
+  font-size: var(--type-label);
   font-weight: 400;
   line-height: 1.7;
   letter-spacing: 0;
@@ -1395,20 +1390,20 @@ a:hover {
 .cog-venue-label {
   display: block;
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: var(--type-label);
   letter-spacing: 0.035em;
   margin-bottom: 10px;
 }
 .cog-venue-route h3 {
   font-family: var(--mono);
-  font-size: 19px;
+  font-size: var(--type-subheading);
   letter-spacing: -0.03em;
-  line-height: 1.3;
+  line-height: var(--leading-heading);
   margin: 0 0 10px;
 }
 .cog-venue-route p {
-  font-size: 13px;
-  line-height: 1.7;
+  font-size: var(--type-body);
+  line-height: var(--leading-copy);
 }
 .cog-route-arrow {
   font-size: 40px;
@@ -1419,12 +1414,12 @@ a:hover {
   padding-top: 48px;
 }
 .cog-arrival > h3 {
-  font: 400 clamp(26px, 3vw, 42px)/1.3 var(--pixel);
+  font: 400 var(--type-subheading)/var(--leading-heading) var(--pixel);
   letter-spacing: -0.025em;
 }
 .cog-arrival-intro {
   margin-top: 16px;
-  font-size: 15px;
+  font-size: var(--type-body);
 }
 .cog-arrival-grid {
   display: grid;
@@ -1443,13 +1438,13 @@ a:hover {
 }
 .cog-arrival h4 {
   margin: 0 0 16px;
-  font: 700 11px/1.5 var(--mono);
+  font: 700 var(--type-label)/1.5 var(--mono);
   letter-spacing: 0.025em;
 }
 .cog-arrival-grid dl {
   margin: 0;
-  font-size: 14px;
-  line-height: 1.65;
+  font-size: var(--type-body);
+  line-height: var(--leading-copy);
 }
 .cog-arrival-grid dt {
   font-weight: 700;
@@ -1463,8 +1458,8 @@ a:hover {
 .cog-arrival-grid ul {
   margin: 0;
   padding-left: 16px;
-  font-size: 14px;
-  line-height: 1.65;
+  font-size: var(--type-body);
+  line-height: var(--leading-copy);
 }
 .cog-arrival-grid li + li {
   margin-top: 10px;
@@ -1485,8 +1480,8 @@ a:hover {
 }
 .cog-accessibility p {
   max-width: 580px;
-  font-size: 14px;
-  line-height: 1.7;
+  font-size: var(--type-body);
+  line-height: var(--leading-copy);
 }
 .cog-accessibility-links {
   display: flex;
@@ -1499,7 +1494,7 @@ a:hover {
   align-items: center;
   gap: 18px;
   min-height: 44px;
-  font: 700 12px/1.5 var(--mono);
+  font: 700 var(--type-support)/1.5 var(--mono);
   color: var(--cobalt);
   text-decoration: underline;
   text-underline-offset: 4px;
@@ -1512,14 +1507,14 @@ a:hover {
 }
 .cog-faq-heading > span {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: var(--type-label);
   letter-spacing: 0.04em;
 }
 .cog-faq-heading h3 {
   font-family: var(--pixel);
-  font-size: clamp(26px, 3.1vw, 44px);
+  font-size: var(--type-subheading);
   font-weight: 400;
-  line-height: 1.3;
+  line-height: var(--leading-heading);
   letter-spacing: -0.025em;
   margin: 20px 0 30px;
 }
@@ -1534,10 +1529,10 @@ a:hover {
 }
 .cog-faq-heading > p {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: var(--type-support);
   margin-top: 12px;
   max-width: 270px;
-  line-height: 1.6;
+  line-height: var(--leading-copy);
 }
 .cog-faq-items {
   border-top: 2px solid var(--ink);
@@ -1554,7 +1549,7 @@ a:hover {
   justify-content: space-between;
   gap: 24px;
   padding: 18px 0;
-  font-size: 15px;
+  font-size: var(--type-body);
   font-weight: 700;
   line-height: 1.5;
 }
@@ -1575,8 +1570,8 @@ a:hover {
 }
 .cog-faq-items details > p {
   padding: 0 30px 19px 0;
-  font-size: 14px;
-  line-height: 1.75;
+  font-size: var(--type-body);
+  line-height: var(--leading-copy);
 }
 .cog-faq-items p a {
   text-decoration: underline;
@@ -1621,9 +1616,7 @@ a:hover {
   .cog-credit-notes .cog-powered {
     padding-inline: 14px;
   }
-  .cog-host-heading > p {
-    font-size: 15px;
-  }
+
   .cog-venue-route {
     gap: 16px;
     grid-template-columns: 1fr 30px 1fr;
@@ -1634,18 +1627,12 @@ a:hover {
   .cog-venue-number {
     font-size: 28px;
   }
-  .cog-venue-route h3 {
-    font-size: 16px;
-  }
-  .cog-venue-label {
-    font-size: 9px;
-  }
+
   .cog-faq {
     gap: 40px;
     grid-template-columns: 1fr 1.2fr;
   }
   .cog-faq-heading > a {
-    font-size: 10px;
     padding: 12px;
     gap: 12px;
   }
@@ -1659,7 +1646,6 @@ a:hover {
     padding-top: 10px;
   }
   .cog-section-marker {
-    font-size: 9px;
     gap: 14px;
   }
   .cog-section-marker span:first-child {
@@ -1675,14 +1661,8 @@ a:hover {
     display: block;
     margin-top: 34px;
   }
-  .cog-lower-heading h2,
-  .cog-host-heading h2 {
-    font-size: clamp(26px, 6.8vw, 40px);
-    line-height: 1.3;
-  }
   .cog-lower-heading > p {
     margin-top: 22px;
-    font-size: 14px;
     max-width: 100%;
     padding: 0;
   }
@@ -1729,9 +1709,7 @@ a:hover {
     max-width: 265px;
     height: auto;
   }
-  .cog-credit-notes span {
-    font-size: 9px;
-  }
+
   .cog-credit-notes img {
     height: 48px;
     max-width: 120px;
@@ -1743,8 +1721,6 @@ a:hover {
   .cog-host-heading > p {
     text-align: left;
     margin-top: 19px;
-    font-size: 17px;
-    line-height: 1.5;
   }
   .cog-campus > img {
     min-height: 200px;
@@ -1753,7 +1729,6 @@ a:hover {
   }
   .cog-campus figcaption {
     padding: 13px 12px;
-    font-size: 10px;
     gap: 12px;
   }
   .cog-campus-map {
@@ -1775,15 +1750,7 @@ a:hover {
   .cog-venue-number {
     font-size: 31px;
   }
-  .cog-venue-route h3 {
-    font-size: 18px;
-  }
-  .cog-venue-label {
-    font-size: 9px;
-  }
-  .cog-venue-route p {
-    font-size: 13px;
-  }
+
   .cog-route-arrow {
     display: none;
   }
@@ -1814,28 +1781,21 @@ a:hover {
     gap: 30px;
     padding-top: 36px;
   }
-  .cog-faq-heading > span {
-    font-size: 10px;
-  }
+
   .cog-faq-heading h3 {
-    font-size: 30px;
     margin: 17px 0 23px;
   }
   .cog-faq-heading > a {
-    font-size: 11px;
     gap: 24px;
     padding: 14px 17px;
   }
   .cog-faq-heading > p {
     max-width: none;
-    font-size: 10px;
   }
   .cog-faq-items summary {
-    font-size: 14px;
     padding-block: 16px;
   }
   .cog-faq-items details > p {
-    font-size: 13px;
     padding-right: 10px;
   }
 }
@@ -1851,7 +1811,7 @@ a:hover {
 .window-bar button {
   background: none;
   color: var(--paper);
-  font: 500 10px/1 var(--mono);
+  font: 500 var(--type-label)/1.4 var(--mono);
   padding: 6px 4px;
 }
 .window-bar button:hover {
@@ -1896,7 +1856,7 @@ footer a:hover {
   display: flex;
   align-items: center;
   gap: 18px;
-  font-size: 9px;
+  font-size: var(--type-label);
   letter-spacing: 0.22em;
   line-height: 1.5;
   margin-bottom: 12px;
@@ -1937,15 +1897,15 @@ footer a:hover {
   stroke-linejoin: round;
 }
 .footer-date {
-  font-size: 10px;
+  font-size: var(--type-label);
   font-weight: 600;
   letter-spacing: 0.16em;
   line-height: 1.4;
   margin-bottom: 5px;
 }
 .footer-location {
-  font-size: 8px;
-  line-height: 1.8;
+  font-size: var(--type-label);
+  line-height: var(--leading-copy);
   letter-spacing: 0.12em;
   color: #dae6ff;
 }
@@ -1960,20 +1920,20 @@ footer a:hover {
 .footer-people strong {
   display: block;
   font-weight: 600;
-  font-size: 12px;
-  line-height: 1.4;
+  font-size: var(--type-support);
+  line-height: 1.5;
 }
 .footer-people a > span {
   display: block;
-  font-size: 9px;
-  letter-spacing: 0.12em;
+  font-size: var(--type-support);
+  letter-spacing: 0.04em;
   margin-top: 3px;
   color: #dae6ff;
 }
 .footer-email {
   display: inline-block;
   margin-left: 37px;
-  font-size: 9px;
+  font-size: var(--type-support);
   text-underline-offset: 4px;
 }
 .footer-nav {
@@ -1987,12 +1947,12 @@ footer a:hover {
 }
 .footer-nav a {
   text-transform: uppercase;
-  font-size: 8px;
-  letter-spacing: 0.18em;
+  font-size: var(--type-label);
+  letter-spacing: 0.08em;
 }
 .footer-motion {
   margin-left: auto;
-  font-size: 9px;
+  font-size: var(--type-label);
   padding: 8px 0 8px 12px;
   background: none;
 }
@@ -2034,8 +1994,9 @@ footer a:hover {
   justify-content: space-between;
   gap: 20px;
   padding-block: 16px;
-  font-size: 8px;
+  font-size: var(--type-label);
   letter-spacing: 0.06em;
+  line-height: 1.6;
 }
 .motion-paused * {
   animation-play-state: paused !important;
@@ -2071,7 +2032,6 @@ footer a:hover {
     display: block;
   }
   .footer-kicker {
-    font-size: 8px;
     letter-spacing: 0.15em;
     gap: 12px;
     margin-bottom: 12px;
@@ -2092,21 +2052,13 @@ footer a:hover {
     gap: 14px;
     margin-bottom: 16px;
   }
-  .footer-date {
-    font-size: 10px;
-  }
-  .footer-location {
-    font-size: 8px;
-  }
+
   .footer-people {
     gap: 12px 20px;
   }
-  .footer-people strong {
-    font-size: 12px;
-  }
+
   .footer-email {
     margin-left: 35px;
-    font-size: 10px;
   }
   .footer-nav {
     padding-left: 0;
@@ -2114,14 +2066,10 @@ footer a:hover {
     gap: 18px 20px;
     margin-top: 25px;
   }
-  .footer-nav a {
-    font-size: 8px;
-    letter-spacing: 0.12em;
-  }
+
   .footer-motion {
     margin-left: 0;
     padding: 0;
-    font-size: 9px;
   }
   .footer-water {
     height: 135px;
@@ -2139,8 +2087,6 @@ footer a:hover {
     bottom: 0;
   }
   .footer-bottom {
-    font-size: 7px;
-    line-height: 1.8;
     align-items: start;
     padding-block: 20px;
   }
@@ -2278,7 +2224,7 @@ footer a:hover {
   }
   .campaign .window-bar > span {
     min-width: 0;
-    font-size: 9px;
+    font-size: var(--type-label);
     letter-spacing: 0.04em;
     line-height: 1.5;
   }

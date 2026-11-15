@@ -29,6 +29,36 @@ try {
   assert.match(await page.title(), /CogniCraft/i);
   assert.equal(await page.locator("h1").count(), 1, "Use one main heading");
   assert.match(await page.locator("h1").innerText(), /CogniCraft/i, "Poster hero should identify the event");
+  assert.equal(
+    await page.locator(".hero-copy .event-mark img").getAttribute("src"),
+    await page.locator('#partners img[alt="IEEE Computer Society TechX"]').getAttribute("src"),
+    "Hero and partner credits should use the same TechX logo",
+  );
+  assert.match(
+    await page.locator("#about-title").innerText(),
+    /purpose/i,
+    "Experience should retain its purpose heading",
+  );
+  assert.match(
+    await page.locator(".arc-about-copy mark").innerText(),
+    /TechX\s+CogniCraft/i,
+    "Purpose copy should highlight the event name",
+  );
+  assert.deepEqual(
+    await page
+      .locator(".arc-about-copy mark")
+      .evaluate((element) => ({
+        color: getComputedStyle(element).color,
+        background: getComputedStyle(element).backgroundColor,
+      })),
+    await page
+      .locator(".cog-host-heading mark")
+      .evaluate((element) => ({
+        color: getComputedStyle(element).color,
+        background: getComputedStyle(element).backgroundColor,
+      })),
+    "Event-name highlight should share the host-heading highlight colors",
+  );
   assert.match(
     await page.locator("body").innerText(),
     /12.*13.*December|12.*December.*13.*December/is,
@@ -167,14 +197,50 @@ try {
     );
   assert.match(await page.locator(".fact-strip").innerText(), /Free\s*&\s*residential/i);
   await page.locator("#partners").scrollIntoViewIfNeeded();
-  for (const file of ["ieee-cs-syp-activities.webp", "ieee-kerala-atii.jpg", "foss-united.svg", "ieee-sps.png", "ieee-official-poster.webp", "ieee-cs-techx.png", "manus-fellow-credit.webp", "rset-official.png"]) {
-    const logo = page.locator(`#partners img[src="assets/${file}"]`);
-    assert.equal(await logo.count(), 1, `Partner credits should include ${file}`);
-    assert.ok((await logo.getAttribute("alt"))?.trim(), `Partner logo ${file} needs an accessible label`);
+  for (const selector of [
+    ".cog-credit-syp img",
+    ".cog-credit-atii img",
+    ".cog-credit-foss img",
+    ".cog-credit-sps img",
+    ".cog-credit-ieee img",
+    'img[alt="IEEE Computer Society TechX"]',
+    'img[src="assets/manus-fellow-credit.webp"]',
+    'img[alt^="Rajagiri School"]',
+  ]) {
+    const logo = page.locator(`#partners ${selector}`);
+    assert.equal(await logo.count(), 1, `Partner credits should include ${selector}`);
+    assert.ok(
+      (await logo.getAttribute("alt"))?.trim(),
+      `Partner logo ${selector} needs an accessible label`,
+    );
     await logo.scrollIntoViewIfNeeded();
     await logo.evaluate((image) => image.decode());
-    assert.ok(await logo.evaluate((image) => image.naturalWidth > 0), `Partner logo ${file} should decode`);
+    assert.ok(
+      await logo.evaluate((image) => image.naturalWidth > 0),
+      `Partner logo ${selector} should decode`,
+    );
   }
+  assert.ok(
+    await page
+      .locator(".cog-credit-syp img")
+      .evaluate(
+        (image) =>
+          image.src.endsWith(".svg") ||
+          image.naturalWidth >= image.getBoundingClientRect().width * 2,
+      ),
+    "SYP logo should retain enough resolution for a sharp display",
+  );
+  const ieeeMaster = page.locator("#partner-logos > .cog-credit").nth(4).locator("img");
+  assert.equal(
+    await ieeeMaster.getAttribute("alt"),
+    "IEEE",
+    "Fifth partner credit should retain the IEEE master identity",
+  );
+  assert.equal(
+    await ieeeMaster.getAttribute("src"),
+    "assets/ieee-master-blue.png",
+    "IEEE credit should use the official master logo",
+  );
   assert.equal(await page.locator(".cog-sponsor-intro, .cog-sponsor-levels").count(), 0, "Sponsorship sales blocks should be absent");
   assert.doesNotMatch(await page.locator("#partners").innerText(), /₹|sponsorship|platinum|silver|gold/i, "Partner section should show credits without sponsorship pricing");
   const campus = page.locator(".cog-campus img");
@@ -351,6 +417,19 @@ try {
       await artwork.evaluate((image) => image.naturalWidth > 0),
       "Journey artwork should finish loading",
     );
+    const sessions = page.locator(`[id="${panelId}"] .arc-schedule article`);
+    assert.ok((await sessions.count()) > 0, "Each day should retain its programme sessions");
+    for (const session of await sessions.all()) {
+      assert.match(
+        await session.locator("time").innerText(),
+        /\d{2}:\d{2}/,
+        "Sessions should retain readable times",
+      );
+      assert.ok(
+        (await session.getByRole("heading").innerText()).trim(),
+        "Sessions should retain a clear title",
+      );
+    }
   }
   await tabs.nth(0).focus();
   await page.keyboard.press("ArrowRight");
@@ -382,6 +461,16 @@ try {
       ),
       `Horizontal overflow at ${width}px`,
     );
+    const headingRatio = await tracks
+      .first()
+      .evaluate((track) => ({
+        heading: parseFloat(getComputedStyle(track.querySelector("h3")).fontSize),
+        body: parseFloat(getComputedStyle(track.querySelector("p")).fontSize),
+      }));
+    assert.ok(
+      Math.abs(headingRatio.heading - headingRatio.body * 1.6) <= 0.5,
+      `Track heading should retain the requested 1.6x body scale at ${width}px`,
+    );
     const mapLink = page.locator(".cog-campus-map");
     await mapLink.scrollIntoViewIfNeeded();
     const mapTarget = await mapLink.evaluate((link) => {
@@ -398,7 +487,41 @@ try {
       `Campus map should have a 44px target at ${width}px`,
     );
     assert.ok(mapTarget.clickable, `Campus map should receive pointer hits at ${width}px`);
+    assert.deepEqual(
+      await page.locator(".arc-schedule article").evaluateAll((sessions) =>
+        sessions
+          .filter((session) => session.checkVisibility())
+          .filter((session) => {
+            const heading = session.querySelector("h4");
+            const description = session.querySelector("p");
+            return (
+              session.scrollWidth > session.clientWidth + 1 ||
+              parseFloat(getComputedStyle(heading).fontSize) <=
+                parseFloat(getComputedStyle(description).fontSize)
+            );
+          })
+          .map((session) => session.textContent.trim()),
+      ),
+      [],
+      `Visible schedule rows should fit with clear title hierarchy at ${width}px`,
+    );
     if (width === 320) {
+      assert.deepEqual(
+        await page.locator("footer a, .footer-bottom > span").evaluateAll((elements) =>
+          elements
+            .filter((element) => {
+              const box = element.getBoundingClientRect();
+              return (
+                box.left < -0.5 ||
+                box.right > innerWidth + 0.5 ||
+                element.scrollWidth > element.clientWidth + 1
+              );
+            })
+            .map((element) => element.textContent.trim()),
+        ),
+        [],
+        "Footer contact and navigation text should fit safely at 320px",
+      );
       assert.deepEqual(
         await tracks.evaluateAll((elements) =>
           elements
@@ -647,8 +770,15 @@ try {
         const expected = baseline[index];
         const label = `Footer ${current.class || current.tag} at ${width}px`;
         assert.deepEqual([current.tag, current.class, current.text], [expected.tag, expected.class, expected.text], `${label} markup should match HEAD`);
-        assert.deepEqual(current.style, expected.style, `${label} computed styles should match HEAD`);
-        assert.ok(current.rect.every((value, axis) => Math.abs(value - expected.rect[axis]) <= 0.05), `${label} box should match HEAD: ${current.rect} vs ${expected.rect}`);
+        assert.deepEqual(
+          current.style,
+          expected.style,
+          `${label} computed styles should match baseline`,
+        );
+        assert.ok(
+          current.rect.every((value, axis) => Math.abs(value - expected.rect[axis]) <= 0.05),
+          `${label} box should match baseline: ${current.rect} vs ${expected.rect}`,
+        );
       }
     }
   }
