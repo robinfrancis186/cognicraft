@@ -655,7 +655,7 @@ a:hover {
 }
 .campaign #about .arc-about-copy .arc-lead {
   font: 700 clamp(18px, 2vw, 24px)/1.45 var(--mono);
-  margin-bottom: 20px;
+  margin-top: 20px;
   letter-spacing: -0.045em;
 }
 .campaign #about .arc-track-grid {
