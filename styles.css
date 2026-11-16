@@ -657,65 +657,67 @@ a:hover {
 }
 .campaign #about .arc-track-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 28px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 30rem), 1fr));
+  gap: 32px;
+  padding: 0 8px 8px 0;
 }
 .campaign #about .arc-track {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 24px 30px 0;
-  border: 3px solid var(--ink);
-  box-shadow: 7px 7px 0 var(--ink);
-  background: var(--lime);
+  display: grid;
+  grid-template-rows: auto 1fr;
   min-width: 0;
-  overflow: hidden;
-}
-.campaign #about .arc-track-devices {
-  background: var(--paper);
 }
 .campaign #about .arc-track-top {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
+  margin: 0 0 5px 2px;
   font: 700 var(--type-label)/1.5 var(--mono);
   letter-spacing: 0.04em;
-  border-bottom: 2px solid var(--ink);
-  padding-bottom: 13px;
 }
-.campaign #about .arc-pixel-art {
-  display: block;
-  width: 112px;
-  height: 88px;
-  margin: 28px 0 23px;
-  overflow: visible;
+.campaign #about .arc-track-panel {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: "title art" "copy art" "example example";
+  gap: 14px 8px;
+  padding: clamp(20px, 2.2vw, 32px);
+  background: #1b2f47;
+  color: var(--paper);
+  box-shadow: 8px 8px 0 var(--ink);
 }
-.campaign #about .arc-track-devices .arc-pixel-art {
-  transform: rotate(5deg);
-  transform-origin: center;
+.campaign #about .arc-track-panel::after {
+  content: "";
+  position: absolute;
+  left: 28px;
+  bottom: -5px;
+  width: 7px;
+  height: 7px;
+  background: var(--lime);
+  box-shadow: 14px 0 var(--lime), 28px 0 var(--lime);
+}
+.campaign #about .arc-track-art {
+  grid-area: art;
+  place-self: center;
+  width: 100%;
+  max-width: 290px;
+  height: auto;
 }
 .campaign #about .arc-track h3 {
-  font: 400 var(--type-subheading)/var(--leading-heading) var(--pixel);
-  letter-spacing: -0.045em;
-  text-transform: uppercase;
-  margin: 0 0 21px;
-  min-height: 2.4em;
+  grid-area: title;
+  color: var(--lime);
+  font: 400 var(--type-subheading)/1.1 var(--pixel);
+  margin: 0;
 }
 .campaign #about .arc-track p {
-  font:
-    400 var(--type-body)/var(--leading-copy) DM,
-    Arial,
-    sans-serif;
-  margin: 0 0 32px;
-  max-width: 420px;
+  margin: 0;
+  font: 400 var(--type-body)/var(--leading-copy) DM, Arial, sans-serif;
+}
+.campaign #about .arc-track-panel > p {
+  grid-area: copy;
 }
 .campaign #about .arc-track-example {
-  width: 100%;
-  margin-top: auto;
-  padding: 20px 0 24px;
-  border-top: 2px solid var(--ink);
+  grid-area: example;
+  margin-top: 5px;
+  padding-top: 14px;
+  border-top: 1px solid #637489;
 }
 .campaign #about .arc-track-example > span,
 .campaign #about .arc-track-goal > span {
@@ -944,12 +946,6 @@ a:hover {
     gap: 6%;
     grid-template-columns: 1fr 1fr;
   }
-  .campaign #about .arc-track {
-    padding: 20px 22px 0;
-  }
-  .campaign #about .arc-track-top > span:last-child {
-    display: none;
-  }
 
   .campaign #programme .arc-programme-heading {
     gap: 30px;
@@ -970,6 +966,13 @@ a:hover {
   }
   .campaign #programme .arc-day-tabs strong {
     font-size: 19px;
+  }
+}
+@media (max-width: 520px) {
+  .campaign #about .arc-track-panel {
+    grid-template-columns: minmax(0, 1fr) 35%;
+    grid-template-areas: "title art" "copy copy" "example example";
+    align-items: center;
   }
 }
 @media (max-width: 600px) {
@@ -994,27 +997,11 @@ a:hover {
   .campaign #about .arc-about-copy .arc-lead {
     max-width: 330px;
   }
-  .campaign #about .arc-track-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-  .campaign #about .arc-track h3 {
-    min-height: 0;
-  }
-  .campaign #about .arc-track p {
-    margin-bottom: 26px;
-  }
   .campaign #about .arc-track-goal {
     grid-template-columns: 1fr;
     gap: 0;
   }
 
-  .campaign #about .arc-track-top > span:last-child {
-    display: block;
-  }
-  .campaign #about .arc-pixel-art {
-    margin: 23px 0 20px;
-  }
   .campaign #programme {
     padding: 55px 0;
   }
