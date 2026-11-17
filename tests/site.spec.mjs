@@ -31,7 +31,7 @@ try {
   assert.match(await page.locator("h1").innerText(), /CogniCraft/i, "Poster hero should identify the event");
   assert.equal(
     await page.locator(".hero-copy .event-mark img").getAttribute("src"),
-    await page.locator('#partners img[alt="IEEE Computer Society TechX"]').getAttribute("src"),
+    await page.locator('#partners img[alt="IEEE Computer Society SYP TechX"]').getAttribute("src"),
     "Hero and partner credits should use the same TechX logo",
   );
   assert.match(
@@ -203,7 +203,7 @@ try {
     ".cog-credit-foss img",
     ".cog-credit-sps img",
     ".cog-credit-ieee img",
-    'img[alt="IEEE Computer Society TechX"]',
+    'img[alt="IEEE Computer Society SYP TechX"]',
     'img[src="assets/manus-fellow-credit.webp"]',
     'img[alt^="Rajagiri School"]',
   ]) {

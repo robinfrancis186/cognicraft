@@ -18,7 +18,7 @@ Registration links follow the QR code and printed URL in the 15 November registr
 
 ## Artwork and typography
 
-The hero and partner credits share the [official TechX logo](https://syp.computer.org/wp-content/uploads/2025/04/TechXLogo.png). The SYP Activities mark comes from the [IEEE Computer Society TechX guidelines](https://ieeecs-media.computer.org/media/conferences/resources/rules-guideline-techx.pdf), the blue IEEE master logo from [IEEE Brand Experience](https://brand-experience.ieee.org/guidelines/master-brand-and-logos/), and the RSET mark from an [official Rajagiri course handout](https://www.rajagiritech.ac.in/home/mech/pdf/S2%20COURSE%20HANDOUT.pdf).
+The hero and partner credits share the IEEE CS SYP TechX logo supplied by the organiser. The SYP Activities mark comes from the [IEEE Computer Society TechX guidelines](https://ieeecs-media.computer.org/media/conferences/resources/rules-guideline-techx.pdf), the blue IEEE master logo from [IEEE Brand Experience](https://brand-experience.ieee.org/guidelines/master-brand-and-logos/), and the RSET mark from an [official Rajagiri course handout](https://www.rajagiritech.ac.in/home/mech/pdf/S2%20COURSE%20HANDOUT.pdf).
 
 The Manus Fellow credit comes from the supplied poster. The Kerala ATII logo was supplied separately. Other marks come from [FOSS United](https://fossunited.org/) and [IEEE Signal Processing Society](https://signalprocessingsociety.org/our-story/sps-branding-materials).
 

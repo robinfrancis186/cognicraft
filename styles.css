@@ -279,6 +279,10 @@ a:hover {
   width: clamp(152px, 15vw, 200px);
   display: block;
 }
+.event-mark img {
+  width: 100%;
+  height: auto;
+}
 .hero-copy h1 span {
   display: block;
   font: 400 clamp(64px, 8.1vw, 124px)/0.9 var(--pixel);
@@ -1236,22 +1240,11 @@ a:hover {
   object-fit: contain;
   mix-blend-mode: multiply;
 }
-.techx-credit-crop {
-  aspect-ratio: 337 / 68;
-  overflow: hidden;
-  mix-blend-mode: multiply;
-}
-.cog-credit-notes .techx-credit-crop {
+.cog-credit-notes .techx-credit {
   width: min(100%, 180px);
-  margin-block: auto;
-}
-.event-mark img,
-.cog-credit-notes .techx-credit-crop img {
-  display: block;
-  width: 102.374%;
   height: auto;
-  max-width: none;
-  transform: translate(-2.319%, -35.019%);
+  margin-block: auto;
+  mix-blend-mode: normal;
 }
 .cog-credit-notes .rset-credit {
   width: min(100%, 170px);
