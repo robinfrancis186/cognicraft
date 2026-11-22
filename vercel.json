@@ -1,0 +1,5 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "mkdir -p _site && cp index.html styles.css script.js robots.txt sitemap.xml key.txt _site/ && cp -R assets _site/",
+  "outputDirectory": "_site"
+}
