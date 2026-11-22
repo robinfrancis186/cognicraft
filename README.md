@@ -2,7 +2,7 @@
 
 The event website for 12–13 December 2026 at Rajagiri School of Engineering & Technology and aboard the Kochi Water Metro. The site uses the organisers’ November campaign posters as its visual reference. The blue contact footer retains its original line-drawn waterfront and looping ferry.
 
-[Production site](https://techxcognicraft.vercel.app/)
+[Production site](https://techxcognicraft.online/)
 
 ## Running locally
 
@@ -12,7 +12,7 @@ Edit the event information and partner credits in `index.html`, the layout in `s
 
 ## Search and discovery
 
-The canonical homepage, event facts, structured data and social sharing metadata are in `index.html`. `robots.txt` permits public search crawling, including OAI-SearchBot. `sitemap.xml` lists the canonical Vercel URL. The public `key.txt` verifies this site for IndexNow submissions. When the homepage changes, update its sitemap `lastmod` date.
+The canonical homepage, event facts, structured data and social sharing metadata are in `index.html`. `robots.txt` permits public search crawling, including OAI-SearchBot. `sitemap.xml` lists the canonical `TechXcognicraft.online` URL. The public `key.txt` verifies this site for IndexNow submissions. When the homepage changes, update its sitemap `lastmod` date.
 
 ## Event sources
 

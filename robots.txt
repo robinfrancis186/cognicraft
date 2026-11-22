@@ -4,4 +4,4 @@ Allow: /
 User-agent: OAI-SearchBot
 Allow: /
 
-Sitemap: https://techxcognicraft.vercel.app/sitemap.xml
+Sitemap: https://techxcognicraft.online/sitemap.xml
