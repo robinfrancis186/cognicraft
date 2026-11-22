@@ -28,7 +28,8 @@ jobs:
       - name: Prepare public website only
         run: |
           mkdir -p _site/assets
-          cp index.html styles.css script.js .nojekyll _site/
+          cp index.html styles.css script.js robots.txt sitemap.xml key.txt \
+            .nojekyll _site/
           rsync -a --prune-empty-dirs \
             --exclude='source-computer-society-light.jpg' \
             --include='*/' --include='*.svg' --include='*.png' \

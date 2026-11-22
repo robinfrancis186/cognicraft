@@ -10,6 +10,10 @@ Run `python3 -m http.server 4173 --bind 127.0.0.1` and open http://127.0.0.1:417
 
 Edit the event information and partner credits in `index.html`, the layout in `styles.css`, and menu, keyboard tabs or motion controls in `script.js`. Without JavaScript, the navigation and both programme days are available. The pause controls and operating-system reduced-motion setting apply to the hero harbour scene, artwork window indicator and footer ferry.
 
+## Search and discovery
+
+The canonical homepage, event facts, structured data and social sharing metadata are in `index.html`. `robots.txt` permits public search crawling, including OAI-SearchBot. `sitemap.xml` lists the canonical Vercel URL. The public `key.txt` verifies this site for IndexNow submissions. When the homepage changes, update its sitemap `lastmod` date.
+
 ## Event sources
 
 The organisers confirmed a solo hackathon with individual projects, free admission, one night at Rajagiri and arranged transport to the Water Metro. Times and sessions are planned. The boarding terminal, route and final presentation venue are to be announced. The public contacts come from the event poster. The private proposal stays outside the public repository.
