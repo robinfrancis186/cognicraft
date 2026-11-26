@@ -2252,3 +2252,274 @@ footer a:hover {
     flex-shrink: 0;
   }
 }
+
+/* Keep the expanded navigation comfortable with the awards link. */
+@media (min-width: 701px) and (max-width: 850px) {
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    min-height: 44px;
+    margin-left: auto;
+  }
+  .masthead nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--paper);
+    box-shadow: 4px 4px var(--ink);
+    border: 2px solid var(--ink);
+    padding: 12px 15px;
+    z-index: 5;
+    gap: 0;
+  }
+  .masthead nav[data-open="true"] {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .masthead nav a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 11px 0;
+  }
+}
+
+/* Poster-led prize details. */
+.campaign #prizes {
+  padding: 82px 0 88px;
+  background-color: var(--paper);
+  background-image: radial-gradient(#28324412 1.4px, transparent 1.7px);
+  background-size: 23px 23px;
+  color: var(--ink);
+  border-bottom: 3px solid var(--ink);
+}
+.campaign #prizes .arc-section-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid currentColor;
+  font: 700 var(--type-label)/1.5 var(--mono);
+  letter-spacing: 0.08em;
+}
+.campaign #prizes .arc-prizes-intro {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  align-items: end;
+  gap: 8%;
+  margin: 38px 0 30px;
+}
+.campaign #prizes h2 {
+  font: 400 var(--type-section)/1.08 var(--pixel);
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+}
+.campaign #prizes h2 span {
+  color: var(--cobalt);
+}
+.campaign #prizes .arc-prizes-intro > p {
+  max-width: 36ch;
+  justify-self: end;
+  font: 400 var(--type-subheading)/1.5 DM, Arial, sans-serif;
+}
+.campaign #prizes .arc-prize-cash {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+  padding: 14px clamp(18px, 3vw, 40px);
+  border: 3px solid var(--ink);
+  background: var(--lime);
+  box-shadow: 7px 7px 0 var(--ink);
+}
+.campaign #prizes .arc-prize-cash > span {
+  font: 700 var(--type-subheading)/1.3 var(--mono);
+  letter-spacing: 0.02em;
+}
+.campaign #prizes .arc-prize-cash > strong {
+  color: var(--orange);
+  font: 400 clamp(72px, 12vw, 150px)/0.9 var(--pixel);
+  letter-spacing: -0.04em;
+  text-shadow: 4px 4px 0 var(--cobalt);
+}
+.campaign #prizes .arc-prize-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.campaign #prizes .arc-prize-card {
+  min-width: 0;
+  padding: 24px 28px;
+  border: 3px solid var(--ink);
+  box-shadow: 7px 7px 0 var(--ink);
+  background: #192c40;
+  color: var(--paper);
+}
+.campaign #prizes .arc-prize-label {
+  display: block;
+  margin-bottom: 13px;
+  color: var(--lime);
+  font: 700 var(--type-label)/1.5 var(--mono);
+  letter-spacing: 0.05em;
+}
+.campaign #prizes .arc-prize-card h3 {
+  margin: 0 0 14px;
+  font: 400 var(--type-subheading)/1.2 var(--pixel);
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+.campaign #prizes .arc-prize-credit-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.campaign #prizes .arc-prize-credit-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  padding: 12px 0;
+  border-top: 1px solid #f5efe355;
+}
+.campaign #prizes .arc-prize-credit-list li > span {
+  font: 700 var(--type-label)/1.4 var(--mono);
+  letter-spacing: 0.04em;
+}
+.campaign #prizes .arc-prize-credit-list strong {
+  color: var(--paper);
+  font: 700 clamp(18px, 2vw, 25px)/1.3 DM, Arial, sans-serif;
+  text-align: right;
+  white-space: nowrap;
+}
+.campaign #prizes .arc-prize-credit-list small {
+  color: #d5ee38;
+  font-size: 0.68em;
+  font-weight: 600;
+}
+.campaign #prizes .arc-prize-community-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  min-height: 160px;
+  align-items: center;
+}
+.campaign #prizes .arc-prize-community-grid > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
+.campaign #prizes .arc-prize-community-grid > div + div {
+  padding-left: 20px;
+  border-left: 1px solid #f5efe355;
+}
+.campaign #prizes .arc-prize-community-grid span {
+  font: 700 var(--type-label)/1.5 var(--mono);
+  letter-spacing: 0.03em;
+}
+.campaign #prizes .arc-prize-community-grid strong {
+  display: block;
+  margin-top: 8px;
+  color: var(--lime);
+  font: 400 clamp(38px, 5vw, 66px)/1 var(--pixel);
+  overflow-wrap: anywhere;
+}
+.campaign #prizes .arc-prize-community-grid small {
+  margin-top: 6px;
+  color: var(--paper);
+  font: 400 var(--type-support)/1.5 var(--mono);
+}
+.campaign #prizes .arc-prize-register {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 48px;
+  margin-top: 32px;
+  padding: 12px 18px;
+  border: 2px solid var(--ink);
+  background: var(--lime);
+  box-shadow: 4px 4px 0 var(--ink);
+  font: 700 var(--type-support)/1.4 var(--mono);
+}
+.campaign #prizes .arc-prize-register:hover {
+  background: var(--cobalt);
+  color: var(--paper);
+}
+
+@media (max-width: 900px) {
+  .campaign #prizes {
+    padding: 68px 0 74px;
+  }
+  .campaign #prizes .arc-prize-grid {
+    gap: 18px;
+  }
+  .campaign #prizes .arc-prize-card {
+    padding: 22px;
+  }
+  .campaign #prizes .arc-prize-credit-list li {
+    align-items: flex-start;
+  }
+}
+@media (max-width: 600px) {
+  .campaign #prizes {
+    padding: 52px 0 58px;
+  }
+  .campaign #prizes .arc-section-top {
+    gap: 16px;
+  }
+  .campaign #prizes .arc-section-top > span:last-child {
+    max-width: 47%;
+    text-align: right;
+  }
+  .campaign #prizes .arc-prizes-intro {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin: 28px 0 24px;
+  }
+  .campaign #prizes .arc-prizes-intro > p {
+    justify-self: start;
+  }
+  .campaign #prizes .arc-prize-cash {
+    gap: 10px;
+    margin-bottom: 24px;
+    padding: 12px 15px;
+  }
+  .campaign #prizes .arc-prize-cash > span {
+    font-size: var(--type-support);
+  }
+  .campaign #prizes .arc-prize-cash > strong {
+    font-size: clamp(66px, 20vw, 100px);
+  }
+  .campaign #prizes .arc-prize-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .campaign #prizes .arc-prize-card {
+    padding: 20px 18px;
+  }
+  .campaign #prizes .arc-prize-credit-list li {
+    align-items: baseline;
+    gap: 8px;
+  }
+  .campaign #prizes .arc-prize-credit-list strong {
+    font-size: 20px;
+  }
+  .campaign #prizes .arc-prize-community-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .campaign #prizes .arc-prize-community-grid > div + div {
+    padding: 16px 0 0;
+    border-top: 1px solid #f5efe355;
+    border-left: 0;
+  }
+  .campaign #prizes .arc-prize-community-grid strong {
+    font-size: 58px;
+  }
+}
